@@ -42,7 +42,7 @@ export const coreResources: Resource[] = [
   },
   {
     name: 'PRODUCT.md',
-    path: '.kiro/steering/product.md or PRODUCT.md',
+    path: 'PRODUCT.md',
     role: 'Product context that keeps implementation choices aligned with the business.',
     bestFor: 'Purpose, target users, key jobs, business model, positioning, and feature priorities.',
     include: [
@@ -58,7 +58,7 @@ export const coreResources: Resource[] = [
   },
   {
     name: 'TECH.md',
-    path: '.kiro/steering/tech.md or TECH.md',
+    path: 'TECH.md',
     role: 'Technical stack and implementation constraints for future code changes.',
     bestFor: 'Frameworks, libraries, tools, commands, runtime constraints, and dependency preferences.',
     include: [
@@ -73,7 +73,7 @@ export const coreResources: Resource[] = [
   },
   {
     name: 'STRUCTURE.md',
-    path: '.kiro/steering/structure.md or STRUCTURE.md',
+    path: 'STRUCTURE.md',
     role: 'A map of the codebase that helps agents put changes in the right place.',
     bestFor: 'Architecture, directory layout, import patterns, naming conventions, and ownership boundaries.',
     include: [
