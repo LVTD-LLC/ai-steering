@@ -1,31 +1,28 @@
 # AI Steering Files
 
-This repository is a canonical guide to the files that make AI-assisted coding work better in real projects.
+This repository is a practical guide to the files that make AI-assisted coding work better in real projects.
 
-The goal is not to invent more bureaucracy. The goal is to give agents durable, repo-specific context so they can:
+The point is not to add more ceremony. The point is to give agents durable, repo-specific context so they can understand the project, follow the right conventions, and avoid risky guesses.
 
-- understand the product before editing it
-- follow local conventions without guessing
-- avoid risky changes unless a human has signed off
-- make better UI, architecture, and deployment decisions
+If you want to adapt this pattern to another repo, copy the structure first and then tailor the content to your codebase.
 
-If you are using this as a blueprint for another repo, start here and then copy only the parts that fit your project.
+## TOC
 
-## What belongs in an AI-friendly repo
+- `AGENTS.md`
+- `VISION.md`
+- `PRODUCT.md` or `.kiro/steering/product.md`
+- `TECH.md` or `.kiro/steering/tech.md`
+- `STRUCTURE.md` or `.kiro/steering/structure.md`
+- `DESIGN.md`
+- vendor-specific instruction files
+- useful references
+- real-world examples
+- adapting the pattern
+- local development
+- build
+- deployment
 
-The most useful steering docs are the ones that answer questions an agent would otherwise have to guess:
-
-- What is this project for?
-- Who is it for?
-- What does "good" look like here?
-- What stack and commands should be preferred?
-- Where is the system structure encoded?
-- Which changes need human review?
-- Which vendor-specific instructions should take precedence?
-
-## Core files
-
-### `AGENTS.md`
+## AGENTS.md
 
 The repo-level operating guide for coding agents.
 
@@ -46,7 +43,7 @@ Good `AGENTS.md` content usually includes:
 - branch policy
 - risky actions that need approval
 
-### `VISION.md`
+## VISION.md
 
 The durable product north star.
 
@@ -59,7 +56,7 @@ Use it for:
 
 This file is useful when the implementation choice is not obvious but the product direction is.
 
-### `PRODUCT.md` or `.kiro/steering/product.md`
+## PRODUCT.md or `.kiro/steering/product.md`
 
 The product-level explanation of why the project exists.
 
@@ -73,7 +70,7 @@ Use it for:
 
 This is the file that should answer "what are we building?" in plain language.
 
-### `TECH.md` or `.kiro/steering/tech.md`
+## TECH.md or `.kiro/steering/tech.md`
 
 The technical source of truth for stack and implementation preferences.
 
@@ -88,7 +85,7 @@ Use it for:
 
 This file should bias agents toward the established stack instead of alternatives.
 
-### `STRUCTURE.md` or `.kiro/steering/structure.md`
+## STRUCTURE.md or `.kiro/steering/structure.md`
 
 The architecture and repository layout guide.
 
@@ -102,7 +99,7 @@ Use it for:
 
 This is especially useful in larger repos where structure matters more than any single file.
 
-### `DESIGN.md`
+## DESIGN.md
 
 The UI and visual direction guide.
 
@@ -117,7 +114,7 @@ Use it for:
 
 This file is most valuable when AI is generating or modifying frontend code and needs a taste boundary.
 
-### Vendor-specific instruction files
+## Vendor-specific instruction files
 
 Examples:
 
@@ -128,68 +125,7 @@ Examples:
 
 Use these when you need instructions that are scoped to a specific tool or editor.
 
-## Recommended order
-
-If you are adding steering files to a new repo, a practical order is:
-
-1. `AGENTS.md`
-2. `PRODUCT.md`
-3. `TECH.md`
-4. `STRUCTURE.md`
-5. `VISION.md`
-6. `DESIGN.md`
-7. vendor-specific instructions
-
-That sequence works because it starts with behavior and project identity, then moves into implementation and taste.
-
-## What good steering files contain
-
-### `AGENTS.md`
-
-Should answer:
-
-- how should an agent behave in this repo?
-- what is the branch/PR/review policy?
-- what should never be done casually?
-- what commands prove the change worked?
-
-### `PRODUCT.md`
-
-Should answer:
-
-- who is the user?
-- what pain are we solving?
-- what outcome matters most?
-- what counts as success?
-
-### `TECH.md`
-
-Should answer:
-
-- what stack is preferred?
-- what are the supported commands?
-- what are the hard constraints?
-- what integrations are already established?
-
-### `STRUCTURE.md`
-
-Should answer:
-
-- where does new code live?
-- what naming style should be used?
-- what import boundaries matter?
-- what patterns should be repeated?
-
-### `DESIGN.md`
-
-Should answer:
-
-- what visual language should be preserved?
-- what should new UI feel like?
-- what should be avoided?
-- what tokens or components should be reused?
-
-## Good external references
+## Useful References
 
 - AGENTS.md: <https://agents.md/>
 - OpenAI Codex custom instructions with AGENTS.md: <https://developers.openai.com/codex/guides/agents-md>
@@ -200,7 +136,7 @@ Should answer:
 - Awesome Cursor Rules: <https://github.com/PatrickJS/awesome-cursorrules>
 - PageFresh steering-doc example PR: <https://github.com/LVTD-LLC/pagefresh/pull/14>
 
-## Practical examples to study
+## Real-World Examples
 
 - This repo's structure as a lightweight public reference for steering docs
 - PageFresh PR #14 for project-context file organization
@@ -208,7 +144,7 @@ Should answer:
 - Kiro's steering docs for product/tech/structure separation
 - repo-local `AGENTS.md` files in mature codebases
 
-## If you are adapting this to your repo
+## Adapting The Pattern
 
 Keep the content specific.
 
@@ -226,7 +162,7 @@ Prefer:
 - exact commands and paths
 - explicit escalation and review rules
 
-## Local development
+## Local Development
 
 ```bash
 npm install
