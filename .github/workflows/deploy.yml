@@ -1,0 +1,45 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - initial-site
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  CAPROVER_APP: ai-steering
+
+jobs:
+  build-and-deploy:
+    name: Build and deploy to CapRover
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Create CapRover deploy tarball
+        run: tar --exclude=.git --exclude=node_modules --exclude=.astro --exclude=dist --exclude=deploy.tar -cf deploy.tar .
+
+      - name: Deploy to CapRover
+        uses: caprover/deploy-from-github@main
+        with:
+          server: ${{ secrets.CAPROVER_SERVER }}
+          app: ${{ env.CAPROVER_APP }}
+          token: ${{ secrets.CAPROVER_TOKEN }}
