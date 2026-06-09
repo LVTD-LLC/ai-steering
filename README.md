@@ -53,7 +53,7 @@ Great examples:
 
 - <https://github.com/paperclipai/paperclip/blob/master/AGENTS.md>
 - <https://github.com/agencyenterprise/paperclip-ai/blob/master/AGENTS.md>
-- <https://github.com/Framework-R-D/phlex/blob/main/AGENTS.md>
+- <https://github.com/phlex-rd/phlex/blob/main/AGENTS.md>
 
 ### PRODUCT.md
 
@@ -153,7 +153,7 @@ Great examples:
 
 - <https://github.com/langwatch/better-agents/blob/main/docs/STRUCTURE.md>
 - <https://github.com/gamekit-agent/gamekit-cli/blob/main/docs/project-structure.md>
-- <https://github.com/Framework-R-D/phlex/blob/main/AGENTS.md>
+- <https://github.com/bootc-dev/infra/blob/main/docs/repository-structure.md>
 
 ### VISION.md
 
@@ -281,8 +281,8 @@ Useful resources:
 
 Great examples:
 
-- <https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-md.md>
-- <https://github.com/google-gemini/gemini-cli>
+- <https://github.com/google-gemini/gemini-cli/blob/main/GEMINI.md>
+- <https://github.com/alirezarezvani/claude-skills/blob/main/GEMINI.md>
 
 ### .github/copilot-instructions.md
 
