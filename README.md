@@ -243,7 +243,7 @@ The production build emits static files to `dist/`.
 
 ## Deployment
 
-GitHub Actions deploys the site to CapRover on pushes to `main` and `initial-site`.
+GitHub Actions deploys the site to CapRover on pushes to `main`.
 
 Required repository secrets:
 
