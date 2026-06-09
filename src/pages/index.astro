@@ -1,82 +1,113 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { coreResources, relatedResources } from '../data/resources';
+import { sections, siteLinks } from '../data/resources';
+
+const slugify = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 ---
 
-<BaseLayout title="AI Steering Files - repo context for coding agents">
+<BaseLayout title="AI Steering Files - repo context for coding agents" description="A shared guide to the files that teach AI agents how to work in this repo.">
   <main>
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Context files for better agent work</p>
+          <p class="eyebrow">Shared source map</p>
           <h1>AI steering files for real projects.</h1>
-          <p class="lede">A compact guide to the files that teach coding agents what your product is, how your codebase works, how your UI should feel, and what rules must shape every change.</p>
+          <p class="lede">
+            This site and the README are rendered from the same content map, so the guidance stays in sync as the repo grows.
+            Use it to see which files matter, what each one should contain, and where to add new context without making the tree noisy.
+          </p>
           <div class="actions">
             <a class="button" href="#catalog">Browse the catalog</a>
-            <a class="button secondary" href="#checklist">Use the checklist</a>
+            <a class="button secondary" href={siteLinks.readme}>Read the README</a>
+            <a class="button secondary" href={siteLinks.repo}>Open the repo</a>
           </div>
         </div>
-        <div class="context-map" aria-label="Steering file map">
-          <div class="map-header">
-            <span>repository root</span>
-            <strong>agent context layer</strong>
-          </div>
-          <div class="file-stack">
-            {coreResources.map((resource) => (
-              <a href={`#${resource.name.toLowerCase().replaceAll('.', '-').replaceAll(' ', '-')}`}>
-                <code>{resource.path}</code>
-                <span>{resource.role}</span>
-              </a>
-            ))}
-          </div>
-        </div>
+        <p class="source-note">
+          Shared source: <a href={siteLinks.source}><code>src/data/steering-data.js</code></a>
+        </p>
       </div>
     </section>
 
     <section id="catalog" class="section">
-      <div class="container">
-        <p class="eyebrow">Core catalog</p>
-        <h2>Start with the files agents are most likely to read and respect.</h2>
-        <p class="section-lede">Each file should have a clear job. If two files repeat the same paragraph, one of them will drift. Keep the canonical facts in one place and point specialized tools back to that source.</p>
-        <div class="resource-grid">
-          {coreResources.map((resource) => (
-            <article class="resource-card" id={resource.name.toLowerCase().replaceAll('.', '-').replaceAll(' ', '-')}>
-              <div>
-                <p class="path"><code>{resource.path}</code></p>
-                <h3>{resource.name}</h3>
-                <p>{resource.role}</p>
-                <p class="best"><strong>Best for:</strong> {resource.bestFor}</p>
+      <div class="container catalog-shell">
+        <aside class="toc-rail" aria-label="Table of contents">
+          <div class="toc-head">
+            <p class="eyebrow">TOC</p>
+            <h2>Jump to a section or a file.</h2>
+          </div>
+          <nav class="toc-list">
+            {sections.map((section) => (
+              <div class="toc-group">
+                <a class="toc-section" href={`#${section.slug}`}>{section.title}</a>
+                {section.resources.map((resource) => (
+                  <a class="toc-file" href={`#${slugify(resource.name)}`}>
+                    <code>{resource.path}</code>
+                  </a>
+                ))}
               </div>
-              <div>
-                <h4>Should contain</h4>
-                <ul>
-                  {resource.include.map((item) => <li>{item}</li>)}
-                </ul>
-                <div class="links">
-                  {resource.links.map((link) => <a href={link.href}>{link.label}</a>)}
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
+            ))}
+          </nav>
+          <div class="toc-links">
+            <a href={siteLinks.readme}>README</a>
+            <a href={siteLinks.repo}>GitHub repo</a>
+          </div>
+        </aside>
 
-    <section id="examples" class="section examples">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">Related formats</p>
-          <h2>Not every agent reads the same files.</h2>
-          <p class="section-lede">Use generic files for durable knowledge, then add thin tool-specific wrappers only where the tool needs a special path or syntax.</p>
-        </div>
-        <div class="related-list">
-          {relatedResources.map((resource) => (
-            <article>
-              <p class="path"><code>{resource.path}</code></p>
-              <h3>{resource.name}</h3>
-              <p>{resource.role}</p>
-              <a href={resource.links[0].href}>{resource.links[0].label}</a>
-            </article>
+        <div class="catalog-content">
+          {sections.map((section) => (
+            <section class="resource-group" id={section.slug}>
+              <div class="section-heading">
+                <p class="eyebrow">{section.title}</p>
+                <h2>{section.title}</h2>
+                <p class="section-lede">{section.intro}</p>
+              </div>
+
+              <div class="resource-grid">
+                {section.resources.map((resource) => (
+                  <article class="resource-card" id={slugify(resource.name)}>
+                    <div class="resource-summary">
+                      <p class="path"><code>{resource.path}</code></p>
+                      <h3>{resource.name}</h3>
+                      <p class="summary">{resource.summary}</p>
+                      <p class="best"><strong>Use it for:</strong> {resource.useItFor.join(', ')}</p>
+                    </div>
+
+                    <div class="resource-details">
+                      <div>
+                        <h4>Should contain</h4>
+                        <ul>
+                          {resource.shouldContain.map((item) => <li>{item}</li>)}
+                        </ul>
+                      </div>
+
+                      <div class="links-grid">
+                        <div>
+                          <h4>Useful resources</h4>
+                          <ul class="link-list">
+                            {resource.usefulResources.map((link) => (
+                              <li><a href={link.href}>{link.label}</a></li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div>
+                          <h4>Great examples</h4>
+                          <ul class="link-list">
+                            {resource.greatExamples.map((link) => (
+                              <li><a href={link.href}>{link.label}</a></li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
           ))}
         </div>
       </div>
@@ -93,7 +124,7 @@ import { coreResources, relatedResources } from '../data/resources';
           <li><strong>Prefer commands over vibes.</strong> Include exact install, test, lint, build, and deploy commands.</li>
           <li><strong>Name the good examples.</strong> Point agents to files and modules that show the preferred pattern.</li>
           <li><strong>Document constraints.</strong> Spell out security, data, accessibility, performance, and product boundaries.</li>
-          <li><strong>Keep canonical facts single-source.</strong> Link across files instead of duplicating long sections.</li>
+          <li><strong>Keep the source shared.</strong> Edit the data map once, then render the site and README from it.</li>
           <li><strong>Review after real agent work.</strong> Update the files when agents repeatedly ask the same question or make the same mistake.</li>
         </ol>
       </div>
@@ -103,28 +134,28 @@ import { coreResources, relatedResources } from '../data/resources';
 
 <style>
   .hero {
-    padding: 5.3rem 0 4rem;
+    padding: 5rem 0 3.5rem;
   }
 
   .hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.85fr);
-    gap: 2.5rem;
-    align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+    gap: 2rem;
+    align-items: start;
   }
 
   h1 {
     margin: 0;
     max-width: 880px;
-    font-size: clamp(3.3rem, 8.5vw, 7.2rem);
-    line-height: 0.88;
+    font-size: clamp(3.2rem, 8vw, 6.8rem);
+    line-height: 0.9;
   }
 
   .lede {
-    max-width: 690px;
+    max-width: 760px;
     color: var(--muted);
-    font-size: clamp(1.08rem, 1.8vw, 1.32rem);
-    line-height: 1.65;
+    font-size: clamp(1.05rem, 1.6vw, 1.22rem);
+    line-height: 1.68;
   }
 
   .actions {
@@ -134,92 +165,142 @@ import { coreResources, relatedResources } from '../data/resources';
     margin-top: 1.8rem;
   }
 
-  .context-map {
-    border: 2px solid var(--ink);
-    border-radius: 8px;
-    background: var(--panel);
-    box-shadow: var(--shadow);
-    overflow: hidden;
+  .source-note {
+    margin: 0;
+    padding-top: 0.4rem;
+    color: var(--muted);
+    line-height: 1.6;
   }
 
-  .map-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .source-note a {
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.18em;
+  }
+
+  .catalog-shell {
+    display: grid;
+    grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .toc-rail {
+    position: sticky;
+    top: 5.75rem;
+    max-height: calc(100vh - 7rem);
+    overflow: auto;
+    padding-right: 0.4rem;
+  }
+
+  .toc-head h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.2rem;
+    line-height: 1.1;
+  }
+
+  .toc-list {
+    display: grid;
     gap: 1rem;
-    padding: 1rem;
-    border-bottom: 2px solid var(--ink);
-    background: var(--gold);
   }
 
-  .map-header span {
-    color: rgba(16, 24, 32, 0.7);
-    font-size: 0.8rem;
-    font-weight: 800;
-    text-transform: uppercase;
-  }
-
-  .file-stack {
+  .toc-group {
     display: grid;
+    gap: 0.35rem;
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--line);
   }
 
-  .file-stack a {
-    display: grid;
-    gap: 0.45rem;
-    padding: 1rem;
-    border-bottom: 1px solid var(--line);
+  .toc-group:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .toc-section {
+    color: var(--ink);
+    font-weight: 900;
     text-decoration: none;
   }
 
-  .file-stack a:hover {
-    background: var(--panel-soft);
+  .toc-file {
+    color: var(--muted);
+    text-decoration: none;
+    line-height: 1.45;
   }
 
-  .file-stack a:last-child {
-    border-bottom: 0;
-  }
-
-  .file-stack code,
-  .path code {
+  .toc-file code {
     color: var(--accent);
     font-weight: 800;
   }
 
-  .file-stack span {
-    color: var(--muted);
-    line-height: 1.45;
+  .toc-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .toc-links a {
+    color: var(--ink);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .catalog-content {
+    min-width: 0;
+  }
+
+  .resource-group + .resource-group {
+    margin-top: 4.2rem;
+  }
+
+  .section-heading {
+    margin-bottom: 1.6rem;
+  }
+
+  .section-heading h2 {
+    margin-top: 0;
   }
 
   .resource-grid {
     display: grid;
     gap: 1rem;
-    margin-top: 2rem;
   }
 
   .resource-card {
     display: grid;
-    grid-template-columns: minmax(0, 0.78fr) minmax(300px, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    gap: 1.4rem;
     padding: 1.35rem;
     border: 1px solid var(--line);
     border-radius: 8px;
     background: var(--panel);
   }
 
-  .resource-card h3,
-  .related-list h3 {
+  .resource-card h3 {
     margin: 0 0 0.5rem;
     font-size: 1.45rem;
   }
 
-  .resource-card p,
-  .related-list p {
+  .resource-summary p,
+  .resource-details p,
+  .resource-details li {
     color: var(--muted);
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   .path {
     margin: 0 0 0.4rem;
+  }
+
+  .path code {
+    color: var(--accent);
+    font-weight: 800;
+  }
+
+  .summary {
+    margin: 0;
   }
 
   .best {
@@ -236,70 +317,77 @@ import { coreResources, relatedResources } from '../data/resources';
   ul {
     margin: 0;
     padding-left: 1.2rem;
-    color: var(--muted);
-    line-height: 1.65;
   }
 
-  .links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-top: 1rem;
-  }
-
-  .links a,
-  .related-list a {
-    color: var(--green);
-    font-weight: 800;
-  }
-
-  .examples {
-    background: var(--panel-soft);
-  }
-
-  .two-col,
-  .checklist-wrap {
-    display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(340px, 1fr);
-    gap: 2rem;
-    align-items: start;
-  }
-
-  .related-list {
+  .resource-details {
     display: grid;
     gap: 1rem;
   }
 
-  .related-list article {
-    padding: 1.1rem;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    background: var(--panel);
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .link-list {
+    list-style: disc;
+  }
+
+  .link-list a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .link-list a:hover,
+  .toc-section:hover,
+  .toc-file:hover,
+  .toc-links a:hover {
+    text-decoration: underline;
+  }
+
+  .checklist-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
+    gap: 2rem;
   }
 
   .checklist {
-    display: grid;
-    gap: 0.75rem;
     margin: 0;
-    padding-left: 1.3rem;
+    padding-left: 1.2rem;
     color: var(--muted);
-    line-height: 1.65;
+    line-height: 1.75;
   }
 
   .checklist strong {
     color: var(--ink);
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1040px) {
     .hero-grid,
-    .resource-card,
-    .two-col,
+    .catalog-shell,
     .checklist-wrap {
       grid-template-columns: 1fr;
     }
 
+    .toc-rail {
+      position: static;
+      max-height: none;
+      padding-right: 0;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+  }
+
+  @media (max-width: 760px) {
     .hero {
-      padding-top: 3.5rem;
+      padding-top: 4rem;
+    }
+
+    .resource-card,
+    .links-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

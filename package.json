@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "sync:readme": "node scripts/generate-readme.mjs"
   },
   "dependencies": {
     "astro": "^6.4.5"
