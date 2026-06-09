@@ -2,27 +2,6 @@
 
 This repository is a practical guide to the files that make AI-assisted coding work better in real projects.
 
-The same content map powers the live site at [ai-steering.lvtd.dev](https://ai-steering.lvtd.dev), this README, and the shared source file at [src/data/steering-data.js](https://github.com/LVTD-LLC/ai-steering/blob/main/src/data/steering-data.js).
-
-- [GitHub repo](https://github.com/LVTD-LLC/ai-steering)
-- [Live site](https://ai-steering.lvtd.dev)
-- [Shared source](https://github.com/LVTD-LLC/ai-steering/blob/main/src/data/steering-data.js)
-
-## TOC
-
-- [Agent-Agnostic Files](#agent-agnostic-files)
-  - [AGENTS.md](#agents-md)
-  - [PRODUCT.md](#product-md)
-  - [TECH.md](#tech-md)
-  - [STRUCTURE.md](#structure-md)
-  - [VISION.md](#vision-md)
-  - [DESIGN.md](#design-md)
-- [Agent-Specific Files](#agent-specific-files)
-  - [CLAUDE.md](#claude-md)
-  - [GEMINI.md](#gemini-md)
-  - [.github/copilot-instructions.md](#github-copilot-instructions-md)
-  - [.cursor/rules/*.mdc](#cursor-rules-mdc)
-
 <a id="agent-agnostic-files"></a>
 ## Agent-Agnostic Files
 
@@ -59,8 +38,6 @@ Useful resources:
 Great examples:
 
 - [paperclip](https://github.com/paperclipai/paperclip/blob/master/AGENTS.md)
-- [agencyenterprise/paperclip-ai](https://github.com/agencyenterprise/paperclip-ai/blob/master/AGENTS.md)
-- [phlex](https://github.com/phlex-rd/phlex/blob/main/AGENTS.md)
 
 <a id="product-md"></a>
 ### PRODUCT.md
@@ -363,4 +340,4 @@ Great examples:
 
 ## Keeping It In Sync
 
-Edit [src/data/steering-data.js](https://github.com/LVTD-LLC/ai-steering/blob/main/src/data/steering-data.js) when the file guidance changes, then run `npm run sync:readme` to regenerate this document from the same source the site uses.
+Edit [src/data/steering-data.js](https://github.com/LVTD-LLC/ai-steering/blob/main/src/data/steering-data.js) when the file guidance changes, then run `npm run sync:readme` to regenerate this document.

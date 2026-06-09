@@ -19,20 +19,6 @@ lines.push(
   'This repository is a practical guide to the files that make AI-assisted coding work better in real projects.',
   ''
 );
-lines.push(
-  `The same content map powers the live site at [ai-steering.lvtd.dev](${siteLinks.site}), this README, and the shared source file at [src/data/steering-data.js](${siteLinks.source}).`,
-  ''
-);
-lines.push(`- [GitHub repo](${siteLinks.repo})`, `- [Live site](${siteLinks.site})`, `- [Shared source](${siteLinks.source})`, '');
-
-lines.push('## TOC', '');
-for (const section of resourceSections) {
-  lines.push(`- [${section.title}](#${section.slug})`);
-  for (const resource of section.resources) {
-    lines.push(`  - [${resource.name}](#${slugify(resource.name)})`);
-  }
-}
-lines.push('');
 
 for (const section of resourceSections) {
   lines.push(`<a id="${section.slug}"></a>`, `## ${section.title}`, '');
@@ -50,7 +36,7 @@ for (const section of resourceSections) {
 lines.push(
   '## Keeping It In Sync',
   '',
-  `Edit [src/data/steering-data.js](${siteLinks.source}) when the file guidance changes, then run \`npm run sync:readme\` to regenerate this document from the same source the site uses.`,
+  `Edit [src/data/steering-data.js](${siteLinks.source}) when the file guidance changes, then run \`npm run sync:readme\` to regenerate this document.`,
   ''
 );
 

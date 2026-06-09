@@ -9,49 +9,30 @@ import { slugify } from '../lib/slugify.js';
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Shared source map</p>
+          <p class="eyebrow">Repository guidance</p>
           <h1>AI steering files for real projects.</h1>
           <p class="lede">
-            This site and the README are rendered from the same content map, so the guidance stays in sync as the repo grows.
-            Use it to see which files matter, what each one should contain, and where to add new context without making the tree noisy.
+            A clean index of the repo context files that help agents make better edits, avoid dead ends, and keep implementation choices aligned with the project.
           </p>
           <div class="actions">
-            <a class="button" href="#catalog">Browse the catalog</a>
-            <a class="button secondary" href={siteLinks.readme}>Read the README</a>
+            <a class="button" href="#catalog">Browse the files</a>
+            <a class="button secondary" href={siteLinks.readme}>Open the README</a>
             <a class="button secondary" href={siteLinks.repo}>Open the repo</a>
           </div>
         </div>
-        <p class="source-note">
-          Shared source: <a href={siteLinks.source}><code>src/data/steering-data.js</code></a>
-        </p>
+        <aside class="hero-note">
+          <p class="eyebrow">How to use it</p>
+          <ul>
+            <li>Start with the agent-agnostic files when you need repo rules that apply everywhere.</li>
+            <li>Use the agent-specific files when a tool needs its own memory, syntax, or workflow hints.</li>
+            <li>Keep the guidance grounded in real commands, constraints, and examples.</li>
+          </ul>
+        </aside>
       </div>
     </section>
 
     <section id="catalog" class="section">
       <div class="container catalog-shell">
-        <aside class="toc-rail" aria-label="Table of contents">
-          <div class="toc-head">
-            <p class="eyebrow">TOC</p>
-            <h2>Jump to a section or a file.</h2>
-          </div>
-          <nav class="toc-list">
-            {sections.map((section) => (
-              <div class="toc-group">
-                <a class="toc-section" href={`#${section.slug}`}>{section.title}</a>
-                {section.resources.map((resource) => (
-                  <a class="toc-file" href={`#${slugify(resource.name)}`}>
-                    <code>{resource.path}</code>
-                  </a>
-                ))}
-              </div>
-            ))}
-          </nav>
-          <div class="toc-links">
-            <a href={siteLinks.readme}>README</a>
-            <a href={siteLinks.repo}>GitHub repo</a>
-          </div>
-        </aside>
-
         <div class="catalog-content">
           {sections.map((section) => (
             <section class="resource-group" id={section.slug}>
@@ -129,27 +110,33 @@ import { slugify } from '../lib/slugify.js';
 
 <style>
   .hero {
-    padding: 5rem 0 3.5rem;
+    padding: 5.5rem 0 4rem;
   }
 
   .hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
-    gap: 2rem;
+    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+    gap: 1.5rem;
     align-items: start;
+  }
+
+  .hero-copy {
+    padding: 0.25rem 0;
   }
 
   h1 {
     margin: 0;
     max-width: 880px;
-    font-size: clamp(3.2rem, 8vw, 6.8rem);
-    line-height: 0.9;
+    font-size: clamp(3rem, 7vw, 6.3rem);
+    line-height: 0.92;
+    letter-spacing: -0.06em;
   }
 
   .lede {
-    max-width: 760px;
+    max-width: 680px;
+    margin-top: 1.2rem;
     color: var(--muted);
-    font-size: clamp(1.05rem, 1.6vw, 1.22rem);
+    font-size: clamp(1.05rem, 1.35vw, 1.15rem);
     line-height: 1.68;
   }
 
@@ -160,86 +147,26 @@ import { slugify } from '../lib/slugify.js';
     margin-top: 1.8rem;
   }
 
-  .source-note {
-    margin: 0;
-    padding-top: 0.4rem;
-    color: var(--muted);
-    line-height: 1.6;
+  .hero-note {
+    padding: 1.4rem 1.35rem;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.78)),
+      radial-gradient(circle at top right, rgba(91, 192, 190, 0.18), transparent 45%);
+    box-shadow: var(--shadow);
   }
 
-  .source-note a {
-    text-decoration-thickness: 2px;
-    text-underline-offset: 0.18em;
+  .hero-note ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--muted);
+    line-height: 1.75;
   }
 
   .catalog-shell {
     display: grid;
-    grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
-    gap: 2rem;
-    align-items: start;
-  }
-
-  .toc-rail {
-    position: sticky;
-    top: 5.75rem;
-    max-height: calc(100vh - 7rem);
-    overflow: auto;
-    padding-right: 0.4rem;
-  }
-
-  .toc-head h2 {
-    margin: 0 0 0.75rem;
-    font-size: 1.2rem;
-    line-height: 1.1;
-  }
-
-  .toc-list {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .toc-group {
-    display: grid;
-    gap: 0.35rem;
-    padding: 0.85rem 0;
-    border-top: 1px solid var(--line);
-  }
-
-  .toc-group:first-child {
-    border-top: 0;
-    padding-top: 0;
-  }
-
-  .toc-section {
-    color: var(--ink);
-    font-weight: 900;
-    text-decoration: none;
-  }
-
-  .toc-file {
-    color: var(--muted);
-    text-decoration: none;
-    line-height: 1.45;
-  }
-
-  .toc-file code {
-    color: var(--accent);
-    font-weight: 800;
-  }
-
-  .toc-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.9rem;
-    padding-top: 1rem;
-    margin-top: 1rem;
-    border-top: 1px solid var(--line);
-  }
-
-  .toc-links a {
-    color: var(--ink);
-    font-weight: 800;
-    text-decoration: none;
+    gap: 0;
   }
 
   .catalog-content {
@@ -247,11 +174,13 @@ import { slugify } from '../lib/slugify.js';
   }
 
   .resource-group + .resource-group {
-    margin-top: 4.2rem;
+    margin-top: 5rem;
+    padding-top: 5rem;
+    border-top: 1px solid var(--line);
   }
 
   .section-heading {
-    margin-bottom: 1.6rem;
+    margin-bottom: 1.85rem;
   }
 
   .section-heading h2 {
@@ -260,22 +189,24 @@ import { slugify } from '../lib/slugify.js';
 
   .resource-grid {
     display: grid;
-    gap: 1rem;
+    gap: 1.1rem;
   }
 
   .resource-card {
     display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
-    gap: 1.4rem;
-    padding: 1.35rem;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
     border: 1px solid var(--line);
-    border-radius: 8px;
+    border-radius: 18px;
     background: var(--panel);
+    box-shadow: 0 10px 28px rgba(16, 24, 32, 0.04);
   }
 
   .resource-card h3 {
     margin: 0 0 0.5rem;
-    font-size: 1.45rem;
+    font-size: 1.38rem;
+    letter-spacing: -0.03em;
   }
 
   .resource-summary p,
@@ -304,7 +235,7 @@ import { slugify } from '../lib/slugify.js';
 
   h4 {
     margin: 0 0 0.6rem;
-    font-size: 0.9rem;
+    font-size: 0.78rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
@@ -334,10 +265,7 @@ import { slugify } from '../lib/slugify.js';
     text-decoration: none;
   }
 
-  .link-list a:hover,
-  .toc-section:hover,
-  .toc-file:hover,
-  .toc-links a:hover {
+  .link-list a:hover {
     text-decoration: underline;
   }
 
@@ -360,24 +288,18 @@ import { slugify } from '../lib/slugify.js';
 
   @media (max-width: 1040px) {
     .hero-grid,
-    .catalog-shell,
     .checklist-wrap {
       grid-template-columns: 1fr;
-    }
-
-    .toc-rail {
-      position: static;
-      max-height: none;
-      padding-right: 0;
-      padding-bottom: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid var(--line);
     }
   }
 
   @media (max-width: 760px) {
     .hero {
       padding-top: 4rem;
+    }
+
+    .catalog-shell {
+      gap: 0;
     }
 
     .resource-card,
