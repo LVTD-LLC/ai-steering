@@ -1,0 +1,186 @@
+---
+const {
+  title = 'AI Steering Files',
+  description = 'A resource hub for AI steering files, agent instructions, and project context docs.'
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" href="/favicon.svg" />
+    <style is:global>
+      :root {
+        color-scheme: light;
+        --bg: #f7f7f2;
+        --ink: #101820;
+        --muted: #52615d;
+        --line: #d8ddd2;
+        --panel: #ffffff;
+        --panel-soft: #eff2eb;
+        --accent: #c83e4d;
+        --gold: #f4d35e;
+        --teal: #5bc0be;
+        --green: #1b7f5a;
+        --shadow: 0 18px 45px rgba(16, 24, 32, 0.09);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--bg);
+        color: var(--ink);
+      }
+
+      a { color: inherit; }
+      code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+
+      .container {
+        width: min(1160px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid var(--line);
+        background: rgba(247, 247, 242, 0.9);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.95rem 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        color: var(--ink);
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: var(--gold);
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+      }
+
+      .nav-links a:hover {
+        color: var(--ink);
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0.72rem 0.95rem;
+        border: 1px solid var(--ink);
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 800;
+        text-decoration: none;
+        box-shadow: 4px 4px 0 var(--gold);
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--ink);
+        box-shadow: none;
+      }
+
+      .eyebrow {
+        margin: 0 0 0.75rem;
+        color: var(--green);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .section {
+        padding: 4.8rem 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .section h2 {
+        margin: 0;
+        max-width: 820px;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        line-height: 1;
+      }
+
+      .section-lede {
+        max-width: 760px;
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.7;
+      }
+
+      .footer {
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        padding: 2rem 0;
+      }
+
+      @media (max-width: 760px) {
+        .container { width: min(100% - 28px, 1160px); }
+        .nav-inner { align-items: flex-start; flex-direction: column; }
+        .nav-links { flex-wrap: wrap; gap: 0.75rem; }
+        .section { padding: 3.3rem 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="/" aria-label="AI Steering Files home">
+          <span class="brand-mark">AI</span>
+          <span>AI Steering Files</span>
+        </a>
+        <div class="nav-links">
+          <a href="#catalog">Catalog</a>
+          <a href="#examples">Examples</a>
+          <a href="#checklist">Checklist</a>
+          <a class="button secondary" href="https://github.com/LVTD-LLC/pagefresh/pull/14">Seed PR</a>
+        </div>
+      </div>
+    </nav>
+    <slot />
+    <footer class="footer">
+      <div class="container">A practical index for repo context files that help AI agents ship better code.</div>
+    </footer>
+  </body>
+</html>

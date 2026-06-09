@@ -1,0 +1,305 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { coreResources, relatedResources } from '../data/resources';
+---
+
+<BaseLayout title="AI Steering Files - repo context for coding agents">
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Context files for better agent work</p>
+          <h1>AI steering files for real projects.</h1>
+          <p class="lede">A compact guide to the files that teach coding agents what your product is, how your codebase works, how your UI should feel, and what rules must shape every change.</p>
+          <div class="actions">
+            <a class="button" href="#catalog">Browse the catalog</a>
+            <a class="button secondary" href="#checklist">Use the checklist</a>
+          </div>
+        </div>
+        <div class="context-map" aria-label="Steering file map">
+          <div class="map-header">
+            <span>repository root</span>
+            <strong>agent context layer</strong>
+          </div>
+          <div class="file-stack">
+            {coreResources.map((resource) => (
+              <a href={`#${resource.name.toLowerCase().replaceAll('.', '-').replaceAll(' ', '-')}`}>
+                <code>{resource.path}</code>
+                <span>{resource.role}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalog" class="section">
+      <div class="container">
+        <p class="eyebrow">Core catalog</p>
+        <h2>Start with the files agents are most likely to read and respect.</h2>
+        <p class="section-lede">Each file should have a clear job. If two files repeat the same paragraph, one of them will drift. Keep the canonical facts in one place and point specialized tools back to that source.</p>
+        <div class="resource-grid">
+          {coreResources.map((resource) => (
+            <article class="resource-card" id={resource.name.toLowerCase().replaceAll('.', '-').replaceAll(' ', '-')}>
+              <div>
+                <p class="path"><code>{resource.path}</code></p>
+                <h3>{resource.name}</h3>
+                <p>{resource.role}</p>
+                <p class="best"><strong>Best for:</strong> {resource.bestFor}</p>
+              </div>
+              <div>
+                <h4>Should contain</h4>
+                <ul>
+                  {resource.include.map((item) => <li>{item}</li>)}
+                </ul>
+                <div class="links">
+                  {resource.links.map((link) => <a href={link.href}>{link.label}</a>)}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="examples" class="section examples">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Related formats</p>
+          <h2>Not every agent reads the same files.</h2>
+          <p class="section-lede">Use generic files for durable knowledge, then add thin tool-specific wrappers only where the tool needs a special path or syntax.</p>
+        </div>
+        <div class="related-list">
+          {relatedResources.map((resource) => (
+            <article>
+              <p class="path"><code>{resource.path}</code></p>
+              <h3>{resource.name}</h3>
+              <p>{resource.role}</p>
+              <a href={resource.links[0].href}>{resource.links[0].label}</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="checklist" class="section">
+      <div class="container checklist-wrap">
+        <div>
+          <p class="eyebrow">Writing checklist</p>
+          <h2>Good steering files are short, specific, and grounded in the repo.</h2>
+        </div>
+        <ol class="checklist">
+          <li><strong>Say what the file controls.</strong> Start with the scope and the intended reader.</li>
+          <li><strong>Prefer commands over vibes.</strong> Include exact install, test, lint, build, and deploy commands.</li>
+          <li><strong>Name the good examples.</strong> Point agents to files and modules that show the preferred pattern.</li>
+          <li><strong>Document constraints.</strong> Spell out security, data, accessibility, performance, and product boundaries.</li>
+          <li><strong>Keep canonical facts single-source.</strong> Link across files instead of duplicating long sections.</li>
+          <li><strong>Review after real agent work.</strong> Update the files when agents repeatedly ask the same question or make the same mistake.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 5.3rem 0 4rem;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.85fr);
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  h1 {
+    margin: 0;
+    max-width: 880px;
+    font-size: clamp(3.3rem, 8.5vw, 7.2rem);
+    line-height: 0.88;
+  }
+
+  .lede {
+    max-width: 690px;
+    color: var(--muted);
+    font-size: clamp(1.08rem, 1.8vw, 1.32rem);
+    line-height: 1.65;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.8rem;
+  }
+
+  .context-map {
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    background: var(--panel);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .map-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 2px solid var(--ink);
+    background: var(--gold);
+  }
+
+  .map-header span {
+    color: rgba(16, 24, 32, 0.7);
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .file-stack {
+    display: grid;
+  }
+
+  .file-stack a {
+    display: grid;
+    gap: 0.45rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+  }
+
+  .file-stack a:hover {
+    background: var(--panel-soft);
+  }
+
+  .file-stack a:last-child {
+    border-bottom: 0;
+  }
+
+  .file-stack code,
+  .path code {
+    color: var(--accent);
+    font-weight: 800;
+  }
+
+  .file-stack span {
+    color: var(--muted);
+    line-height: 1.45;
+  }
+
+  .resource-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .resource-card {
+    display: grid;
+    grid-template-columns: minmax(0, 0.78fr) minmax(300px, 1fr);
+    gap: 1.5rem;
+    padding: 1.35rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel);
+  }
+
+  .resource-card h3,
+  .related-list h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.45rem;
+  }
+
+  .resource-card p,
+  .related-list p {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .path {
+    margin: 0 0 0.4rem;
+  }
+
+  .best {
+    margin-top: 1rem;
+  }
+
+  h4 {
+    margin: 0 0 0.6rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  .links a,
+  .related-list a {
+    color: var(--green);
+    font-weight: 800;
+  }
+
+  .examples {
+    background: var(--panel-soft);
+  }
+
+  .two-col,
+  .checklist-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(340px, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .related-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .related-list article {
+    padding: 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel);
+  }
+
+  .checklist {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding-left: 1.3rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .checklist strong {
+    color: var(--ink);
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid,
+    .resource-card,
+    .two-col,
+    .checklist-wrap {
+      grid-template-columns: 1fr;
+    }
+
+    .hero {
+      padding-top: 3.5rem;
+    }
+  }
+</style>
