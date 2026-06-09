@@ -37,8 +37,6 @@ export const resourceSections = [
         ],
         greatExamples: [
           { label: 'paperclip', href: 'https://github.com/paperclipai/paperclip/blob/master/AGENTS.md' },
-          { label: 'agencyenterprise/paperclip-ai', href: 'https://github.com/agencyenterprise/paperclip-ai/blob/master/AGENTS.md' },
-          { label: 'phlex', href: 'https://github.com/phlex-rd/phlex/blob/main/AGENTS.md' }
         ]
       },
       {
