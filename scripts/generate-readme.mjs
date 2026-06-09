@@ -2,16 +2,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resourceSections, siteLinks } from '../src/data/steering-data.js';
+import { slugify } from '../src/lib/slugify.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 const outputPath = path.join(root, 'README.md');
-
-const slugify = (value) =>
-  value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
 
 const bulletList = (items) => items.map((item) => `- ${item}`).join('\n');
 
@@ -55,7 +50,7 @@ for (const section of resourceSections) {
 lines.push(
   '## Keeping It In Sync',
   '',
-  'Edit [src/data/steering-data.js](https://github.com/LVTD-LLC/ai-steering/blob/main/src/data/steering-data.js) when the file guidance changes, then run `npm run sync:readme` to regenerate this document from the same source the site uses.',
+  `Edit [src/data/steering-data.js](${siteLinks.source}) when the file guidance changes, then run \`npm run sync:readme\` to regenerate this document from the same source the site uses.`,
   ''
 );
 

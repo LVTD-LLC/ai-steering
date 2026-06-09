@@ -1,12 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { sections, siteLinks } from '../data/resources';
-
-const slugify = (value: string) =>
-  value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
+import { slugify } from '../lib/slugify.js';
 ---
 
 <BaseLayout title="AI Steering Files - repo context for coding agents" description="A shared guide to the files that teach AI agents how to work in this repo.">
