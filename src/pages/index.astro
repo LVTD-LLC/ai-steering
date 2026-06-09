@@ -20,7 +20,7 @@ import { slugify } from '../lib/slugify.js';
             <a class="button secondary" href={siteLinks.repo}>Open the repo</a>
           </div>
         </div>
-        <aside class="hero-note">
+        <aside class="hero-note" aria-label="How to use this site">
           <p class="eyebrow">How to use it</p>
           <ul>
             <li>Start with the agent-agnostic files when you need repo rules that apply everywhere.</li>
@@ -296,10 +296,6 @@ import { slugify } from '../lib/slugify.js';
   @media (max-width: 760px) {
     .hero {
       padding-top: 4rem;
-    }
-
-    .catalog-shell {
-      gap: 0;
     }
 
     .resource-card,
