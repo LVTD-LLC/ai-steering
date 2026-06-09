@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - initial-site
   workflow_dispatch:
 
 permissions:

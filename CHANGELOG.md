@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2 - 2026-06-09
+
+- Switched the GitHub Actions branch model to `main` only.
+- Prepared the repo to use `main` as the default branch.
+
 ## 0.1.1 - 2026-06-09
 
 - Expanded the README into a canonical guide for steering files, what each file should contain, and why they matter.
