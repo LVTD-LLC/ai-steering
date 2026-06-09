@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.4 - 2026-06-09
+
+- Reworked the README into agent-agnostic and agent-specific sections with clickable anchors.
+- Added per-file references and examples for each steering file section.
+- Removed the generic adapting, development, build, and deployment sections.
+
 ## 0.1.3 - 2026-06-09
 
 - Restructured the README into title, intro, TOC, and file-specific steering sections.
