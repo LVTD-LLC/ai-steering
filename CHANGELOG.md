@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3 - 2026-06-09
+
+- Restructured the README into title, intro, TOC, and file-specific steering sections.
+- Kept the deployment and reference material in the README so it remains the primary source of truth.
+
 ## 0.1.2 - 2026-06-09
 
 - Switched the GitHub Actions branch model to `main` only.
