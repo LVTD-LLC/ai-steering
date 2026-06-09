@@ -2,36 +2,43 @@
 
 This repository is a practical guide to the files that make AI-assisted coding work better in real projects.
 
-The goal is to give agents durable, repo-specific context so they can understand the project, follow the right conventions, and avoid risky guesses.
+The same content map powers the live site at [ai-steering.lvtd.dev](https://ai-steering.lvtd.dev), this README, and the shared source file at [src/data/steering-data.js](https://github.com/LVTD-LLC/ai-steering/blob/main/src/data/steering-data.js).
+
+- [GitHub repo](https://github.com/LVTD-LLC/ai-steering)
+- [Live site](https://ai-steering.lvtd.dev)
+- [Shared source](https://github.com/LVTD-LLC/ai-steering/blob/main/src/data/steering-data.js)
 
 ## TOC
 
 - [Agent-Agnostic Files](#agent-agnostic-files)
-  - [AGENTS.md](#agentsmd)
-  - [PRODUCT.md](#productmd)
-  - [TECH.md](#techmd)
-  - [STRUCTURE.md](#structuremd)
-  - [VISION.md](#visionmd)
-  - [DESIGN.md](#designmd)
+  - [AGENTS.md](#agents-md)
+  - [PRODUCT.md](#product-md)
+  - [TECH.md](#tech-md)
+  - [STRUCTURE.md](#structure-md)
+  - [VISION.md](#vision-md)
+  - [DESIGN.md](#design-md)
 - [Agent-Specific Files](#agent-specific-files)
-  - [CLAUDE.md](#claudemd)
-  - [GEMINI.md](#geminimd)
-  - [.github/copilot-instructions.md](#githubcopilot-instructionsmd)
-  - [.cursor/rules/*.mdc](#cursorrulesmdc)
+  - [CLAUDE.md](#claude-md)
+  - [GEMINI.md](#gemini-md)
+  - [.github/copilot-instructions.md](#github-copilot-instructions-md)
+  - [.cursor/rules/*.mdc](#cursor-rules-mdc)
 
+<a id="agent-agnostic-files"></a>
 ## Agent-Agnostic Files
 
+These files should stay useful no matter which assistant is reading the repo.
+
+<a id="agents-md"></a>
 ### AGENTS.md
 
-The vendor-neutral operating guide for coding agents.
+The vendor-neutral operating manual for coding agents.
 
 Use it for:
 
 - repo-specific agent behavior
 - safe defaults and guardrails
-- commands that are reliable in the repo
+- commands that are reliable in this repo
 - review and merge expectations
-- paths that matter and paths that should be ignored
 
 What it should contain:
 
@@ -40,66 +47,65 @@ What it should contain:
 - exact install, test, lint, build, and deploy commands
 - branch policy
 - risky actions that need approval
-- any "do not do this casually" rules
+- any do-not-do-this-casually rules
 
 Useful resources:
 
-- <https://agents.md/>
-- <https://developers.openai.com/codex/guides/agents-md>
-- <https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/>
-- <https://www.augmentcode.com/blog/how-to-write-good-agents-dot-md-files>
+- [AGENTS.md spec](https://agents.md/)
+- [OpenAI Codex guide](https://developers.openai.com/codex/guides/agents-md)
+- [How to write a great AGENTS.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
+- [How to write good AGENTS.md files](https://www.augmentcode.com/blog/how-to-write-good-agents-dot-md-files)
 
 Great examples:
 
-- <https://github.com/paperclipai/paperclip/blob/master/AGENTS.md>
-- <https://github.com/agencyenterprise/paperclip-ai/blob/master/AGENTS.md>
-- <https://github.com/phlex-rd/phlex/blob/main/AGENTS.md>
+- [paperclip](https://github.com/paperclipai/paperclip/blob/master/AGENTS.md)
+- [agencyenterprise/paperclip-ai](https://github.com/agencyenterprise/paperclip-ai/blob/master/AGENTS.md)
+- [phlex](https://github.com/phlex-rd/phlex/blob/main/AGENTS.md)
 
+<a id="product-md"></a>
 ### PRODUCT.md
 
-The product north star.
+Product context that keeps implementation choices aligned with the business.
 
 Use it for:
 
 - target users
 - the problem being solved
 - major workflows
-- business objectives
-- success criteria
+- business objectives and success criteria
 
 What it should contain:
 
 - why the project exists
 - who it is for
-- what "good" looks like
+- what good looks like
 - what is in scope and out of scope
 - the outcomes that matter most
 
 Useful resources:
 
-- <https://kiro.dev/docs/steering/>
-- <https://github.com/buildermethods/agent-os/blob/main/commands/agent-os/plan-product.md>
-- <https://github.com/paralleldrive/aidd>
-- <https://matsen.fhcrc.org/general/2026/02/10/spec-kit-walkthrough.html>
+- [Kiro steering docs](https://kiro.dev/docs/steering/)
+- [Agent OS product planning](https://github.com/buildermethods/agent-os/blob/main/commands/agent-os/plan-product.md)
+- [aidd](https://github.com/paralleldrive/aidd)
+- [Spec kit walkthrough](https://matsen.fhcrc.org/general/2026/02/10/spec-kit-walkthrough.html)
 
 Great examples:
 
-- <https://github.com/paperclipai/paperclip/blob/master/doc/PRODUCT.md>
-- <https://github.com/mspworld/agent-coordinator/blob/main/PRODUCT.md>
-- <https://github.com/AI-Shipping-Labs/website/blob/main/_docs/PRODUCT.md>
+- [paperclip PRODUCT.md](https://github.com/paperclipai/paperclip/blob/master/doc/PRODUCT.md)
+- [agent-coordinator PRODUCT.md](https://github.com/mspworld/agent-coordinator/blob/main/PRODUCT.md)
+- [AI-Shipping-Labs website](https://github.com/AI-Shipping-Labs/website/blob/main/_docs/PRODUCT.md)
 
+<a id="tech-md"></a>
 ### TECH.md
 
-The technical source of truth.
+The technical source of truth for stack and implementation constraints.
 
 Use it for:
 
 - frameworks and libraries
 - runtime versions
-- build/test commands
-- deployment targets
-- integration points
-- technical constraints and tradeoffs
+- build and test commands
+- deployment targets and integration points
 
 What it should contain:
 
@@ -111,20 +117,21 @@ What it should contain:
 
 Useful resources:
 
-- <https://kiro.dev/docs/steering/>
-- <https://github.com/aws-samples/sample-kiro-cli-multiagent-development>
-- <https://github.com/modu-ai/moai-adk>
-- <https://kiro.dev/blog/introducing-kiro-cli/>
+- [Kiro steering docs](https://kiro.dev/docs/steering/)
+- [Sample Kiro CLI multiagent development](https://github.com/aws-samples/sample-kiro-cli-multiagent-development)
+- [moai-adk](https://github.com/modu-ai/moai-adk)
+- [Introducing Kiro CLI](https://kiro.dev/blog/introducing-kiro-cli/)
 
 Great examples:
 
-- <https://github.com/aws-samples/sample-kiro-cli-multiagent-development/blob/main/docs/tech.md>
-- <https://github.com/modu-ai/moai-adk>
-- <https://github.com/LaProgrammerie/ai-engineering-template>
+- [sample-kiro-cli-multiagent-development docs/tech.md](https://github.com/aws-samples/sample-kiro-cli-multiagent-development/blob/main/docs/tech.md)
+- [moai-adk](https://github.com/modu-ai/moai-adk)
+- [ai-engineering-template](https://github.com/LaProgrammerie/ai-engineering-template)
 
+<a id="structure-md"></a>
 ### STRUCTURE.md
 
-The architecture and repository map.
+A map of the repository that helps agents put changes in the right place.
 
 Use it for:
 
@@ -132,7 +139,6 @@ Use it for:
 - naming conventions
 - import patterns
 - module boundaries
-- where new code should go
 
 What it should contain:
 
@@ -140,30 +146,31 @@ What it should contain:
 - ownership boundaries
 - import rules
 - placement rules for new files
-- any special-case folders that matter for the agent
+- special-case folders that matter for the agent
 
 Useful resources:
 
-- <https://kiro.dev/docs/steering/>
-- <https://kiro.dev/blog/introducing-kiro-powers/>
-- <https://github.com/langwatch/better-agents/blob/main/docs/STRUCTURE.md>
-- <https://github.com/gamekit-agent/gamekit-cli/blob/main/docs/project-structure.md>
+- [Kiro steering docs](https://kiro.dev/docs/steering/)
+- [Introducing Kiro powers](https://kiro.dev/blog/introducing-kiro-powers/)
+- [Better Agents STRUCTURE.md](https://github.com/langwatch/better-agents/blob/main/docs/STRUCTURE.md)
+- [Project structure guide](https://github.com/gamekit-agent/gamekit-cli/blob/main/docs/project-structure.md)
 
 Great examples:
 
-- <https://github.com/langwatch/better-agents/blob/main/docs/STRUCTURE.md>
-- <https://github.com/gamekit-agent/gamekit-cli/blob/main/docs/project-structure.md>
-- <https://github.com/bootc-dev/infra/blob/main/docs/repository-structure.md>
+- [better-agents STRUCTURE.md](https://github.com/langwatch/better-agents/blob/main/docs/STRUCTURE.md)
+- [gamekit-cli project structure](https://github.com/gamekit-agent/gamekit-cli/blob/main/docs/project-structure.md)
+- [repository structure](https://github.com/bootc-dev/infra/blob/main/docs/repository-structure.md)
 
+<a id="vision-md"></a>
 ### VISION.md
 
-The durable product and taste direction.
+The durable product and taste direction that should change less often than product specs.
 
 Use it for:
 
-- the long-term product vision
+- long-term product vision
 - non-goals
-- design/product taste
+- design and product taste
 - the kind of future you are trying to create
 
 What it should contain:
@@ -175,20 +182,21 @@ What it should contain:
 
 Useful resources:
 
-- <https://github.com/paralleldrive/aidd>
-- <https://kiro.dev/blog/introducing-kiro/>
-- <https://kiro.dev/blog/kiro-and-the-future-of-software-development/>
-- <https://github.com/openclaw/clawhub/blob/main/VISION.md>
+- [aidd](https://github.com/paralleldrive/aidd)
+- [Introducing Kiro](https://kiro.dev/blog/introducing-kiro/)
+- [Kiro and the future of software development](https://kiro.dev/blog/kiro-and-the-future-of-software-development/)
+- [clawhub VISION.md](https://github.com/openclaw/clawhub/blob/main/VISION.md)
 
 Great examples:
 
-- <https://github.com/fbeeper/agentkitten/blob/main/VISION.md>
-- <https://github.com/block/sprout/blob/main/VISION.md>
-- <https://github.com/gsd-build/gsd-2/blob/main/VISION.md>
+- [agentkitten VISION.md](https://github.com/fbeeper/agentkitten/blob/main/VISION.md)
+- [sprout VISION.md](https://github.com/block/sprout/blob/main/VISION.md)
+- [gsd-2 VISION.md](https://github.com/gsd-build/gsd-2/blob/main/VISION.md)
 
+<a id="design-md"></a>
 ### DESIGN.md
 
-The UI and visual direction guide.
+A design-system source of truth for AI-generated interface work.
 
 Use it for:
 
@@ -209,19 +217,23 @@ What it should contain:
 
 Useful resources:
 
-- <https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-design-md/>
-- <https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-ai-ui-design/>
-- <https://github.com/google-labs-code/design.md>
-- <https://github.com/VoltAgent/awesome-design-md>
+- [Google Stitch announcement](https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-design-md/)
+- [Stitch AI UI design](https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-ai-ui-design/)
+- [design.md](https://github.com/google-labs-code/design.md)
+- [Awesome Design.md](https://github.com/VoltAgent/awesome-design-md)
 
 Great examples:
 
-- <https://github.com/google-labs-code/design.md>
-- <https://github.com/VoltAgent/awesome-design-md>
-- <https://github.com/VoltAgent/awesome-claude-design>
+- [google-labs-code/design.md](https://github.com/google-labs-code/design.md)
+- [awesome-design-md](https://github.com/VoltAgent/awesome-design-md)
+- [awesome-claude-design](https://github.com/VoltAgent/awesome-claude-design)
 
+<a id="agent-specific-files"></a>
 ## Agent-Specific Files
 
+These files should exist when a tool needs its own memory, syntax, or scope rules.
+
+<a id="claude-md"></a>
 ### CLAUDE.md
 
 The Claude Code instruction file.
@@ -243,17 +255,18 @@ What it should contain:
 
 Useful resources:
 
-- <https://docs.anthropic.com/en/docs/claude-code/overview>
-- <https://docs.anthropic.com/en/docs/claude-code/memory>
-- <https://docs.anthropic.com/en/docs/claude-code/github-actions>
-- <https://github.com/anthropics/claude-code/issues/10286>
+- [Claude Code overview](https://docs.anthropic.com/en/docs/claude-code/overview)
+- [Claude Code memory](https://docs.anthropic.com/en/docs/claude-code/memory)
+- [Claude Code GitHub Actions](https://docs.anthropic.com/en/docs/claude-code/github-actions)
+- [Anthropic issue #10286](https://github.com/anthropics/claude-code/issues/10286)
 
 Great examples:
 
-- <https://github.com/tylerbutler/tools-monorepo/blob/main/CLAUDE.md>
-- <https://github.com/shanraisshan/claude-code-best-practice/blob/main/CLAUDE.md>
-- <https://github.com/jonnyzzz/mcp-steroid/blob/main/CLAUDE.md>
+- [tools-monorepo CLAUDE.md](https://github.com/tylerbutler/tools-monorepo/blob/main/CLAUDE.md)
+- [claude-code-best-practice](https://github.com/shanraisshan/claude-code-best-practice/blob/main/CLAUDE.md)
+- [mcp-steroid CLAUDE.md](https://github.com/jonnyzzz/mcp-steroid/blob/main/CLAUDE.md)
 
+<a id="gemini-md"></a>
 ### GEMINI.md
 
 The Gemini CLI / Gemini agent context file.
@@ -274,16 +287,17 @@ What it should contain:
 
 Useful resources:
 
-- <https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-md.md>
-- <https://discuss.ai.google.dev/t/announcing-gemini-cli-a-command-line-tool-for-the-google-gemini-api/96003>
-- <https://github.com/google-gemini/gemini-cli>
-- <https://github.com/google-gemini/gemini-cli/issues/1806>
+- [Gemini CLI docs](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-md.md)
+- [Gemini CLI announcement](https://discuss.ai.google.dev/t/announcing-gemini-cli-a-command-line-tool-for-the-google-gemini-api/96003)
+- [Gemini CLI repo](https://github.com/google-gemini/gemini-cli)
+- [Gemini CLI issue #1806](https://github.com/google-gemini/gemini-cli/issues/1806)
 
 Great examples:
 
-- <https://github.com/google-gemini/gemini-cli/blob/main/GEMINI.md>
-- <https://github.com/alirezarezvani/claude-skills/blob/main/GEMINI.md>
+- [gemini-cli GEMINI.md](https://github.com/google-gemini/gemini-cli/blob/main/GEMINI.md)
+- [claude-skills GEMINI.md](https://github.com/alirezarezvani/claude-skills/blob/main/GEMINI.md)
 
+<a id="github-copilot-instructions-md"></a>
 ### .github/copilot-instructions.md
 
 The repository-wide GitHub Copilot instructions file.
@@ -304,20 +318,21 @@ What it should contain:
 
 Useful resources:
 
-- <https://docs.github.com/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot>
-- <https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions>
-- <https://docs.github.com/copilot/reference/custom-instructions-support>
-- <https://github.com/github/awesome-copilot>
+- [GitHub Copilot custom instructions](https://docs.github.com/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot)
+- [Copilot CLI custom instructions](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions)
+- [Copilot reference](https://docs.github.com/copilot/reference/custom-instructions-support)
+- [Awesome Copilot](https://github.com/github/awesome-copilot)
 
 Great examples:
 
-- <https://github.com/github/awesome-copilot>
-- <https://github.com/AI-Shipping-Labs/website/blob/main/.github/copilot-instructions.md>
-- <https://github.com/obsidian-tasks-group/obsidian-tasks/issues/3816>
+- [github/awesome-copilot](https://github.com/github/awesome-copilot)
+- [AI-Shipping-Labs website](https://github.com/AI-Shipping-Labs/website/blob/main/.github/copilot-instructions.md)
+- [obsidian-tasks issue #3816](https://github.com/obsidian-tasks-group/obsidian-tasks/issues/3816)
 
+<a id="cursor-rules-mdc"></a>
 ### .cursor/rules/*.mdc
 
-Cursor project rules for scoped behavior.
+Path-scoped Cursor rules for workflows that should only apply in specific places.
 
 Use it for:
 
@@ -331,17 +346,21 @@ What it should contain:
 - path or task scope
 - the conventions to follow in that scope
 - examples of good output
-- anything that should be auto-applied vs manual
+- what should auto-apply vs stay manual
 
 Useful resources:
 
-- <https://cursor.com/docs/rules>
-- <https://forum.cursor.com/t/a-deep-dive-into-cursor-rules-0-45/60721>
-- <https://forum.cursor.com/t/optimal-structure-for-mdc-rules-files/52260>
-- <https://github.com/PatrickJS/awesome-cursorrules>
+- [Cursor rules docs](https://cursor.com/docs/rules)
+- [Deep dive into Cursor rules](https://forum.cursor.com/t/a-deep-dive-into-cursor-rules-0-45/60721)
+- [Optimal structure for .mdc rules](https://forum.cursor.com/t/optimal-structure-for-mdc-rules-files/52260)
+- [Awesome Cursor Rules](https://github.com/PatrickJS/awesome-cursorrules)
 
 Great examples:
 
-- <https://github.com/PatrickJS/awesome-cursorrules>
-- <https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/java-springboot-jpa-cursorrules-prompt-file.mdc>
-- <https://github.com/RobertAgterhuis/myAgentic-IT-Project-team/blob/main/.github/docs/README.md>
+- [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules)
+- [java springboot jpa rule file](https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/java-springboot-jpa-cursorrules-prompt-file.mdc)
+- [myAgentic-IT-Project-team README](https://github.com/RobertAgterhuis/myAgentic-IT-Project-team/blob/main/.github/docs/README.md)
+
+## Keeping It In Sync
+
+Edit [src/data/steering-data.js](https://github.com/LVTD-LLC/ai-steering/blob/main/src/data/steering-data.js) when the file guidance changes, then run `npm run sync:readme` to regenerate this document from the same source the site uses.
