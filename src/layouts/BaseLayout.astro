@@ -1,4 +1,6 @@
 ---
+import { siteLinks } from '../data/resources';
+
 const {
   title = 'AI Steering Files',
   description = 'A resource hub for AI steering files, agent instructions, and project context docs.'
@@ -182,10 +184,11 @@ const {
           <span>AI Steering Files</span>
         </a>
         <div class="nav-links">
-          <a href="#catalog">Catalog</a>
-          <a href="#checklist">Checklist</a>
-          <a class="button secondary" href="https://github.com/LVTD-LLC/ai-steering/blob/main/README.md">README</a>
-          <a class="button secondary" href="https://github.com/LVTD-LLC/ai-steering">GitHub repo</a>
+          <a href="/#catalog">Catalog</a>
+          <a href="/#checklist">Checklist</a>
+          <a href="/contributing/">Contribute</a>
+          <a class="button secondary" href={siteLinks.readme}>README</a>
+          <a class="button secondary" href={siteLinks.repo}>GitHub repo</a>
         </div>
       </div>
     </nav>
