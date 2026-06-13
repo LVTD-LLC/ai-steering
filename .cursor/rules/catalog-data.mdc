@@ -1,0 +1,14 @@
+---
+description: Catalog data and generated README rules
+globs: src/data/steering-data.js,src/data/resources.ts,scripts/generate-readme.mjs,README.md
+alwaysApply: false
+---
+
+# Catalog Data Rules
+
+- Treat `src/data/steering-data.js` as the canonical source for catalog entries and site links.
+- Keep resource objects consistent: `name`, `path`, `summary`, `useItFor`, `shouldContain`, `usefulResources`, and `greatExamples`.
+- Prefer official docs and strong public examples when adding links.
+- Do not hand-maintain catalog guidance in `README.md`; run `npm run sync:readme` after changing source data.
+- Keep `src/data/resources.ts` focused on shape validation and typed exports.
+- Run `npm run build` after catalog or generator changes.

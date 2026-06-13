@@ -1,0 +1,14 @@
+---
+description: Repo steering file rules
+globs: AGENTS.md,PRODUCT.md,TECH.md,STRUCTURE.md,VISION.md,DESIGN.md,CLAUDE.md,GEMINI.md,.github/copilot-instructions.md,.cursor/rules/*.mdc
+alwaysApply: false
+---
+
+# Steering File Rules
+
+- Keep shared rules in agent-agnostic files: `AGENTS.md`, `PRODUCT.md`, `TECH.md`, `STRUCTURE.md`, `VISION.md`, and `DESIGN.md`.
+- Keep tool-specific syntax and workflow hints in the tool-specific files.
+- Preserve exact steering file names and capitalization.
+- Keep instructions short, concrete, and tied to this repository.
+- Update related steering files when repo conventions change.
+- Do not copy long vendor documentation into this repo; summarize and link instead.
