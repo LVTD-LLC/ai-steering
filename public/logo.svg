@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" data-logo="ai-steering">
+  <rect width="128" height="128" rx="22" fill="#10131a"/>
+  <path d="M35 20h42l20 20v68H35z" fill="#f6f4ee"/>
+  <path d="M77 20v20h20z" fill="#d8d5cd"/>
+  <path d="M47 50h34M47 64h24M47 78h18" fill="none" stroke="#c4474f" stroke-width="7" stroke-linecap="round"/>
+  <path d="M72 83h22l-8-8" fill="none" stroke="#5aafa8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M94 83l-8 8" fill="none" stroke="#5aafa8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="39" cy="32" r="7" fill="#e2bf5b"/>
+</svg>
