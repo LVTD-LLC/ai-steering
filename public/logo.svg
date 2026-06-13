@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="AI Steering Files logo" data-logo="ai-steering">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" data-logo="ai-steering">
   <rect width="128" height="128" rx="22" fill="#10131a"/>
   <path d="M35 20h42l20 20v68H35z" fill="#f6f4ee"/>
   <path d="M77 20v20h20z" fill="#d8d5cd"/>
