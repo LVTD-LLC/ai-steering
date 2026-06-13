@@ -29,7 +29,7 @@ AI Steering Files is a static Astro site that catalogs useful context and steeri
 - CI-style install: `npm ci`
 - Run local dev server: `npm run dev`
 - Check and build: `npm run build`
-- Astro-only check: `npm run check`
+- Check Astro and TypeScript: `npm run check`
 - Regenerate README from catalog data: `npm run sync:readme`
 
 ## Workflow

@@ -59,7 +59,7 @@
 
 - `README.md` is generated output from `scripts/generate-readme.mjs`.
 - `dist/`, `.astro/`, and `node_modules/` are build or install artifacts and should not be committed.
-- Deployment config should stay isolated in `Dockerfile`, `nginx.conf`, `captain-definition`, and `.github/workflows/deploy.yml`.
+- Deployment config should stay isolated in `Dockerfile`, `nginx.conf`, `captain-definition`, `.github/workflows/ci.yml`, and `.github/workflows/deploy.yml`.
 - Do not duplicate catalog entries in multiple manually maintained files.
 
 ## Naming Rules
