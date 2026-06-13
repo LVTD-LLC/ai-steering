@@ -11,7 +11,7 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <link rel="icon" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -78,16 +78,11 @@ const {
         text-decoration: none;
       }
 
-      .brand-mark {
-        display: grid;
-        place-items: center;
-        width: 36px;
-        height: 36px;
-        border-radius: 8px;
-        background: var(--ink);
-        color: var(--gold);
-        font-size: 0.8rem;
-        letter-spacing: 0.04em;
+      .brand-logo {
+        display: block;
+        width: 40px;
+        height: 40px;
+        flex: 0 0 auto;
       }
 
       .nav-links {
@@ -178,7 +173,7 @@ const {
     <nav class="nav">
       <div class="container nav-inner">
         <a class="brand" href="/" aria-label="AI Steering Files home">
-          <span class="brand-mark">AI</span>
+          <img class="brand-logo" src="/logo.svg" alt="" width="40" height="40" />
           <span>AI Steering Files</span>
         </a>
         <div class="nav-links">
