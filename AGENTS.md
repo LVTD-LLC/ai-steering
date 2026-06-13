@@ -64,6 +64,6 @@ The site builds to static HTML in `dist/` and includes Docker, nginx, and CapRov
 
 ## Risk Boundaries
 
-- Do not change deployment files (`Dockerfile`, `nginx.conf`, `captain-definition`, or `.github/workflows/deploy.yml`) unless the deployment behavior is part of the task.
+- Do not change deployment files (`Dockerfile`, `nginx.conf`, `captain-definition`, `.github/workflows/ci.yml`, or `.github/workflows/deploy.yml`) unless the deployment behavior is part of the task.
 - Do not add a backend, database, analytics, or external runtime dependency without a clear product reason.
 - Do not replace the generated README workflow with hand-maintained duplicate content.

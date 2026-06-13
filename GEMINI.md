@@ -10,6 +10,7 @@ AI Steering Files is a static Astro catalog for repo context files used by AI co
 
 - `AGENTS.md` for repo-wide workflow and safety rules.
 - `PRODUCT.md` for audience, scope, and success criteria.
+- `VISION.md` for durable principles, non-goals, and success signals.
 - `TECH.md` for stack, commands, and deployment.
 - `STRUCTURE.md` for file placement.
 - `DESIGN.md` for visual changes.
@@ -17,7 +18,9 @@ AI Steering Files is a static Astro catalog for repo context files used by AI co
 ## Commands
 
 - Install: `npm install`
+- CI-style install: `npm ci`
 - Develop: `npm run dev`
+- Check Astro and TypeScript: `npm run check`
 - Regenerate README: `npm run sync:readme`
 - Validate: `npm run build`
 

@@ -11,6 +11,7 @@ AI Steering Files is a static Astro site and README generator for AI steering fi
 ## Commands
 
 - Install dependencies: `npm install`
+- CI-style install: `npm ci`
 - Run development server: `npm run dev`
 - Check Astro/TypeScript: `npm run check`
 - Build and validate: `npm run build`

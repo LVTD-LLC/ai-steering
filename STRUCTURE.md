@@ -16,6 +16,9 @@
 |-- CONTRIBUTING.md
 |-- CHANGELOG.md
 |-- package.json
+|-- Dockerfile
+|-- nginx.conf
+|-- captain-definition
 |-- scripts/
 |   `-- generate-readme.mjs
 |-- src/
@@ -33,6 +36,8 @@
 |-- .github/
 |   |-- copilot-instructions.md
 |   `-- workflows/
+|       |-- ci.yml
+|       `-- deploy.yml
 `-- .cursor/
     `-- rules/
 ```
