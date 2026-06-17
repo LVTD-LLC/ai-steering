@@ -6,28 +6,28 @@ import { slugify } from '../lib/slugify.js';
 const totalResources = sections.reduce((total, section) => total + section.resources.length, 0);
 ---
 
-<BaseLayout title="AI Steering Files - repo context for coding agents" description="A shared guide to the files that teach AI agents how to work in this repo.">
+<BaseLayout title="AI Steering Files - choose repo context for coding agents" description="A practical catalog of AGENTS.md, PRODUCT.md, TECH.md, and tool-specific instruction files for AI coding agents.">
   <main id="main-content">
     <section class="page-header">
       <div class="container page-header-grid">
         <div>
-          <p class="section-label">Repository guidance index</p>
-          <h1>Find the steering file your repo needs.</h1>
+          <p class="section-label">Repository context</p>
+          <h1>Choose the right steering files for your agents.</h1>
           <p class="lede">
-            A compact reference for the repo context files that help AI coding agents follow local rules, use the right commands, and make better edits.
+            Browse practical patterns for <code>AGENTS.md</code>, <code>PRODUCT.md</code>, <code>TECH.md</code>, and tool-specific files. Each entry shows when to add it, what to include, and examples worth studying.
           </p>
           <div class="actions">
             <a class="button" href="#install-skill">Install the skill</a>
-            <a class="button secondary" href="#catalog">Browse catalog</a>
-            <a class="button secondary" href={siteLinks.readme}>Open the README</a>
+            <a class="button secondary" href="#catalog">Browse the catalog</a>
+            <a class="button secondary" href={siteLinks.readme}>Read the GitHub README</a>
           </div>
         </div>
         <aside class="info-panel" aria-labelledby="quick-start-heading">
           <h2 id="quick-start-heading">Use this index when</h2>
           <ul class="plain-list">
-            <li>Start with the agent-agnostic files when you need repo rules that apply everywhere.</li>
-            <li>Add agent-specific files only when a tool needs its own syntax or workflow hints.</li>
-            <li>Check examples before copying patterns into another repository.</li>
+            <li>Start with agent-agnostic files for rules every coding assistant should share.</li>
+            <li>Add tool-specific files when an assistant needs its own syntax, memory, or scoped rules.</li>
+            <li>Keep each file tied to real commands, constraints, and examples from the repo.</li>
           </ul>
         </aside>
       </div>
@@ -151,17 +151,17 @@ const totalResources = sections.reduce((total, section) => total + section.resou
       <div class="container split-layout">
         <div>
           <p class="section-label">Writing checklist</p>
-          <h2>Write steering files agents can act on.</h2>
+          <h2>Useful steering files are short, specific, and grounded in the repo.</h2>
           <p class="section-lede">
-            The best guidance is short, repo-specific, and easy to verify while an agent is editing.
+            Each item should make agent behavior easier to verify while it is editing.
           </p>
         </div>
         <ol class="checklist content-panel">
-          <li><strong>Say what the file controls.</strong> Start with the scope and the intended reader.</li>
-          <li><strong>Prefer commands over vibes.</strong> Include exact install, test, lint, build, and deploy commands.</li>
-          <li><strong>Name the good examples.</strong> Point agents to files and modules that show the preferred pattern.</li>
-          <li><strong>Document constraints.</strong> Spell out security, data, accessibility, performance, and product boundaries.</li>
-          <li><strong>Keep the source shared.</strong> Edit the data map once, then render the site and README from it.</li>
+          <li><strong>Define the file's job.</strong> Start with the scope and the intended reader.</li>
+          <li><strong>Prefer commands over vague guidance.</strong> Include exact install, test, lint, build, and deploy commands.</li>
+          <li><strong>Point to patterns worth copying.</strong> Name files and modules that show the preferred approach.</li>
+          <li><strong>Write down the boundaries.</strong> Spell out security, data, accessibility, performance, and product constraints.</li>
+          <li><strong>Keep one source of truth.</strong> Edit the data map once, then render the site and README from it.</li>
           <li><strong>Review after real agent work.</strong> Update the files when agents repeatedly ask the same question or make the same mistake.</li>
         </ol>
       </div>

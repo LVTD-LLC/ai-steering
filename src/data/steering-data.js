@@ -2,7 +2,7 @@ export const siteLinks = {
   repo: 'https://github.com/LVTD-LLC/ai-steering',
   readme: 'https://github.com/LVTD-LLC/ai-steering/blob/main/README.md',
   contributing: 'https://github.com/LVTD-LLC/ai-steering/blob/main/CONTRIBUTING.md',
-  suggestSite: 'https://github.com/LVTD-LLC/ai-steering/issues/new?title=Suggest%20site%3A%20&body=URL%3A%0A%0ASteering%20file%3A%0A%0AUseful%20resources%20or%20Great%20examples%3A%0A%0AWhy%20it%20belongs%3A',
+  suggestSite: 'https://github.com/LVTD-LLC/ai-steering/issues/new?title=Suggest%20resource%3A%20&body=URL%3A%0A%0ASteering%20file%3A%0A%0AUseful%20resources%20or%20Great%20examples%3A%0A%0AWhy%20it%20belongs%3A',
   site: 'https://ai-steering.lvtd.dev',
   source: 'https://github.com/LVTD-LLC/ai-steering/blob/main/src/data/steering-data.js',
   skill: 'https://github.com/LVTD-LLC/ai-steering/blob/main/skills/ai-steering-files/SKILL.md',
@@ -21,25 +21,25 @@ export const resourceSections = [
   {
     title: 'Agent-Agnostic Files',
     slug: 'agent-agnostic-files',
-    intro: 'These files should stay useful no matter which assistant is reading the repo.',
+    intro: 'Start here for rules and context that should help every coding assistant work safely in the repo.',
     resources: [
       {
         name: 'AGENTS.md',
         path: 'AGENTS.md',
-        summary: 'The vendor-neutral operating manual for coding agents.',
+        summary: 'The shared operating manual every coding agent should read before changing the repo.',
         useItFor: [
-          'repo-specific agent behavior',
-          'safe defaults and guardrails',
-          'commands that are reliable in this repo',
-          'review and merge expectations'
+          'repo-specific behavior that applies across tools',
+          'safe defaults, guardrails, and approval boundaries',
+          'exact commands agents can run with confidence',
+          'review, branch, and merge expectations'
         ],
         shouldContain: [
-          'project summary',
+          'concise project summary',
           'preferred workflow',
           'exact install, test, lint, build, and deploy commands',
-          'branch policy',
-          'risky actions that need approval',
-          'any do-not-do-this-casually rules'
+          'branch and PR policy',
+          'actions that need approval',
+          'rules agents should not bypass'
         ],
         usefulResources: [
           { label: 'AGENTS.md spec', href: 'https://agents.md/' },
@@ -54,16 +54,16 @@ export const resourceSections = [
       {
         name: 'PRODUCT.md',
         path: 'PRODUCT.md',
-        summary: 'Product context that keeps implementation choices aligned with the business.',
+        summary: 'Product context that keeps implementation tradeoffs tied to users and outcomes.',
         useItFor: [
-          'target users',
-          'the problem being solved',
-          'major workflows',
+          'target users and use cases',
+          'the problem the product solves',
+          'major workflows and user journeys',
           'business objectives and success criteria'
         ],
         shouldContain: [
           'why the project exists',
-          'who it is for',
+          'who it serves',
           'what good looks like',
           'what is in scope and out of scope',
           'the outcomes that matter most'
@@ -83,17 +83,17 @@ export const resourceSections = [
       {
         name: 'TECH.md',
         path: 'TECH.md',
-        summary: 'The technical source of truth for stack and implementation constraints.',
+        summary: 'The technical source of truth for stack, commands, and implementation constraints.',
         useItFor: [
-          'frameworks and libraries',
-          'runtime versions',
-          'build and test commands',
-          'deployment targets and integration points'
+          'framework and library choices',
+          'runtime and package manager versions',
+          'build, check, test, and deploy commands',
+          'deployment targets, integrations, and APIs'
         ],
         shouldContain: [
           'the canonical stack',
           'supported commands',
-          'preferred libraries and frameworks',
+          'preferred libraries and patterns',
           'external services and APIs',
           'the constraints agents must respect'
         ],
@@ -112,12 +112,12 @@ export const resourceSections = [
       {
         name: 'STRUCTURE.md',
         path: 'STRUCTURE.md',
-        summary: 'A map of the repository that helps agents put changes in the right place.',
+        summary: 'A repo map that helps agents put code, docs, and tests in the right place.',
         useItFor: [
           'top-level directory layout',
           'naming conventions',
           'import patterns',
-          'module boundaries'
+          'module boundaries and ownership lines'
         ],
         shouldContain: [
           'a directory map',
@@ -141,17 +141,17 @@ export const resourceSections = [
       {
         name: 'VISION.md',
         path: 'VISION.md',
-        summary: 'The durable product and taste direction that should change less often than product specs.',
+        summary: 'Long-term direction, non-goals, and taste principles that should outlast individual specs.',
         useItFor: [
-          'long-term product vision',
+          'long-term product direction',
           'non-goals',
           'design and product taste',
-          'the kind of future you are trying to create'
+          'the future state the project is trying to create'
         ],
         shouldContain: [
-          'vision and constraints',
+          'vision and durable constraints',
           'what the project should become',
-          'what should never drift',
+          'what should not drift',
           'success criteria at the level of outcomes, not implementation'
         ],
         usefulResources: [
@@ -169,12 +169,11 @@ export const resourceSections = [
       {
         name: 'DESIGN.md',
         path: 'DESIGN.md',
-        summary: 'A design-system source of truth for AI-generated interface work.',
+        summary: 'A design-system source of truth for AI-generated UI changes.',
         useItFor: [
-          'design tokens',
-          'typography',
-          'spacing',
-          'color principles',
+          'design tokens and theme choices',
+          'typography and spacing',
+          'layout rules',
           'component patterns',
           'accessibility expectations'
         ],
@@ -183,7 +182,7 @@ export const resourceSections = [
           'spacing and type rules',
           'layout constraints',
           'component style preferences',
-          'things the agent should avoid when generating UI'
+          'UI patterns to avoid'
         ],
         usefulResources: [
           { label: 'Google Stitch announcement', href: 'https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-design-md/' },
@@ -237,24 +236,24 @@ export const resourceSections = [
   {
     title: 'Agent-Specific Files',
     slug: 'agent-specific-files',
-    intro: 'These files should exist when a tool needs its own memory, syntax, or scope rules.',
+    intro: 'Add these when a tool needs its own syntax, memory model, or narrower workflow rules.',
     resources: [
       {
         name: 'CLAUDE.md',
         path: 'CLAUDE.md',
-        summary: 'The Claude Code instruction file.',
+        summary: 'The Claude Code memory file for repo-specific instructions and workflows.',
         useItFor: [
           'Claude-specific guidance',
           'repo conventions that should persist across Claude sessions',
           'build/test/verify expectations for Claude',
-          'workflow notes that are useful for Claude but not all tools'
+          'workflow notes that are useful in Claude Code'
         ],
         shouldContain: [
           'project-specific instructions',
           'code style and review rules',
           'build and test commands',
           'escalation boundaries',
-          'paths or workflows Claude should treat specially'
+          'paths or workflows Claude should handle carefully'
         ],
         usefulResources: [
           { label: 'Claude Code overview', href: 'https://docs.anthropic.com/en/docs/claude-code/overview' },
@@ -271,7 +270,7 @@ export const resourceSections = [
       {
         name: 'GEMINI.md',
         path: 'GEMINI.md',
-        summary: 'The Gemini CLI / Gemini agent context file.',
+        summary: 'The Gemini CLI context file for repo instructions, commands, and response preferences.',
         useItFor: [
           'Gemini-specific instructions',
           'repo conventions that should persist across Gemini sessions',
@@ -282,7 +281,7 @@ export const resourceSections = [
           'project-specific context',
           'coding conventions',
           'build/test/verify notes',
-          'any files or folders Gemini should prioritize'
+          'files or folders Gemini should prioritize'
         ],
         usefulResources: [
           { label: 'Gemini CLI docs', href: 'https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-md.md' },
@@ -298,9 +297,9 @@ export const resourceSections = [
       {
         name: '.github/copilot-instructions.md',
         path: '.github/copilot-instructions.md',
-        summary: 'The repository-wide GitHub Copilot instructions file.',
+        summary: 'Repository-wide instructions GitHub Copilot should apply when suggesting changes.',
         useItFor: [
-          'instructions that should apply to Copilot across the repo',
+          'Copilot instructions that apply across the repo',
           'build/test/validation guidance',
           'repo-specific coding standards',
           'review and safety expectations'
@@ -326,12 +325,12 @@ export const resourceSections = [
       {
         name: '.cursor/rules/*.mdc',
         path: '.cursor/rules/*.mdc',
-        summary: 'Path-scoped Cursor rules for workflows that should only apply in specific places.',
+        summary: 'Path-scoped Cursor rules for workflows that need narrower guidance than a repo-wide file.',
         useItFor: [
           'file-specific or workflow-specific rules',
           'path-scoped instructions',
-          'rule sets that should only apply in certain parts of the repo',
-          'agent behavior that needs to be narrower than a repo-wide file'
+          'rule sets for certain parts of the repo',
+          'agent behavior that should not apply globally'
         ],
         shouldContain: [
           'path or task scope',
