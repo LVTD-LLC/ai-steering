@@ -9,9 +9,9 @@ It should not feel like a SaaS landing page, a marketing brochure, or a decorati
 ## Visual Language
 
 - Use the existing global tokens in `src/layouts/BaseLayout.astro`.
-- Keep backgrounds quiet and content-first.
-- Use restrained accent colors for hierarchy, not decoration.
-- Keep cards readable with clear borders, modest shadows, and compact spacing.
+- Keep backgrounds quiet, solid, and content-first.
+- Use restrained accent colors for actions, links, and state, not decoration.
+- Keep cards readable with clear borders and compact spacing.
 - Preserve strong contrast for body text, code paths, links, and buttons.
 
 ## Layout
@@ -24,7 +24,7 @@ It should not feel like a SaaS landing page, a marketing brochure, or a decorati
 
 ## Typography
 
-- Use the configured Geist/system font stack.
+- Use the configured system font stack.
 - Keep headings direct and compact.
 - Use code styling for exact file paths, commands, and identifiers.
 - Do not use viewport-scaled text that can become unreadable or overflow.

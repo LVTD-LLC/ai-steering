@@ -4,11 +4,11 @@ import { siteLinks } from '../data/resources';
 ---
 
 <BaseLayout title="Contributing - AI Steering Files" description="How to suggest new sites, repos, articles, and example steering files for AI Steering Files.">
-  <main>
-    <section class="intro">
-      <div class="container intro-grid">
+  <main id="main-content">
+    <section class="page-header">
+      <div class="container page-header-grid">
         <div>
-          <p class="eyebrow">Contributing</p>
+          <p class="section-label">Contributing</p>
           <h1>Suggest useful steering resources.</h1>
           <p class="lede">
             Send a link when you find a site, repo, article, or example file that helps teams write better AI steering files.
@@ -18,9 +18,9 @@ import { siteLinks } from '../data/resources';
             <a class="button secondary" href={siteLinks.contributing}>Open CONTRIBUTING.md</a>
           </div>
         </div>
-        <aside class="note" aria-label="Good suggestions">
-          <p class="eyebrow">Good suggestions</p>
-          <ul>
+        <aside class="info-panel" aria-labelledby="good-suggestions-heading">
+          <h2 id="good-suggestions-heading">Good suggestions</h2>
+          <ul class="plain-list">
             <li>Point to a real, reachable URL.</li>
             <li>Name the steering file it helps with.</li>
             <li>Explain why the link belongs in the catalog.</li>
@@ -30,16 +30,16 @@ import { siteLinks } from '../data/resources';
     </section>
 
     <section class="section">
-      <div class="container guide-grid">
+      <div class="container split-layout">
         <div class="section-heading">
-          <p class="eyebrow">What to send</p>
+          <p class="section-label">What to send</p>
           <h2>Make the suggestion easy to evaluate.</h2>
           <p class="section-lede">
             The catalog works best when every link has a clear reason to exist and sits under the right steering file.
           </p>
         </div>
 
-        <ol class="steps">
+        <ol class="steps content-panel">
           <li>
             <strong>Share the exact URL.</strong>
             Link to the specific file, article, docs page, or repo section people should read.
@@ -61,13 +61,16 @@ import { siteLinks } from '../data/resources';
     </section>
 
     <section class="section">
-      <div class="container guide-grid">
+      <div class="container split-layout">
         <div class="section-heading">
-          <p class="eyebrow">Pull requests</p>
+          <p class="section-label">Pull requests</p>
           <h2>Add links through the shared data file.</h2>
+          <p class="section-lede">
+            Keep the website and README aligned by changing the data source, then regenerating the generated output.
+          </p>
         </div>
 
-        <div class="workflow">
+        <div class="workflow content-panel">
           <p>
             Site content comes from <code>src/data/steering-data.js</code>. Add new links to the matching resource's
             <code>usefulResources</code> or <code>greatExamples</code> list, then regenerate the README.
@@ -86,52 +89,6 @@ import { siteLinks } from '../data/resources';
 </BaseLayout>
 
 <style>
-  .intro {
-    padding: 5.5rem 0 4rem;
-  }
-
-  .intro-grid,
-  .guide-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.72fr);
-    gap: 2rem;
-    align-items: start;
-  }
-
-  h1 {
-    margin: 0;
-    max-width: 820px;
-    font-size: 5.4rem;
-    line-height: 0.94;
-    letter-spacing: 0;
-  }
-
-  .lede {
-    max-width: 680px;
-    margin-top: 1.2rem;
-    color: var(--muted);
-    font-size: 1.12rem;
-    line-height: 1.68;
-  }
-
-  .actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.85rem;
-    margin-top: 1.8rem;
-  }
-
-  .note,
-  .steps,
-  .workflow {
-    padding: 1.35rem;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    background: var(--panel);
-    box-shadow: 0 10px 28px rgba(16, 24, 32, 0.04);
-  }
-
-  .note ul,
   .steps,
   .workflow ol {
     margin: 0;
@@ -154,36 +111,5 @@ import { siteLinks } from '../data/resources';
     margin: 0 0 1rem;
     color: var(--muted);
     line-height: 1.7;
-  }
-
-  .workflow code {
-    color: var(--accent);
-    font-weight: 800;
-  }
-
-  .steps code {
-    color: var(--accent);
-    font-weight: 800;
-  }
-
-  @media (max-width: 900px) {
-    .intro-grid,
-    .guide-grid {
-      grid-template-columns: 1fr;
-    }
-
-    h1 {
-      font-size: 4rem;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .intro {
-      padding-top: 4rem;
-    }
-
-    h1 {
-      font-size: 3rem;
-    }
   }
 </style>

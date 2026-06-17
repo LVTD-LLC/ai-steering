@@ -2,32 +2,32 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { installableSkill, sections, siteLinks } from '../data/resources';
 import { slugify } from '../lib/slugify.js';
+
+const totalResources = sections.reduce((total, section) => total + section.resources.length, 0);
 ---
 
 <BaseLayout title="AI Steering Files - repo context for coding agents" description="A shared guide to the files that teach AI agents how to work in this repo.">
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Repository guidance</p>
-          <h1>AI steering files for real projects.</h1>
+  <main id="main-content">
+    <section class="page-header">
+      <div class="container page-header-grid">
+        <div>
+          <p class="section-label">Repository guidance index</p>
+          <h1>Find the steering file your repo needs.</h1>
           <p class="lede">
-            A clean index of the repo context files that help agents make better edits, avoid dead ends, and keep implementation choices aligned with the project.
+            A compact reference for the repo context files that help AI coding agents follow local rules, use the right commands, and make better edits.
           </p>
           <div class="actions">
             <a class="button" href="#install-skill">Install the skill</a>
-            <a class="button" href="#catalog">Browse the files</a>
+            <a class="button secondary" href="#catalog">Browse catalog</a>
             <a class="button secondary" href={siteLinks.readme}>Open the README</a>
-            <a class="button secondary" href="/contributing/">Suggest a site</a>
-            <a class="button secondary" href={siteLinks.repo}>Open the repo</a>
           </div>
         </div>
-        <aside class="hero-note" aria-label="How to use this site">
-          <p class="eyebrow">How to use it</p>
-          <ul>
+        <aside class="info-panel" aria-labelledby="quick-start-heading">
+          <h2 id="quick-start-heading">Use this index when</h2>
+          <ul class="plain-list">
             <li>Start with the agent-agnostic files when you need repo rules that apply everywhere.</li>
-            <li>Use the agent-specific files when a tool needs its own memory, syntax, or workflow hints.</li>
-            <li>Keep the guidance grounded in real commands, constraints, and examples.</li>
+            <li>Add agent-specific files only when a tool needs its own syntax or workflow hints.</li>
+            <li>Check examples before copying patterns into another repository.</li>
           </ul>
         </aside>
       </div>
@@ -36,7 +36,7 @@ import { slugify } from '../lib/slugify.js';
     <section id="install-skill" class="section install-section">
       <div class="container install-grid">
         <div>
-          <p class="eyebrow">Reusable skill</p>
+          <p class="section-label">Reusable skill</p>
           <h2>Install the catalog as an agent skill.</h2>
           <p class="section-lede">
             The <code>{installableSkill.name}</code> skill gives agents a compact workflow for choosing, writing, and auditing repo context files in any project.
@@ -61,46 +61,75 @@ import { slugify } from '../lib/slugify.js';
     </section>
 
     <section id="catalog" class="section">
-      <div class="container catalog-shell">
+      <div class="container catalog-layout">
+        <aside class="catalog-index" aria-labelledby="catalog-index-heading">
+          <h2 id="catalog-index-heading">Catalog</h2>
+          <p>{totalResources} file types across {sections.length} groups.</p>
+          <nav aria-label="Catalog sections">
+            <ul>
+              {sections.map((section) => (
+                <li>
+                  <a href={`#${section.slug}`}>
+                    <span>{section.title}</span>
+                    <span class="catalog-count">{section.resources.length}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </aside>
+
         <div class="catalog-content">
+          <div class="section-heading catalog-heading">
+            <h2>Steering file catalog</h2>
+            <p class="section-lede">
+              Each entry keeps the same structure: purpose, best use cases, required contents, reference links, and examples.
+            </p>
+          </div>
+
           {sections.map((section) => (
-            <section class="resource-group" id={section.slug}>
-              <div class="section-heading">
-                <p class="eyebrow">{section.title}</p>
-                <h2>{section.title}</h2>
-                <p class="section-lede">{section.intro}</p>
-              </div>
+            <section class="resource-group" id={section.slug} aria-labelledby={`${section.slug}-heading`}>
+              <header class="resource-group-header">
+                <div>
+                  <h3 id={`${section.slug}-heading`}>{section.title}</h3>
+                  <p>{section.intro}</p>
+                </div>
+                <span>{section.resources.length} files</span>
+              </header>
 
-              <div class="resource-grid">
-                {section.resources.map((resource) => (
-                  <article class="resource-card" id={slugify(resource.name)}>
-                    <div class="resource-summary">
-                      <p class="path"><code>{resource.path}</code></p>
-                      <h3>{resource.name}</h3>
-                      <p class="summary">{resource.summary}</p>
-                      <p class="best"><strong>Use it for:</strong> {resource.useItFor.join(', ')}</p>
-                    </div>
+              <div class="resource-list">
+                {section.resources.map((resource) => {
+                  const resourceId = slugify(resource.name);
 
-                    <div class="resource-details">
-                      <div>
-                        <h4>Should contain</h4>
-                        <ul>
-                          {resource.shouldContain.map((item) => <li>{item}</li>)}
-                        </ul>
+                  return (
+                    <article class="resource-card" id={resourceId} aria-labelledby={`${resourceId}-title`}>
+                      <div class="resource-summary">
+                        <p class="path"><code>{resource.path}</code></p>
+                        <h4 id={`${resourceId}-title`}>{resource.name}</h4>
+                        <p class="summary">{resource.summary}</p>
+                        <div class="resource-field">
+                          <p class="field-label">Use it for</p>
+                          <p class="use-list">{resource.useItFor.join(' · ')}</p>
+                        </div>
                       </div>
 
-                      <div class="links-grid">
+                      <div class="resource-details">
                         <div>
-                          <h4>Useful resources</h4>
+                          <p class="field-label">Should contain</p>
+                          <ul>
+                            {resource.shouldContain.map((item) => <li>{item}</li>)}
+                          </ul>
+                        </div>
+                        <div>
+                          <p class="field-label">Useful resources</p>
                           <ul class="link-list">
                             {resource.usefulResources.map((link) => (
                               <li><a href={link.href}>{link.label}</a></li>
                             ))}
                           </ul>
                         </div>
-
                         <div>
-                          <h4>Great examples</h4>
+                          <p class="field-label">Great examples</p>
                           <ul class="link-list">
                             {resource.greatExamples.map((link) => (
                               <li><a href={link.href}>{link.label}</a></li>
@@ -108,9 +137,9 @@ import { slugify } from '../lib/slugify.js';
                           </ul>
                         </div>
                       </div>
-                    </div>
-                  </article>
-                ))}
+                    </article>
+                  );
+                })}
               </div>
             </section>
           ))}
@@ -119,12 +148,15 @@ import { slugify } from '../lib/slugify.js';
     </section>
 
     <section id="checklist" class="section">
-      <div class="container checklist-wrap">
+      <div class="container split-layout">
         <div>
-          <p class="eyebrow">Writing checklist</p>
-          <h2>Good steering files are short, specific, and grounded in the repo.</h2>
+          <p class="section-label">Writing checklist</p>
+          <h2>Write steering files agents can act on.</h2>
+          <p class="section-lede">
+            The best guidance is short, repo-specific, and easy to verify while an agent is editing.
+          </p>
         </div>
-        <ol class="checklist">
+        <ol class="checklist content-panel">
           <li><strong>Say what the file controls.</strong> Start with the scope and the intended reader.</li>
           <li><strong>Prefer commands over vibes.</strong> Include exact install, test, lint, build, and deploy commands.</li>
           <li><strong>Name the good examples.</strong> Point agents to files and modules that show the preferred pattern.</li>
@@ -138,68 +170,69 @@ import { slugify } from '../lib/slugify.js';
 </BaseLayout>
 
 <style>
-  .hero {
-    padding: 5.5rem 0 4rem;
-  }
-
-  .hero-grid {
+  .catalog-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
-    gap: 1.5rem;
+    grid-template-columns: 230px minmax(0, 1fr);
+    gap: 2rem;
     align-items: start;
   }
 
-  .hero-copy {
-    padding: 0.25rem 0;
+  .catalog-index {
+    position: sticky;
+    top: 4.7rem;
   }
 
-  h1 {
+  .catalog-index h2 {
     margin: 0;
-    max-width: 880px;
-    font-size: clamp(3rem, 7vw, 6.3rem);
-    line-height: 0.92;
-    letter-spacing: -0.06em;
+    font-size: 1rem;
+    letter-spacing: 0;
   }
 
-  .lede {
-    max-width: 680px;
-    margin-top: 1.2rem;
+  .catalog-index p {
+    margin: 0.35rem 0 0.85rem;
     color: var(--muted);
-    font-size: clamp(1.05rem, 1.35vw, 1.15rem);
-    line-height: 1.68;
+    font-size: 0.9rem;
   }
 
-  .actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.85rem;
-    margin-top: 1.8rem;
-  }
-
-  .hero-note {
-    padding: 1.4rem 1.35rem;
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    background:
-      linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.78)),
-      radial-gradient(circle at top right, rgba(91, 192, 190, 0.18), transparent 45%);
-    box-shadow: var(--shadow);
-  }
-
-  .hero-note ul {
-    margin: 0;
-    padding-left: 1.2rem;
-    color: var(--muted);
-    line-height: 1.75;
-  }
-
-  .catalog-shell {
+  .catalog-index ul {
     display: grid;
-    gap: 0;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .catalog-index a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+    border-radius: var(--radius-sm);
+    color: var(--muted);
+    font-size: 0.92rem;
+    font-weight: 650;
+    padding: 0.55rem 0.6rem;
+    text-decoration: none;
+  }
+
+  .catalog-index a:hover {
+    background: var(--surface-muted);
+    color: var(--ink);
+  }
+
+  .catalog-count {
+    display: inline-flex;
+    min-width: 1.65rem;
+    justify-content: center;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--subtle);
+    font-size: 0.82rem;
+    line-height: 1.45;
   }
 
   .install-section {
-    background: rgba(255, 255, 255, 0.28);
+    background: var(--surface-muted);
   }
 
   .install-grid {
@@ -209,14 +242,19 @@ import { slugify } from '../lib/slugify.js';
     align-items: start;
   }
 
+  .install-grid > *,
+  .install-panel > * {
+    min-width: 0;
+  }
+
   .install-panel {
     display: grid;
     gap: 1rem;
-    padding: 1.35rem;
+    min-width: 0;
+    padding: 1rem;
     border: 1px solid var(--line);
-    border-radius: 18px;
-    background: var(--panel);
-    box-shadow: 0 10px 28px rgba(16, 24, 32, 0.04);
+    border-radius: var(--radius-md);
+    background: var(--surface);
   }
 
   .install-panel h3 {
@@ -227,13 +265,22 @@ import { slugify } from '../lib/slugify.js';
   .install-panel pre {
     overflow-x: auto;
     margin: 0;
+    max-width: 100%;
     padding: 0.95rem;
     border: 1px solid var(--line);
-    border-radius: 10px;
-    background: #10131a;
-    color: #fff;
+    border-radius: var(--radius-sm);
+    background: var(--ink);
+    color: var(--accent-ink);
     font-size: 0.88rem;
     line-height: 1.55;
+  }
+
+  .install-panel pre code {
+    background: transparent;
+    color: inherit;
+    font-size: inherit;
+    font-weight: 600;
+    padding: 0;
   }
 
   .install-panel a {
@@ -252,40 +299,74 @@ import { slugify } from '../lib/slugify.js';
     min-width: 0;
   }
 
+  .catalog-heading {
+    margin-bottom: 2rem;
+  }
+
   .resource-group + .resource-group {
-    margin-top: 5rem;
-    padding-top: 5rem;
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
     border-top: 1px solid var(--line);
   }
 
-  .section-heading {
-    margin-bottom: 1.85rem;
+  .resource-group {
+    scroll-margin-top: 5.5rem;
   }
 
-  .section-heading h2 {
-    margin-top: 0;
+  .resource-group-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
   }
 
-  .resource-grid {
+  .resource-group-header h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+
+  .resource-group-header p {
+    max-width: 760px;
+    margin: 0.45rem 0 0;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .resource-group-header span {
+    flex: 0 0 auto;
+    color: var(--subtle);
+    font-size: 0.9rem;
+    font-weight: 650;
+  }
+
+  .resource-list {
     display: grid;
-    gap: 1.1rem;
+    gap: 0.85rem;
   }
 
   .resource-card {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    gap: 1.5rem;
-    padding: 1.5rem;
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+    gap: 1.25rem;
+    padding: 1.1rem;
     border: 1px solid var(--line);
-    border-radius: 18px;
-    background: var(--panel);
-    box-shadow: 0 10px 28px rgba(16, 24, 32, 0.04);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    transition: border-color 180ms ease-out, background-color 180ms ease-out;
   }
 
-  .resource-card h3 {
+  .resource-card:hover {
+    border-color: var(--line-strong);
+    background: oklch(100% 0 0);
+  }
+
+  .resource-card h4 {
     margin: 0 0 0.5rem;
-    font-size: 1.38rem;
-    letter-spacing: -0.03em;
+    font-size: 1.18rem;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
   }
 
   .resource-summary p,
@@ -299,59 +380,46 @@ import { slugify } from '../lib/slugify.js';
     margin: 0 0 0.4rem;
   }
 
-  .path code {
-    color: var(--accent);
-    font-weight: 800;
-  }
-
   .summary {
     margin: 0;
   }
 
-  .best {
+  .resource-field {
     margin-top: 1rem;
   }
 
-  h4 {
-    margin: 0 0 0.6rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  .field-label {
+    margin: 0 0 0.35rem;
+    color: var(--ink);
+    font-size: 0.88rem;
+    font-weight: 720;
   }
 
-  ul {
+  .use-list {
     margin: 0;
-    padding-left: 1.2rem;
+    color: var(--muted);
+    line-height: 1.55;
   }
 
   .resource-details {
     display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 0.9fr);
     gap: 1rem;
   }
 
-  .links-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
+  .resource-details ul,
   .link-list {
-    list-style: disc;
+    margin: 0;
+    padding-left: 1.1rem;
   }
 
   .link-list a {
     color: var(--ink);
-    text-decoration: none;
+    text-decoration-color: var(--line-strong);
   }
 
   .link-list a:hover {
-    text-decoration: underline;
-  }
-
-  .checklist-wrap {
-    display: grid;
-    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
-    gap: 2rem;
+    text-decoration-color: var(--ink);
   }
 
   .checklist {
@@ -366,21 +434,33 @@ import { slugify } from '../lib/slugify.js';
   }
 
   @media (max-width: 1040px) {
-    .hero-grid,
     .install-grid,
-    .checklist-wrap {
+    .catalog-layout {
       grid-template-columns: 1fr;
+    }
+
+    .catalog-index {
+      position: static;
+    }
+
+    .catalog-index ul {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
   }
 
   @media (max-width: 760px) {
-    .hero {
-      padding-top: 4rem;
+    .resource-card,
+    .resource-details {
+      grid-template-columns: 1fr;
     }
 
-    .resource-card,
-    .links-grid {
-      grid-template-columns: 1fr;
+    .resource-group-header {
+      display: block;
+    }
+
+    .resource-group-header span {
+      display: inline-block;
+      margin-top: 0.7rem;
     }
   }
 </style>
