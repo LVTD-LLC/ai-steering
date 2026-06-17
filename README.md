@@ -2,6 +2,24 @@
 
 This repository is a practical guide to the files that make AI-assisted coding work better in real projects.
 
+## Install the Reusable Skill
+
+Install `ai-steering-files` when you want an agent to reuse this guidance in another project.
+
+With the Skills CLI:
+
+```bash
+npx skills add LVTD-LLC/ai-steering
+```
+
+With GitHub CLI:
+
+```bash
+gh skill install LVTD-LLC/ai-steering ai-steering-files --agent codex --scope user
+```
+
+Source: [skills/ai-steering-files/SKILL.md](https://github.com/LVTD-LLC/ai-steering/blob/main/skills/ai-steering-files/SKILL.md)
+
 <a id="agent-agnostic-files"></a>
 ## Agent-Agnostic Files
 
@@ -204,6 +222,43 @@ Great examples:
 - [google-labs-code/design.md](https://github.com/google-labs-code/design.md)
 - [awesome-design-md](https://github.com/VoltAgent/awesome-design-md)
 - [awesome-claude-design](https://github.com/VoltAgent/awesome-claude-design)
+
+<a id="reusable-skills"></a>
+## Reusable Skills
+
+Installable skills package this guidance so agents can reuse it across projects without loading the whole catalog.
+
+<a id="ai-steering-files"></a>
+### ai-steering-files
+
+An installable Agent Skill for choosing, writing, and maintaining repo steering files.
+
+Use it for:
+
+- creating AI steering files in a new or existing repo
+- auditing whether agent instructions are concrete enough
+- choosing between agent-agnostic, agent-specific, and path-scoped guidance
+- keeping reusable agent context portable across projects
+
+What it should contain:
+
+- Agent Skills frontmatter with a searchable description
+- a practical workflow for inventorying existing steering files
+- a chooser table for common repo context files
+- quality checks for commands, paths, examples, and duplicate guidance
+
+Useful resources:
+
+- [Agent Skills specification](https://agentskills.io/specification)
+- [Skills CLI docs](https://www.skills.sh/docs/cli)
+- [GitHub CLI gh skill install](https://cli.github.com/manual/gh_skill_install)
+- [Skill source](https://github.com/LVTD-LLC/ai-steering/blob/main/skills/ai-steering-files/SKILL.md)
+
+Great examples:
+
+- [Agent Skills quickstart](https://agentskills.io/skill-creation/quickstart)
+- [OpenAI skills catalog](https://github.com/openai/skills)
+- [Vercel agent skills](https://github.com/vercel-labs/agent-skills)
 
 <a id="agent-specific-files"></a>
 ## Agent-Specific Files

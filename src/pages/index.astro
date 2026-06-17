@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { sections, siteLinks } from '../data/resources';
+import { installableSkill, sections, siteLinks } from '../data/resources';
 import { slugify } from '../lib/slugify.js';
 ---
 
@@ -15,6 +15,7 @@ import { slugify } from '../lib/slugify.js';
             A clean index of the repo context files that help agents make better edits, avoid dead ends, and keep implementation choices aligned with the project.
           </p>
           <div class="actions">
+            <a class="button" href="#install-skill">Install the skill</a>
             <a class="button" href="#catalog">Browse the files</a>
             <a class="button secondary" href={siteLinks.readme}>Open the README</a>
             <a class="button secondary" href="/contributing/">Suggest a site</a>
@@ -29,6 +30,33 @@ import { slugify } from '../lib/slugify.js';
             <li>Keep the guidance grounded in real commands, constraints, and examples.</li>
           </ul>
         </aside>
+      </div>
+    </section>
+
+    <section id="install-skill" class="section install-section">
+      <div class="container install-grid">
+        <div>
+          <p class="eyebrow">Reusable skill</p>
+          <h2>Install the catalog as an agent skill.</h2>
+          <p class="section-lede">
+            The <code>{installableSkill.name}</code> skill gives agents a compact workflow for choosing, writing, and auditing repo context files in any project.
+          </p>
+          <a class="button secondary" href={siteLinks.skill}>View skill source</a>
+        </div>
+
+        <div class="install-panel" aria-label="Skill installation commands">
+          <div>
+            <h3>Skills CLI</h3>
+            <pre><code>{installableSkill.skillsCliCommand}</code></pre>
+            <a href={siteLinks.skillsCli}>Skills CLI docs</a>
+          </div>
+
+          <div>
+            <h3>GitHub CLI</h3>
+            <pre><code>{installableSkill.githubCliCommand}</code></pre>
+            <a href={siteLinks.ghSkill}>gh skill install docs</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -170,6 +198,56 @@ import { slugify } from '../lib/slugify.js';
     gap: 0;
   }
 
+  .install-section {
+    background: rgba(255, 255, 255, 0.28);
+  }
+
+  .install-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(340px, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .install-panel {
+    display: grid;
+    gap: 1rem;
+    padding: 1.35rem;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--panel);
+    box-shadow: 0 10px 28px rgba(16, 24, 32, 0.04);
+  }
+
+  .install-panel h3 {
+    margin: 0 0 0.55rem;
+    font-size: 1rem;
+  }
+
+  .install-panel pre {
+    overflow-x: auto;
+    margin: 0;
+    padding: 0.95rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #10131a;
+    color: #fff;
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .install-panel a {
+    display: inline-block;
+    margin-top: 0.65rem;
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .install-panel a:hover {
+    text-decoration: underline;
+  }
+
   .catalog-content {
     min-width: 0;
   }
@@ -289,6 +367,7 @@ import { slugify } from '../lib/slugify.js';
 
   @media (max-width: 1040px) {
     .hero-grid,
+    .install-grid,
     .checklist-wrap {
       grid-template-columns: 1fr;
     }

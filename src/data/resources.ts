@@ -1,4 +1,4 @@
-import { resourceSections, siteLinks } from './steering-data.js';
+import { resourceSections, siteLinks, skillInstall } from './steering-data.js';
 
 export type Link = {
   label: string;
@@ -20,6 +20,13 @@ export type ResourceSection = {
   slug: string;
   intro: string;
   resources: Resource[];
+};
+
+export type SkillInstall = {
+  name: string;
+  sourcePath: string;
+  skillsCliCommand: string;
+  githubCliCommand: string;
 };
 
 const isStringArray = (value: unknown): value is string[] =>
@@ -72,6 +79,17 @@ function assertSectionsShape(value: unknown): asserts value is ResourceSection[]
 
 assertSectionsShape(resourceSections);
 
+if (
+  typeof skillInstall !== 'object' ||
+  skillInstall === null ||
+  typeof skillInstall.name !== 'string' ||
+  typeof skillInstall.sourcePath !== 'string' ||
+  typeof skillInstall.skillsCliCommand !== 'string' ||
+  typeof skillInstall.githubCliCommand !== 'string'
+) {
+  throw new Error(`Invalid skill install data: ${JSON.stringify(skillInstall)}`);
+}
+
 export const sections: ResourceSection[] = resourceSections;
 const coreSection = sections.find((section) => section.slug === 'agent-agnostic-files');
 const relatedSection = sections.find((section) => section.slug === 'agent-specific-files');
@@ -82,4 +100,5 @@ if (!coreSection || !relatedSection) {
 
 export const coreResources = coreSection.resources;
 export const relatedResources = relatedSection.resources;
+export const installableSkill: SkillInstall = skillInstall;
 export { siteLinks };

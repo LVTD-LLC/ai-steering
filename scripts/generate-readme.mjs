@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { resourceSections, siteLinks } from '../src/data/steering-data.js';
+import { resourceSections, siteLinks, skillInstall } from '../src/data/steering-data.js';
 import { slugify } from '../src/lib/slugify.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -17,6 +17,27 @@ const lines = [];
 lines.push('# AI Steering Files', '');
 lines.push(
   'This repository is a practical guide to the files that make AI-assisted coding work better in real projects.',
+  ''
+);
+
+lines.push(
+  '## Install the Reusable Skill',
+  '',
+  `Install \`${skillInstall.name}\` when you want an agent to reuse this guidance in another project.`,
+  '',
+  'With the Skills CLI:',
+  '',
+  '```bash',
+  skillInstall.skillsCliCommand,
+  '```',
+  '',
+  'With GitHub CLI:',
+  '',
+  '```bash',
+  skillInstall.githubCliCommand,
+  '```',
+  '',
+  `Source: [${skillInstall.sourcePath}](${siteLinks.skill})`,
   ''
 );
 
