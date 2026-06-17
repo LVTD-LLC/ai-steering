@@ -20,6 +20,27 @@ lines.push(
   ''
 );
 
+lines.push(
+  '## Install the Reusable Skill',
+  '',
+  'Install `ai-steering-files` when you want an agent to reuse this guidance in another project.',
+  '',
+  'With the Skills CLI:',
+  '',
+  '```bash',
+  'npx skills add LVTD-LLC/ai-steering',
+  '```',
+  '',
+  'With GitHub CLI:',
+  '',
+  '```bash',
+  'gh skill install LVTD-LLC/ai-steering ai-steering-files --agent codex --scope user',
+  '```',
+  '',
+  `Source: [skills/ai-steering-files/SKILL.md](${siteLinks.skill})`,
+  ''
+);
+
 for (const section of resourceSections) {
   lines.push(`<a id="${section.slug}"></a>`, `## ${section.title}`, '');
   lines.push(`${section.intro}`, '');
