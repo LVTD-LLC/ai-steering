@@ -2,7 +2,7 @@ export const siteLinks = {
   repo: 'https://github.com/LVTD-LLC/ai-steering',
   readme: 'https://github.com/LVTD-LLC/ai-steering/blob/main/README.md',
   contributing: 'https://github.com/LVTD-LLC/ai-steering/blob/main/CONTRIBUTING.md',
-  suggestSite: 'https://github.com/LVTD-LLC/ai-steering/issues/new?title=Suggest%20resource%3A%20&body=URL%3A%0A%0ASteering%20file%3A%0A%0AUseful%20resources%20or%20Great%20examples%3A%0A%0AWhy%20it%20belongs%3A',
+  suggestSite: 'https://github.com/LVTD-LLC/ai-steering/issues/new?title=Suggest%20resource%3A%20&body=URL%3A%0A%0ASteering%20file%3A%0A%0AUseful%20resources%20or%20Great%20examples%3A%0A%0AWhat%20it%20teaches%20or%20shows%3A',
   site: 'https://ai-steering.lvtd.dev',
   source: 'https://github.com/LVTD-LLC/ai-steering/blob/main/src/data/steering-data.js',
   skill: 'https://github.com/LVTD-LLC/ai-steering/blob/main/skills/ai-steering-files/SKILL.md',
