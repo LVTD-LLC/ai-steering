@@ -10,6 +10,13 @@ export const siteLinks = {
   ghSkill: 'https://cli.github.com/manual/gh_skill_install'
 };
 
+export const skillInstall = {
+  name: 'ai-steering-files',
+  sourcePath: 'skills/ai-steering-files/SKILL.md',
+  skillsCliCommand: 'npx skills add LVTD-LLC/ai-steering',
+  githubCliCommand: 'gh skill install LVTD-LLC/ai-steering ai-steering-files --agent codex --scope user'
+};
+
 export const resourceSections = [
   {
     title: 'Agent-Agnostic Files',

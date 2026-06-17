@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { sections, siteLinks } from '../data/resources';
+import { installableSkill, sections, siteLinks } from '../data/resources';
 import { slugify } from '../lib/slugify.js';
 ---
 
@@ -39,7 +39,7 @@ import { slugify } from '../lib/slugify.js';
           <p class="eyebrow">Reusable skill</p>
           <h2>Install the catalog as an agent skill.</h2>
           <p class="section-lede">
-            The <code>ai-steering-files</code> skill gives agents a compact workflow for choosing, writing, and auditing repo context files in any project.
+            The <code>{installableSkill.name}</code> skill gives agents a compact workflow for choosing, writing, and auditing repo context files in any project.
           </p>
           <a class="button secondary" href={siteLinks.skill}>View skill source</a>
         </div>
@@ -47,13 +47,13 @@ import { slugify } from '../lib/slugify.js';
         <div class="install-panel" aria-label="Skill installation commands">
           <div>
             <h3>Skills CLI</h3>
-            <pre><code>npx skills add LVTD-LLC/ai-steering</code></pre>
+            <pre><code>{installableSkill.skillsCliCommand}</code></pre>
             <a href={siteLinks.skillsCli}>Skills CLI docs</a>
           </div>
 
           <div>
             <h3>GitHub CLI</h3>
-            <pre><code>gh skill install LVTD-LLC/ai-steering ai-steering-files --agent codex --scope user</code></pre>
+            <pre><code>{installableSkill.githubCliCommand}</code></pre>
             <a href={siteLinks.ghSkill}>gh skill install docs</a>
           </div>
         </div>

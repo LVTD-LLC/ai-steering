@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { resourceSections, siteLinks } from '../src/data/steering-data.js';
+import { resourceSections, siteLinks, skillInstall } from '../src/data/steering-data.js';
 import { slugify } from '../src/lib/slugify.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -23,21 +23,21 @@ lines.push(
 lines.push(
   '## Install the Reusable Skill',
   '',
-  'Install `ai-steering-files` when you want an agent to reuse this guidance in another project.',
+  `Install \`${skillInstall.name}\` when you want an agent to reuse this guidance in another project.`,
   '',
   'With the Skills CLI:',
   '',
   '```bash',
-  'npx skills add LVTD-LLC/ai-steering',
+  skillInstall.skillsCliCommand,
   '```',
   '',
   'With GitHub CLI:',
   '',
   '```bash',
-  'gh skill install LVTD-LLC/ai-steering ai-steering-files --agent codex --scope user',
+  skillInstall.githubCliCommand,
   '```',
   '',
-  `Source: [skills/ai-steering-files/SKILL.md](${siteLinks.skill})`,
+  `Source: [${skillInstall.sourcePath}](${siteLinks.skill})`,
   ''
 );
 
