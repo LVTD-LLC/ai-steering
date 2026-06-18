@@ -38,6 +38,8 @@ Start here for rules and context that should help every coding assistant work sa
 
 The shared operating manual every coding agent should read before changing the repo.
 
+Awesome repo search: [find matching repositories](https://awesome.lvtd.dev/?has_file=AGENTS.md).
+
 Use it for:
 
 - repo-specific behavior that applies across tools
@@ -74,6 +76,8 @@ Great examples:
 
 Product context that keeps implementation tradeoffs tied to users and outcomes.
 
+Awesome repo search: [find matching repositories](https://awesome.lvtd.dev/?has_file=PRODUCT.md).
+
 Use it for:
 
 - target users and use cases
@@ -109,6 +113,8 @@ Great examples:
 
 The technical source of truth for stack, commands, and implementation constraints.
 
+Awesome repo search: [find matching repositories](https://awesome.lvtd.dev/?has_file=TECH.md).
+
 Use it for:
 
 - framework and library choices
@@ -142,6 +148,8 @@ Great examples:
 
 A repo map that helps agents put code, docs, and tests in the right place.
 
+Awesome repo search: [find matching repositories](https://awesome.lvtd.dev/?has_file=STRUCTURE.md).
+
 Use it for:
 
 - top-level directory layout
@@ -174,6 +182,8 @@ Great examples:
 ### VISION.md
 
 Long-term direction, non-goals, and taste principles that should outlast individual specs.
+
+Awesome repo search: [find matching repositories](https://awesome.lvtd.dev/?has_file=VISION.md).
 
 Use it for:
 
@@ -209,6 +219,8 @@ Great examples:
 ### DESIGN.md
 
 A design-system source of truth for AI-generated UI changes.
+
+Awesome repo search: [find matching repositories](https://awesome.lvtd.dev/?has_file=DESIGN.md).
 
 Use it for:
 
@@ -251,6 +263,8 @@ Add these when a tool needs its own syntax, memory model, or narrower workflow r
 
 The Claude Code memory file for repo-specific instructions and workflows.
 
+Awesome repo search: [find matching repositories](https://awesome.lvtd.dev/?has_file=CLAUDE.md).
+
 Use it for:
 
 - Claude-specific guidance
@@ -285,6 +299,8 @@ Great examples:
 
 The Gemini CLI context file for repo instructions, commands, and response preferences.
 
+Awesome repo search: [find matching repositories](https://awesome.lvtd.dev/?has_file=GEMINI.md).
+
 Use it for:
 
 - Gemini-specific instructions
@@ -315,6 +331,8 @@ Great examples:
 ### .github/copilot-instructions.md
 
 Repository-wide instructions GitHub Copilot should apply when suggesting changes.
+
+Awesome repo search: [find matching repositories](https://awesome.lvtd.dev/?has_file=.github%2Fcopilot-instructions.md).
 
 Use it for:
 
@@ -349,6 +367,8 @@ Great examples:
 ### .cursor/rules/*.mdc
 
 Path-scoped Cursor rules for workflows that need narrower guidance than a repo-wide file.
+
+Awesome repo search: [find matching repositories](https://awesome.lvtd.dev/?q=.cursor%2Frules%2F*.mdc).
 
 Use it for:
 

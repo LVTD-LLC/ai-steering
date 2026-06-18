@@ -1,7 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { resourceSections, siteLinks, skillInstall } from '../src/data/steering-data.js';
+import {
+  createAwesomeRepoSearchUrl,
+  resourceSections,
+  siteLinks,
+  skillInstall
+} from '../src/data/steering-data.js';
 import { slugify } from '../src/lib/slugify.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -55,6 +60,9 @@ for (const section of resourceSections) {
   for (const resource of section.resources) {
     lines.push(`<a id="${slugify(resource.name)}"></a>`, `### ${resource.name}`, '');
     lines.push(`${resource.summary}`, '');
+    if (section.showAwesomeRepoSearch) {
+      lines.push(`Awesome repo search: [find matching repositories](${createAwesomeRepoSearchUrl(resource.path)}).`, '');
+    }
     lines.push('Use it for:', '', bulletList(resource.useItFor), '');
     lines.push('What it should contain:', '', bulletList(resource.shouldContain), '');
     lines.push('Useful resources:', '', linkList(resource.usefulResources), '');

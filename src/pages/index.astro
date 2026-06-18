@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { installableSkill, sections, siteLinks } from '../data/resources';
+import { createAwesomeRepoSearchUrl, installableSkill, sections, siteLinks } from '../data/resources';
 import { slugify } from '../lib/slugify.js';
 
 const totalResources = sections.reduce((total, section) => total + section.resources.length, 0);
@@ -121,11 +121,25 @@ const catalogSchema = {
               <div class="resource-list">
                 {section.resources.map((resource) => {
                   const resourceId = slugify(resource.name);
+                  const awesomeRepoSearchHref = section.showAwesomeRepoSearch
+                    ? createAwesomeRepoSearchUrl(resource.path)
+                    : null;
 
                   return (
                     <article class="resource-card" id={resourceId} aria-labelledby={`${resourceId}-title`}>
                       <div class="resource-summary">
-                        <p class="path"><code>{resource.path}</code></p>
+                        <div class="resource-path-row">
+                          <p class="path"><code>{resource.path}</code></p>
+                          {awesomeRepoSearchHref && (
+                            <a
+                              class="repo-search-link"
+                              href={awesomeRepoSearchHref}
+                              aria-label={`Search Awesome repositories for ${resource.path}`}
+                            >
+                              Search Awesome repos
+                            </a>
+                          )}
+                        </div>
                         <h4 id={`${resourceId}-title`}>{resource.name}</h4>
                         <p class="summary">{resource.summary}</p>
                         <div class="resource-field">
@@ -398,7 +412,26 @@ const catalogSchema = {
   }
 
   .path {
-    margin: 0 0 0.4rem;
+    margin: 0;
+  }
+
+  .resource-path-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 0.65rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .repo-search-link {
+    color: var(--ink);
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-decoration-color: var(--line-strong);
+  }
+
+  .repo-search-link:hover {
+    text-decoration-color: var(--ink);
   }
 
   .summary {
