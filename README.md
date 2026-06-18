@@ -96,7 +96,7 @@ Great examples:
 
 - [paperclip PRODUCT.md](https://github.com/paperclipai/paperclip/blob/master/doc/PRODUCT.md)
 - [agent-coordinator PRODUCT.md](https://github.com/mspworld/agent-coordinator/blob/main/PRODUCT.md)
-- [AI-Shipping-Labs website](https://github.com/AI-Shipping-Labs/website/blob/main/_docs/PRODUCT.md)
+- [AI-Shipping-Labs website](https://github.com/AI-Shipping-Labs/website/blob/main/_docs/product.md)
 
 <a id="tech-md"></a>
 ### TECH.md
@@ -127,7 +127,7 @@ Useful resources:
 
 Great examples:
 
-- [sample-kiro-cli-multiagent-development docs/tech.md](https://github.com/aws-samples/sample-kiro-cli-multiagent-development/blob/main/docs/tech.md)
+- [sample-kiro-cli sdk verification steering](https://github.com/aws-samples/sample-kiro-cli-multiagent-development/blob/main/steering/sdk-verification.md)
 - [moai-adk](https://github.com/modu-ai/moai-adk)
 - [ai-engineering-template](https://github.com/LaProgrammerie/ai-engineering-template)
 
@@ -154,7 +154,7 @@ What it should contain:
 Useful resources:
 
 - [Kiro steering docs](https://kiro.dev/docs/steering/)
-- [Introducing Kiro powers](https://kiro.dev/blog/introducing-kiro-powers/)
+- [Introducing Kiro powers](https://kiro.dev/blog/introducing-powers/)
 - [Better Agents STRUCTURE.md](https://github.com/langwatch/better-agents/blob/main/docs/STRUCTURE.md)
 - [Project structure guide](https://github.com/gamekit-agent/gamekit-cli/blob/main/docs/project-structure.md)
 
@@ -192,7 +192,7 @@ Useful resources:
 
 Great examples:
 
-- [agentkitten VISION.md](https://github.com/fbeeper/agentkitten/blob/main/VISION.md)
+- [OpenClaw VISION.md](https://github.com/openclaw/openclaw/blob/main/VISION.md)
 - [sprout VISION.md](https://github.com/block/sprout/blob/main/VISION.md)
 - [gsd-2 VISION.md](https://github.com/gsd-build/gsd-2/blob/main/VISION.md)
 
@@ -365,7 +365,7 @@ Useful resources:
 Great examples:
 
 - [github/awesome-copilot](https://github.com/github/awesome-copilot)
-- [AI-Shipping-Labs website](https://github.com/AI-Shipping-Labs/website/blob/main/.github/copilot-instructions.md)
+- [dotnet/runtime copilot instructions](https://github.com/dotnet/runtime/blob/main/.github/copilot-instructions.md)
 - [obsidian-tasks issue #3816](https://github.com/obsidian-tasks-group/obsidian-tasks/issues/3816)
 
 <a id="cursor-rules-mdc"></a>

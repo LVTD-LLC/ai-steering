@@ -77,7 +77,7 @@ export const resourceSections = [
         greatExamples: [
           { label: 'paperclip PRODUCT.md', href: 'https://github.com/paperclipai/paperclip/blob/master/doc/PRODUCT.md' },
           { label: 'agent-coordinator PRODUCT.md', href: 'https://github.com/mspworld/agent-coordinator/blob/main/PRODUCT.md' },
-          { label: 'AI-Shipping-Labs website', href: 'https://github.com/AI-Shipping-Labs/website/blob/main/_docs/PRODUCT.md' }
+          { label: 'AI-Shipping-Labs website', href: 'https://github.com/AI-Shipping-Labs/website/blob/main/_docs/product.md' }
         ]
       },
       {
@@ -104,7 +104,7 @@ export const resourceSections = [
           { label: 'Introducing Kiro CLI', href: 'https://kiro.dev/blog/introducing-kiro-cli/' }
         ],
         greatExamples: [
-          { label: 'sample-kiro-cli-multiagent-development docs/tech.md', href: 'https://github.com/aws-samples/sample-kiro-cli-multiagent-development/blob/main/docs/tech.md' },
+          { label: 'sample-kiro-cli sdk verification steering', href: 'https://github.com/aws-samples/sample-kiro-cli-multiagent-development/blob/main/steering/sdk-verification.md' },
           { label: 'moai-adk', href: 'https://github.com/modu-ai/moai-adk' },
           { label: 'ai-engineering-template', href: 'https://github.com/LaProgrammerie/ai-engineering-template' }
         ]
@@ -128,7 +128,7 @@ export const resourceSections = [
         ],
         usefulResources: [
           { label: 'Kiro steering docs', href: 'https://kiro.dev/docs/steering/' },
-          { label: 'Introducing Kiro powers', href: 'https://kiro.dev/blog/introducing-kiro-powers/' },
+          { label: 'Introducing Kiro powers', href: 'https://kiro.dev/blog/introducing-powers/' },
           { label: 'Better Agents STRUCTURE.md', href: 'https://github.com/langwatch/better-agents/blob/main/docs/STRUCTURE.md' },
           { label: 'Project structure guide', href: 'https://github.com/gamekit-agent/gamekit-cli/blob/main/docs/project-structure.md' }
         ],
@@ -161,7 +161,7 @@ export const resourceSections = [
           { label: 'clawhub VISION.md', href: 'https://github.com/openclaw/clawhub/blob/main/VISION.md' }
         ],
         greatExamples: [
-          { label: 'agentkitten VISION.md', href: 'https://github.com/fbeeper/agentkitten/blob/main/VISION.md' },
+          { label: 'OpenClaw VISION.md', href: 'https://github.com/openclaw/openclaw/blob/main/VISION.md' },
           { label: 'sprout VISION.md', href: 'https://github.com/block/sprout/blob/main/VISION.md' },
           { label: 'gsd-2 VISION.md', href: 'https://github.com/gsd-build/gsd-2/blob/main/VISION.md' }
         ]
@@ -318,7 +318,7 @@ export const resourceSections = [
         ],
         greatExamples: [
           { label: 'github/awesome-copilot', href: 'https://github.com/github/awesome-copilot' },
-          { label: 'AI-Shipping-Labs website', href: 'https://github.com/AI-Shipping-Labs/website/blob/main/.github/copilot-instructions.md' },
+          { label: 'dotnet/runtime copilot instructions', href: 'https://github.com/dotnet/runtime/blob/main/.github/copilot-instructions.md' },
           { label: 'obsidian-tasks issue #3816', href: 'https://github.com/obsidian-tasks-group/obsidian-tasks/issues/3816' }
         ]
       },

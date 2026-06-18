@@ -4,9 +4,30 @@ import { installableSkill, sections, siteLinks } from '../data/resources';
 import { slugify } from '../lib/slugify.js';
 
 const totalResources = sections.reduce((total, section) => total + section.resources.length, 0);
+const catalogItems = sections.flatMap((section) => section.resources);
+const catalogSchema = {
+  '@type': 'ItemList',
+  '@id': `${siteLinks.site}/#catalog`,
+  name: 'AI steering file catalog',
+  description: 'A curated catalog of steering files and agent instruction files for AI coding agents.',
+  itemListElement: catalogItems.map((resource, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'CreativeWork',
+      name: resource.name,
+      url: `${siteLinks.site}/#${slugify(resource.name)}`,
+      description: resource.summary
+    }
+  }))
+};
 ---
 
-<BaseLayout title="AI Steering Files - choose repo context for coding agents" description="A practical catalog of AGENTS.md, PRODUCT.md, TECH.md, and tool-specific instruction files for AI coding agents.">
+<BaseLayout
+  title="AI Steering Files - choose repo context for coding agents"
+  description="A practical catalog of AGENTS.md, PRODUCT.md, TECH.md, and tool-specific instruction files for AI coding agents."
+  structuredData={[catalogSchema]}
+>
   <main id="main-content">
     <section class="page-header">
       <div class="container page-header-grid">
