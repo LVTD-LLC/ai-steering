@@ -3,9 +3,11 @@ import type { Link } from '../data/resources';
 
 export const prerender = true;
 
-const bulletList = (items: string[]) => items.map((item) => `- ${item}`).join('\n');
+const bulletList = (items: string[]) =>
+  items.length > 0 ? items.map((item) => `- ${item}`).join('\n') : '- (none)';
 
-const linkList = (items: Link[]) => items.map((item) => `- ${item.label}: ${item.href}`).join('\n');
+const linkList = (items: Link[]) =>
+  items.length > 0 ? items.map((item) => `- ${item.label}: ${item.href}`).join('\n') : '- (none)';
 
 const lines = [
   '# AI Steering Files',
