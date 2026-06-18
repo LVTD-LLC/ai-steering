@@ -199,41 +199,6 @@ export const resourceSections = [
     ]
   },
   {
-    title: 'Reusable Skills',
-    slug: 'reusable-skills',
-    intro: 'Installable skills package this guidance so agents can reuse it across projects without loading the whole catalog.',
-    resources: [
-      {
-        name: 'ai-steering-files',
-        path: 'skills/ai-steering-files/SKILL.md',
-        summary: 'An installable Agent Skill for choosing, writing, and maintaining repo steering files.',
-        useItFor: [
-          'creating AI steering files in a new or existing repo',
-          'auditing whether agent instructions are concrete enough',
-          'choosing between agent-agnostic, agent-specific, and path-scoped guidance',
-          'keeping reusable agent context portable across projects'
-        ],
-        shouldContain: [
-          'Agent Skills frontmatter with a searchable description',
-          'a practical workflow for inventorying existing steering files',
-          'a chooser table for common repo context files',
-          'quality checks for commands, paths, examples, and duplicate guidance'
-        ],
-        usefulResources: [
-          { label: 'Agent Skills specification', href: 'https://agentskills.io/specification' },
-          { label: 'Skills CLI docs', href: 'https://www.skills.sh/docs/cli' },
-          { label: 'GitHub CLI gh skill install', href: 'https://cli.github.com/manual/gh_skill_install' },
-          { label: 'Skill source', href: 'https://github.com/LVTD-LLC/ai-steering/blob/main/skills/ai-steering-files/SKILL.md' }
-        ],
-        greatExamples: [
-          { label: 'Agent Skills quickstart', href: 'https://agentskills.io/skill-creation/quickstart' },
-          { label: 'OpenAI skills catalog', href: 'https://github.com/openai/skills' },
-          { label: 'Vercel agent skills', href: 'https://github.com/vercel-labs/agent-skills' }
-        ]
-      }
-    ]
-  },
-  {
     title: 'Agent-Specific Files',
     slug: 'agent-specific-files',
     intro: 'Add these when a tool needs its own syntax, memory model, or narrower workflow rules.',
