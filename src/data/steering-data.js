@@ -48,7 +48,11 @@ export const resourceSections = [
           { label: 'How to write good AGENTS.md files', href: 'https://www.augmentcode.com/blog/how-to-write-good-agents-dot-md-files' }
         ],
         greatExamples: [
-          { label: 'paperclip', href: 'https://github.com/paperclipai/paperclip/blob/master/AGENTS.md' },
+          { label: 'n8n AGENTS.md', href: 'https://github.com/n8n-io/n8n/blob/master/AGENTS.md' },
+          { label: 'spec-kit AGENTS.md', href: 'https://github.com/github/spec-kit/blob/main/AGENTS.md' },
+          { label: 'llama.cpp AGENTS.md', href: 'https://github.com/ggml-org/llama.cpp/blob/master/AGENTS.md' },
+          { label: 'paperclip AGENTS.md', href: 'https://github.com/paperclipai/paperclip/blob/master/AGENTS.md' },
+          { label: 'Firecrawl AGENTS.md', href: 'https://github.com/firecrawl/firecrawl/blob/main/AGENTS.md' }
         ]
       },
       {
@@ -75,6 +79,8 @@ export const resourceSections = [
           { label: 'Spec kit walkthrough', href: 'https://matsen.fhcrc.org/general/2026/02/10/spec-kit-walkthrough.html' }
         ],
         greatExamples: [
+          { label: 'Rybbit PRODUCT.md', href: 'https://github.com/rybbit-io/rybbit/blob/master/PRODUCT.md' },
+          { label: 'Twenty PRODUCT.md', href: 'https://github.com/twentyhq/twenty/blob/main/PRODUCT.md' },
           { label: 'paperclip PRODUCT.md', href: 'https://github.com/paperclipai/paperclip/blob/master/doc/PRODUCT.md' },
           { label: 'agent-coordinator PRODUCT.md', href: 'https://github.com/mspworld/agent-coordinator/blob/main/PRODUCT.md' },
           { label: 'AI-Shipping-Labs website', href: 'https://github.com/AI-Shipping-Labs/website/blob/main/_docs/product.md' }
@@ -162,6 +168,9 @@ export const resourceSections = [
         ],
         greatExamples: [
           { label: 'OpenClaw VISION.md', href: 'https://github.com/openclaw/openclaw/blob/main/VISION.md' },
+          { label: 'lazygit VISION.md', href: 'https://github.com/jesseduffield/lazygit/blob/master/VISION.md' },
+          { label: 'OpenClaw ClawHub VISION.md', href: 'https://github.com/openclaw/clawhub/blob/main/VISION.md' },
+          { label: 'agentkitten VISION.md', href: 'https://github.com/fbeeper/agentkitten/blob/main/VISION.md' },
           { label: 'sprout VISION.md', href: 'https://github.com/block/sprout/blob/main/VISION.md' },
           { label: 'gsd-2 VISION.md', href: 'https://github.com/gsd-build/gsd-2/blob/main/VISION.md' }
         ]
@@ -191,6 +200,8 @@ export const resourceSections = [
           { label: 'Awesome Design.md', href: 'https://github.com/VoltAgent/awesome-design-md' }
         ],
         greatExamples: [
+          { label: 'Twenty DESIGN.md', href: 'https://github.com/twentyhq/twenty/blob/main/DESIGN.md' },
+          { label: 'gstack DESIGN.md', href: 'https://github.com/garrytan/gstack/blob/main/DESIGN.md' },
           { label: 'google-labs-code/design.md', href: 'https://github.com/google-labs-code/design.md' },
           { label: 'awesome-design-md', href: 'https://github.com/VoltAgent/awesome-design-md' },
           { label: 'awesome-claude-design', href: 'https://github.com/VoltAgent/awesome-claude-design' }
@@ -262,9 +273,10 @@ export const resourceSections = [
           { label: 'Anthropic issue #10286', href: 'https://github.com/anthropics/claude-code/issues/10286' }
         ],
         greatExamples: [
-          { label: 'tools-monorepo CLAUDE.md', href: 'https://github.com/tylerbutler/tools-monorepo/blob/main/CLAUDE.md' },
-          { label: 'claude-code-best-practice', href: 'https://github.com/shanraisshan/claude-code-best-practice/blob/main/CLAUDE.md' },
-          { label: 'mcp-steroid CLAUDE.md', href: 'https://github.com/jonnyzzz/mcp-steroid/blob/main/CLAUDE.md' }
+          { label: 'TrueCourse CLAUDE.md', href: 'https://github.com/truecourse-ai/truecourse/blob/main/CLAUDE.md' },
+          { label: 'Andrej Karpathy skills CLAUDE.md', href: 'https://github.com/multica-ai/andrej-karpathy-skills/blob/main/CLAUDE.md' },
+          { label: 'Claude Agent SDK Python CLAUDE.md', href: 'https://github.com/anthropics/claude-agent-sdk-python/blob/main/CLAUDE.md' },
+          { label: 'tools-monorepo CLAUDE.md', href: 'https://github.com/tylerbutler/tools-monorepo/blob/main/CLAUDE.md' }
         ]
       },
       {
@@ -317,6 +329,8 @@ export const resourceSections = [
           { label: 'Awesome Copilot', href: 'https://github.com/github/awesome-copilot' }
         ],
         greatExamples: [
+          { label: 'VS Code Copilot instructions', href: 'https://github.com/microsoft/vscode/blob/main/.github/copilot-instructions.md' },
+          { label: 'GitHub Copilot SDK instructions', href: 'https://github.com/github/copilot-sdk/blob/main/.github/copilot-instructions.md' },
           { label: 'github/awesome-copilot', href: 'https://github.com/github/awesome-copilot' },
           { label: 'dotnet/runtime copilot instructions', href: 'https://github.com/dotnet/runtime/blob/main/.github/copilot-instructions.md' },
           { label: 'obsidian-tasks issue #3816', href: 'https://github.com/obsidian-tasks-group/obsidian-tasks/issues/3816' }

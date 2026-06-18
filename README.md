@@ -63,7 +63,11 @@ Useful resources:
 
 Great examples:
 
-- [paperclip](https://github.com/paperclipai/paperclip/blob/master/AGENTS.md)
+- [n8n AGENTS.md](https://github.com/n8n-io/n8n/blob/master/AGENTS.md)
+- [spec-kit AGENTS.md](https://github.com/github/spec-kit/blob/main/AGENTS.md)
+- [llama.cpp AGENTS.md](https://github.com/ggml-org/llama.cpp/blob/master/AGENTS.md)
+- [paperclip AGENTS.md](https://github.com/paperclipai/paperclip/blob/master/AGENTS.md)
+- [Firecrawl AGENTS.md](https://github.com/firecrawl/firecrawl/blob/main/AGENTS.md)
 
 <a id="product-md"></a>
 ### PRODUCT.md
@@ -94,6 +98,8 @@ Useful resources:
 
 Great examples:
 
+- [Rybbit PRODUCT.md](https://github.com/rybbit-io/rybbit/blob/master/PRODUCT.md)
+- [Twenty PRODUCT.md](https://github.com/twentyhq/twenty/blob/main/PRODUCT.md)
 - [paperclip PRODUCT.md](https://github.com/paperclipai/paperclip/blob/master/doc/PRODUCT.md)
 - [agent-coordinator PRODUCT.md](https://github.com/mspworld/agent-coordinator/blob/main/PRODUCT.md)
 - [AI-Shipping-Labs website](https://github.com/AI-Shipping-Labs/website/blob/main/_docs/product.md)
@@ -193,6 +199,9 @@ Useful resources:
 Great examples:
 
 - [OpenClaw VISION.md](https://github.com/openclaw/openclaw/blob/main/VISION.md)
+- [lazygit VISION.md](https://github.com/jesseduffield/lazygit/blob/master/VISION.md)
+- [OpenClaw ClawHub VISION.md](https://github.com/openclaw/clawhub/blob/main/VISION.md)
+- [agentkitten VISION.md](https://github.com/fbeeper/agentkitten/blob/main/VISION.md)
 - [sprout VISION.md](https://github.com/block/sprout/blob/main/VISION.md)
 - [gsd-2 VISION.md](https://github.com/gsd-build/gsd-2/blob/main/VISION.md)
 
@@ -226,6 +235,8 @@ Useful resources:
 
 Great examples:
 
+- [Twenty DESIGN.md](https://github.com/twentyhq/twenty/blob/main/DESIGN.md)
+- [gstack DESIGN.md](https://github.com/garrytan/gstack/blob/main/DESIGN.md)
 - [google-labs-code/design.md](https://github.com/google-labs-code/design.md)
 - [awesome-design-md](https://github.com/VoltAgent/awesome-design-md)
 - [awesome-claude-design](https://github.com/VoltAgent/awesome-claude-design)
@@ -301,9 +312,10 @@ Useful resources:
 
 Great examples:
 
+- [TrueCourse CLAUDE.md](https://github.com/truecourse-ai/truecourse/blob/main/CLAUDE.md)
+- [Andrej Karpathy skills CLAUDE.md](https://github.com/multica-ai/andrej-karpathy-skills/blob/main/CLAUDE.md)
+- [Claude Agent SDK Python CLAUDE.md](https://github.com/anthropics/claude-agent-sdk-python/blob/main/CLAUDE.md)
 - [tools-monorepo CLAUDE.md](https://github.com/tylerbutler/tools-monorepo/blob/main/CLAUDE.md)
-- [claude-code-best-practice](https://github.com/shanraisshan/claude-code-best-practice/blob/main/CLAUDE.md)
-- [mcp-steroid CLAUDE.md](https://github.com/jonnyzzz/mcp-steroid/blob/main/CLAUDE.md)
 
 <a id="gemini-md"></a>
 ### GEMINI.md
@@ -364,6 +376,8 @@ Useful resources:
 
 Great examples:
 
+- [VS Code Copilot instructions](https://github.com/microsoft/vscode/blob/main/.github/copilot-instructions.md)
+- [GitHub Copilot SDK instructions](https://github.com/github/copilot-sdk/blob/main/.github/copilot-instructions.md)
 - [github/awesome-copilot](https://github.com/github/awesome-copilot)
 - [dotnet/runtime copilot instructions](https://github.com/dotnet/runtime/blob/main/.github/copilot-instructions.md)
 - [obsidian-tasks issue #3816](https://github.com/obsidian-tasks-group/obsidian-tasks/issues/3816)
