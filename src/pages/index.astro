@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { installableSkill, sections, siteLinks } from '../data/resources';
+import { createAwesomeRepoSearchUrl, installableSkill, sections, siteLinks } from '../data/resources';
 import { slugify } from '../lib/slugify.js';
 
 const totalResources = sections.reduce((total, section) => total + section.resources.length, 0);
@@ -121,6 +121,9 @@ const catalogSchema = {
               <div class="resource-list">
                 {section.resources.map((resource) => {
                   const resourceId = slugify(resource.name);
+                  const awesomeRepoSearchHref = section.showAwesomeRepoSearch
+                    ? createAwesomeRepoSearchUrl(resource.path)
+                    : null;
 
                   return (
                     <article class="resource-card" id={resourceId} aria-labelledby={`${resourceId}-title`}>
@@ -155,6 +158,18 @@ const catalogSchema = {
                             {resource.greatExamples.map((link) => (
                               <li><a href={link.href}>{link.label}</a></li>
                             ))}
+                            {awesomeRepoSearchHref && (
+                              <li>
+                                <a
+                                  href={awesomeRepoSearchHref}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  aria-label={`See more ${resource.path} examples on Awesome`}
+                                >
+                                  see more
+                                </a>
+                              </li>
+                            )}
                           </ul>
                         </div>
                       </div>

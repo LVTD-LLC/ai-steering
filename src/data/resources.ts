@@ -1,4 +1,4 @@
-import { resourceSections, siteLinks, skillInstall } from './steering-data.js';
+import { createAwesomeRepoSearchUrl, resourceSections, siteLinks, skillInstall } from './steering-data.js';
 
 export type Link = {
   label: string;
@@ -19,6 +19,7 @@ export type ResourceSection = {
   title: string;
   slug: string;
   intro: string;
+  showAwesomeRepoSearch?: boolean;
   resources: Resource[];
 };
 
@@ -54,6 +55,7 @@ function assertSectionsShape(value: unknown): asserts value is ResourceSection[]
       typeof section.title !== 'string' ||
       typeof section.slug !== 'string' ||
       typeof section.intro !== 'string' ||
+      (section.showAwesomeRepoSearch !== undefined && typeof section.showAwesomeRepoSearch !== 'boolean') ||
       !Array.isArray(section.resources)
     ) {
       throw new Error(`Invalid steering section: ${JSON.stringify(section)}`);
@@ -101,4 +103,4 @@ if (!coreSection || !relatedSection) {
 export const coreResources = coreSection.resources;
 export const relatedResources = relatedSection.resources;
 export const installableSkill: SkillInstall = skillInstall;
-export { siteLinks };
+export { createAwesomeRepoSearchUrl, siteLinks };

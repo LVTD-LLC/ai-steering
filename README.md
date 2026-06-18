@@ -68,6 +68,7 @@ Great examples:
 - [llama.cpp AGENTS.md](https://github.com/ggml-org/llama.cpp/blob/master/AGENTS.md)
 - [paperclip AGENTS.md](https://github.com/paperclipai/paperclip/blob/master/AGENTS.md)
 - [Firecrawl AGENTS.md](https://github.com/firecrawl/firecrawl/blob/main/AGENTS.md)
+- [see more](https://awesome.lvtd.dev/?has_file=AGENTS.md)
 
 <a id="product-md"></a>
 ### PRODUCT.md
@@ -103,6 +104,7 @@ Great examples:
 - [paperclip PRODUCT.md](https://github.com/paperclipai/paperclip/blob/master/doc/PRODUCT.md)
 - [agent-coordinator PRODUCT.md](https://github.com/mspworld/agent-coordinator/blob/main/PRODUCT.md)
 - [AI-Shipping-Labs website](https://github.com/AI-Shipping-Labs/website/blob/main/_docs/product.md)
+- [see more](https://awesome.lvtd.dev/?has_file=PRODUCT.md)
 
 <a id="tech-md"></a>
 ### TECH.md
@@ -136,6 +138,7 @@ Great examples:
 - [sample-kiro-cli sdk verification steering](https://github.com/aws-samples/sample-kiro-cli-multiagent-development/blob/main/steering/sdk-verification.md)
 - [moai-adk](https://github.com/modu-ai/moai-adk)
 - [ai-engineering-template](https://github.com/LaProgrammerie/ai-engineering-template)
+- [see more](https://awesome.lvtd.dev/?has_file=TECH.md)
 
 <a id="structure-md"></a>
 ### STRUCTURE.md
@@ -169,6 +172,7 @@ Great examples:
 - [better-agents STRUCTURE.md](https://github.com/langwatch/better-agents/blob/main/docs/STRUCTURE.md)
 - [gamekit-cli project structure](https://github.com/gamekit-agent/gamekit-cli/blob/main/docs/project-structure.md)
 - [repository structure](https://github.com/bootc-dev/infra/blob/main/docs/repository-structure.md)
+- [see more](https://awesome.lvtd.dev/?has_file=STRUCTURE.md)
 
 <a id="vision-md"></a>
 ### VISION.md
@@ -204,6 +208,7 @@ Great examples:
 - [agentkitten VISION.md](https://github.com/fbeeper/agentkitten/blob/main/VISION.md)
 - [sprout VISION.md](https://github.com/block/sprout/blob/main/VISION.md)
 - [gsd-2 VISION.md](https://github.com/gsd-build/gsd-2/blob/main/VISION.md)
+- [see more](https://awesome.lvtd.dev/?has_file=VISION.md)
 
 <a id="design-md"></a>
 ### DESIGN.md
@@ -240,6 +245,7 @@ Great examples:
 - [google-labs-code/design.md](https://github.com/google-labs-code/design.md)
 - [awesome-design-md](https://github.com/VoltAgent/awesome-design-md)
 - [awesome-claude-design](https://github.com/VoltAgent/awesome-claude-design)
+- [see more](https://awesome.lvtd.dev/?has_file=DESIGN.md)
 
 <a id="agent-specific-files"></a>
 ## Agent-Specific Files
@@ -279,6 +285,7 @@ Great examples:
 - [Andrej Karpathy skills CLAUDE.md](https://github.com/multica-ai/andrej-karpathy-skills/blob/main/CLAUDE.md)
 - [Claude Agent SDK Python CLAUDE.md](https://github.com/anthropics/claude-agent-sdk-python/blob/main/CLAUDE.md)
 - [tools-monorepo CLAUDE.md](https://github.com/tylerbutler/tools-monorepo/blob/main/CLAUDE.md)
+- [see more](https://awesome.lvtd.dev/?has_file=CLAUDE.md)
 
 <a id="gemini-md"></a>
 ### GEMINI.md
@@ -310,6 +317,7 @@ Great examples:
 
 - [gemini-cli GEMINI.md](https://github.com/google-gemini/gemini-cli/blob/main/GEMINI.md)
 - [claude-skills GEMINI.md](https://github.com/alirezarezvani/claude-skills/blob/main/GEMINI.md)
+- [see more](https://awesome.lvtd.dev/?has_file=GEMINI.md)
 
 <a id="github-copilot-instructions-md"></a>
 ### .github/copilot-instructions.md
@@ -344,6 +352,7 @@ Great examples:
 - [github/awesome-copilot](https://github.com/github/awesome-copilot)
 - [dotnet/runtime copilot instructions](https://github.com/dotnet/runtime/blob/main/.github/copilot-instructions.md)
 - [obsidian-tasks issue #3816](https://github.com/obsidian-tasks-group/obsidian-tasks/issues/3816)
+- [see more](https://awesome.lvtd.dev/?has_file=.github%2Fcopilot-instructions.md)
 
 <a id="cursor-rules-mdc"></a>
 ### .cursor/rules/*.mdc
@@ -376,6 +385,7 @@ Great examples:
 - [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules)
 - [java springboot jpa rule file](https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/java-springboot-jpa-cursorrules-prompt-file.mdc)
 - [myAgentic-IT-Project-team README](https://github.com/RobertAgterhuis/myAgentic-IT-Project-team/blob/main/.github/docs/README.md)
+- [see more](https://awesome.lvtd.dev/?q=.cursor%2Frules%2F*.mdc)
 
 ## Keeping It In Sync
 
