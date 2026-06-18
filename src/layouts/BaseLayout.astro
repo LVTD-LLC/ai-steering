@@ -11,6 +11,8 @@ const {
 } = Astro.props;
 
 const siteUrl = Astro.site ?? new URL(siteLinks.site);
+const plausibleDomain =
+  import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN ?? (import.meta.env.PROD ? new URL(siteLinks.site).hostname : '');
 const siteRoot = new URL('/', siteUrl).toString();
 const canonicalUrl =
   canonicalPath === false ? null : new URL(canonicalPath ?? Astro.url.pathname, siteUrl).toString();
@@ -75,15 +77,21 @@ const schemaJson = schema
     <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <script
-      is:inline
-      defer
-      data-domain="ai-steering.lvtd.dev"
-      src="https://plausible-v2.cr.lvtd.dev/js/script.file-downloads.hash.outbound-links.js"
-    ></script>
-    <script is:inline>
-      window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
-    </script>
+    {
+      plausibleDomain && (
+        <>
+          <script is:inline>
+            window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
+          </script>
+          <script
+            is:inline
+            defer
+            data-domain={plausibleDomain}
+            src="https://plausible-v2.cr.lvtd.dev/js/script.file-downloads.hash.outbound-links.js"
+          ></script>
+        </>
+      )
+    }
     {schemaJson && <script is:inline type="application/ld+json" set:html={schemaJson} />}
     <style is:global>
       :root {
