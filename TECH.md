@@ -21,8 +21,9 @@
 
 - `src/data/steering-data.js` contains the canonical catalog content and site links.
 - `src/data/resources.ts` validates the data shape at import time and exports typed resources to Astro.
-- `src/pages/index.astro` renders the catalog and checklist.
-- `src/layouts/BaseLayout.astro` owns page shell, navigation, global CSS variables, and shared layout styles.
+- `src/pages/index.astro` renders the catalog, skill install commands, and checklist.
+- `src/pages/llms.txt.ts` renders a plain-text version of the same catalog data.
+- `src/layouts/BaseLayout.astro` owns page shell, footer, global CSS variables, and shared layout styles.
 - `scripts/generate-readme.mjs` reads the same catalog data and writes `README.md`.
 - `public/` contains static assets served as-is.
 
