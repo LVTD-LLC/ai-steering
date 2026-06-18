@@ -3,8 +3,50 @@ import { siteLinks } from '../data/resources';
 
 const {
   title = 'AI Steering Files',
-  description = 'A practical catalog of repository steering files, agent instructions, and project context docs.'
+  description = 'A practical catalog of repository steering files, agent instructions, and project context docs.',
+  canonicalPath,
+  robots,
+  structuredData = [],
+  ogType = 'website'
 } = Astro.props;
+
+const siteUrl = Astro.site ?? new URL(siteLinks.site);
+const siteRoot = new URL('/', siteUrl).toString();
+const canonicalUrl =
+  canonicalPath === false ? null : new URL(canonicalPath ?? Astro.url.pathname, siteUrl).toString();
+const pageUrl = canonicalUrl ?? new URL(Astro.url.pathname, siteUrl).toString();
+const structuredDataItems = Array.isArray(structuredData) ? structuredData : [structuredData].filter(Boolean);
+const baseStructuredData = canonicalUrl
+  ? [
+      {
+        '@type': 'WebSite',
+        '@id': `${siteRoot}#website`,
+        url: siteRoot,
+        name: 'AI Steering Files',
+        description: 'A practical catalog of repo context files and agent instructions for AI coding agents.',
+        inLanguage: 'en'
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: title,
+        description,
+        isPartOf: {
+          '@id': `${siteRoot}#website`
+        },
+        inLanguage: 'en'
+      }
+    ]
+  : [];
+const schemaGraph = [...baseStructuredData, ...structuredDataItems];
+const schema =
+  schemaGraph.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@graph': schemaGraph
+      }
+    : null;
 ---
 <!doctype html>
 <html lang="en">
@@ -12,11 +54,22 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    {robots && <meta name="robots" content={robots} />}
     <title>{title}</title>
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="AI Steering Files" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    {schema && <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />}
     <style is:global>
       :root {
         color-scheme: light;
