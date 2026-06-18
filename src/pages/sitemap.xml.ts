@@ -2,7 +2,7 @@ import { siteLinks } from '../data/resources';
 
 export const prerender = true;
 
-const pages = ['/', '/contributing/'];
+const pages = ['/'];
 
 export function GET() {
   const urls = pages

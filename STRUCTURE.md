@@ -30,7 +30,10 @@
 |   |-- lib/
 |   |   `-- slugify.js
 |   `-- pages/
-|       `-- index.astro
+|       |-- index.astro
+|       |-- 404.astro
+|       |-- llms.txt.ts
+|       `-- sitemap.xml.ts
 |-- public/
 |   `-- favicon.svg
 |-- .github/

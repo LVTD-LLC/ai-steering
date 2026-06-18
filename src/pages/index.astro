@@ -33,14 +33,14 @@ const catalogSchema = {
       <div class="container page-header-grid">
         <div>
           <p class="section-label">Repository context</p>
-          <h1>Choose the right steering files for your agents.</h1>
+          <h1>AI Steering Files catalogs repo context for coding agents.</h1>
           <p class="lede">
             Browse practical patterns for <code>AGENTS.md</code>, <code>PRODUCT.md</code>, <code>TECH.md</code>, and tool-specific files. Each entry shows when to add it, what to include, and examples worth studying.
           </p>
           <div class="actions">
-            <a class="button" href="#install-skill">Install the skill</a>
-            <a class="button secondary" href="#catalog">Browse the catalog</a>
-            <a class="button secondary" href={siteLinks.readme}>Read the GitHub README</a>
+            <a class="button" href="#catalog">Browse catalog</a>
+            <a class="button secondary" href="#install-skill">Install skill</a>
+            <a class="button secondary" href="/llms.txt">Text version</a>
           </div>
         </div>
         <aside class="info-panel" aria-labelledby="quick-start-heading">
@@ -215,7 +215,7 @@ const catalogSchema = {
 
   .catalog-index {
     position: sticky;
-    top: 4.7rem;
+    top: 1rem;
   }
 
   .catalog-index h2 {
@@ -346,7 +346,7 @@ const catalogSchema = {
   }
 
   .resource-group {
-    scroll-margin-top: 5.5rem;
+    scroll-margin-top: 1rem;
   }
 
   .resource-group-header {
