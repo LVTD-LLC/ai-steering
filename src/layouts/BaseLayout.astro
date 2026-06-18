@@ -75,6 +75,15 @@ const schemaJson = schema
     <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <script
+      is:inline
+      defer
+      data-domain="ai-steering.lvtd.dev"
+      src="https://plausible-v2.cr.lvtd.dev/js/script.file-downloads.hash.outbound-links.js"
+    ></script>
+    <script is:inline>
+      window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
+    </script>
     {schemaJson && <script is:inline type="application/ld+json" set:html={schemaJson} />}
     <style is:global>
       :root {
