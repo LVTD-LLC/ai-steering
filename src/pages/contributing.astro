@@ -3,27 +3,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteLinks } from '../data/resources';
 ---
 
-<BaseLayout title="Contributing - AI Steering Files" description="How to suggest new sites, repos, articles, and example steering files for AI Steering Files.">
+<BaseLayout title="Contributing - AI Steering Files" description="How to suggest docs, repos, articles, and example steering files for AI Steering Files.">
   <main id="main-content">
     <section class="page-header">
       <div class="container page-header-grid">
         <div>
           <p class="section-label">Contributing</p>
-          <h1>Suggest useful steering resources.</h1>
+          <h1>Suggest a resource worth adding.</h1>
           <p class="lede">
-            Send a link when you find a site, repo, article, or example file that helps teams write better AI steering files.
+            Send the exact link when you find a doc, repo, article, or example file that helps teams write better AI steering files.
           </p>
           <div class="actions">
-            <a class="button" href={siteLinks.suggestSite}>Suggest a site</a>
+            <a class="button" href={siteLinks.suggestSite}>Suggest a resource</a>
             <a class="button secondary" href={siteLinks.contributing}>Open CONTRIBUTING.md</a>
           </div>
         </div>
         <aside class="info-panel" aria-labelledby="good-suggestions-heading">
-          <h2 id="good-suggestions-heading">Good suggestions</h2>
+          <h2 id="good-suggestions-heading">What helps us review it</h2>
           <ul class="plain-list">
             <li>Point to a real, reachable URL.</li>
             <li>Name the steering file it helps with.</li>
-            <li>Explain why the link belongs in the catalog.</li>
+            <li>Explain what the link teaches or shows.</li>
           </ul>
         </aside>
       </div>
@@ -33,9 +33,9 @@ import { siteLinks } from '../data/resources';
       <div class="container split-layout">
         <div>
           <p class="section-label">What to send</p>
-          <h2>Make the suggestion easy to evaluate.</h2>
+          <h2>Make the resource easy to review.</h2>
           <p class="section-lede">
-            The catalog works best when every link has a clear reason to exist and sits under the right steering file.
+            The catalog works best when every link has a clear job and sits under the right steering file.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ import { siteLinks } from '../data/resources';
           </li>
           <li>
             <strong>Explain the value.</strong>
-            Add one or two sentences about what the resource teaches or why the example is worth copying.
+            Add one or two sentences about what the resource teaches or which pattern is worth copying.
           </li>
         </ol>
       </div>

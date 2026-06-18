@@ -16,7 +16,15 @@ const lines = [];
 
 lines.push('# AI Steering Files', '');
 lines.push(
-  'This repository is a practical guide to the files that make AI-assisted coding work better in real projects.',
+  'A practical catalog of repository steering files for AI coding agents. Use it to decide which context files your repo needs, what each one should contain, and which examples are worth studying.',
+  '',
+  `Browse the web version: [${siteLinks.site}](${siteLinks.site}).`,
+  '',
+  'Use this repo when:',
+  '',
+  '- agents keep missing repo-specific commands, constraints, or product context',
+  '- maintainers need one place for tool-neutral instructions',
+  '- a team wants Claude, Gemini, Copilot, or Cursor guidance without duplicating shared rules',
   ''
 );
 
@@ -57,7 +65,7 @@ for (const section of resourceSections) {
 lines.push(
   '## Keeping It In Sync',
   '',
-  `Edit [src/data/steering-data.js](${siteLinks.source}) when the file guidance changes, then run \`npm run sync:readme\` to regenerate this document.`,
+  `Catalog guidance lives in [src/data/steering-data.js](${siteLinks.source}). Edit that file, run \`npm run sync:readme\`, then run \`npm run build\` before opening a PR.`,
   ''
 );
 

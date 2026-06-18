@@ -1,6 +1,14 @@
 # AI Steering Files
 
-This repository is a practical guide to the files that make AI-assisted coding work better in real projects.
+A practical catalog of repository steering files for AI coding agents. Use it to decide which context files your repo needs, what each one should contain, and which examples are worth studying.
+
+Browse the web version: [https://ai-steering.lvtd.dev](https://ai-steering.lvtd.dev).
+
+Use this repo when:
+
+- agents keep missing repo-specific commands, constraints, or product context
+- maintainers need one place for tool-neutral instructions
+- a team wants Claude, Gemini, Copilot, or Cursor guidance without duplicating shared rules
 
 ## Install the Reusable Skill
 
@@ -23,28 +31,28 @@ Source: [skills/ai-steering-files/SKILL.md](https://github.com/LVTD-LLC/ai-steer
 <a id="agent-agnostic-files"></a>
 ## Agent-Agnostic Files
 
-These files should stay useful no matter which assistant is reading the repo.
+Start here for rules and context that should help every coding assistant work safely in the repo.
 
 <a id="agents-md"></a>
 ### AGENTS.md
 
-The vendor-neutral operating manual for coding agents.
+The shared operating manual every coding agent should read before changing the repo.
 
 Use it for:
 
-- repo-specific agent behavior
-- safe defaults and guardrails
-- commands that are reliable in this repo
-- review and merge expectations
+- repo-specific behavior that applies across tools
+- safe defaults, guardrails, and approval boundaries
+- exact commands agents can run with confidence
+- review, branch, and merge expectations
 
 What it should contain:
 
-- project summary
+- concise project summary
 - preferred workflow
 - exact install, test, lint, build, and deploy commands
-- branch policy
-- risky actions that need approval
-- any do-not-do-this-casually rules
+- branch and PR policy
+- actions that need approval
+- rules agents should not bypass
 
 Useful resources:
 
@@ -60,19 +68,19 @@ Great examples:
 <a id="product-md"></a>
 ### PRODUCT.md
 
-Product context that keeps implementation choices aligned with the business.
+Product context that keeps implementation tradeoffs tied to users and outcomes.
 
 Use it for:
 
-- target users
-- the problem being solved
-- major workflows
+- target users and use cases
+- the problem the product solves
+- major workflows and user journeys
 - business objectives and success criteria
 
 What it should contain:
 
 - why the project exists
-- who it is for
+- who it serves
 - what good looks like
 - what is in scope and out of scope
 - the outcomes that matter most
@@ -93,20 +101,20 @@ Great examples:
 <a id="tech-md"></a>
 ### TECH.md
 
-The technical source of truth for stack and implementation constraints.
+The technical source of truth for stack, commands, and implementation constraints.
 
 Use it for:
 
-- frameworks and libraries
-- runtime versions
-- build and test commands
-- deployment targets and integration points
+- framework and library choices
+- runtime and package manager versions
+- build, check, test, and deploy commands
+- deployment targets, integrations, and APIs
 
 What it should contain:
 
 - the canonical stack
 - supported commands
-- preferred libraries and frameworks
+- preferred libraries and patterns
 - external services and APIs
 - the constraints agents must respect
 
@@ -126,14 +134,14 @@ Great examples:
 <a id="structure-md"></a>
 ### STRUCTURE.md
 
-A map of the repository that helps agents put changes in the right place.
+A repo map that helps agents put code, docs, and tests in the right place.
 
 Use it for:
 
 - top-level directory layout
 - naming conventions
 - import patterns
-- module boundaries
+- module boundaries and ownership lines
 
 What it should contain:
 
@@ -159,20 +167,20 @@ Great examples:
 <a id="vision-md"></a>
 ### VISION.md
 
-The durable product and taste direction that should change less often than product specs.
+Long-term direction, non-goals, and taste principles that should outlast individual specs.
 
 Use it for:
 
-- long-term product vision
+- long-term product direction
 - non-goals
 - design and product taste
-- the kind of future you are trying to create
+- the future state the project is trying to create
 
 What it should contain:
 
-- vision and constraints
+- vision and durable constraints
 - what the project should become
-- what should never drift
+- what should not drift
 - success criteria at the level of outcomes, not implementation
 
 Useful resources:
@@ -191,14 +199,13 @@ Great examples:
 <a id="design-md"></a>
 ### DESIGN.md
 
-A design-system source of truth for AI-generated interface work.
+A design-system source of truth for AI-generated UI changes.
 
 Use it for:
 
-- design tokens
-- typography
-- spacing
-- color principles
+- design tokens and theme choices
+- typography and spacing
+- layout rules
 - component patterns
 - accessibility expectations
 
@@ -208,7 +215,7 @@ What it should contain:
 - spacing and type rules
 - layout constraints
 - component style preferences
-- things the agent should avoid when generating UI
+- UI patterns to avoid
 
 Useful resources:
 
@@ -263,19 +270,19 @@ Great examples:
 <a id="agent-specific-files"></a>
 ## Agent-Specific Files
 
-These files should exist when a tool needs its own memory, syntax, or scope rules.
+Add these when a tool needs its own syntax, memory model, or narrower workflow rules.
 
 <a id="claude-md"></a>
 ### CLAUDE.md
 
-The Claude Code instruction file.
+The Claude Code memory file for repo-specific instructions and workflows.
 
 Use it for:
 
 - Claude-specific guidance
 - repo conventions that should persist across Claude sessions
 - build/test/verify expectations for Claude
-- workflow notes that are useful for Claude but not all tools
+- workflow notes that are useful in Claude Code
 
 What it should contain:
 
@@ -283,7 +290,7 @@ What it should contain:
 - code style and review rules
 - build and test commands
 - escalation boundaries
-- paths or workflows Claude should treat specially
+- paths or workflows Claude should handle carefully
 
 Useful resources:
 
@@ -301,7 +308,7 @@ Great examples:
 <a id="gemini-md"></a>
 ### GEMINI.md
 
-The Gemini CLI / Gemini agent context file.
+The Gemini CLI context file for repo instructions, commands, and response preferences.
 
 Use it for:
 
@@ -315,7 +322,7 @@ What it should contain:
 - project-specific context
 - coding conventions
 - build/test/verify notes
-- any files or folders Gemini should prioritize
+- files or folders Gemini should prioritize
 
 Useful resources:
 
@@ -332,11 +339,11 @@ Great examples:
 <a id="github-copilot-instructions-md"></a>
 ### .github/copilot-instructions.md
 
-The repository-wide GitHub Copilot instructions file.
+Repository-wide instructions GitHub Copilot should apply when suggesting changes.
 
 Use it for:
 
-- instructions that should apply to Copilot across the repo
+- Copilot instructions that apply across the repo
 - build/test/validation guidance
 - repo-specific coding standards
 - review and safety expectations
@@ -364,14 +371,14 @@ Great examples:
 <a id="cursor-rules-mdc"></a>
 ### .cursor/rules/*.mdc
 
-Path-scoped Cursor rules for workflows that should only apply in specific places.
+Path-scoped Cursor rules for workflows that need narrower guidance than a repo-wide file.
 
 Use it for:
 
 - file-specific or workflow-specific rules
 - path-scoped instructions
-- rule sets that should only apply in certain parts of the repo
-- agent behavior that needs to be narrower than a repo-wide file
+- rule sets for certain parts of the repo
+- agent behavior that should not apply globally
 
 What it should contain:
 
@@ -395,4 +402,4 @@ Great examples:
 
 ## Keeping It In Sync
 
-Edit [src/data/steering-data.js](https://github.com/LVTD-LLC/ai-steering/blob/main/src/data/steering-data.js) when the file guidance changes, then run `npm run sync:readme` to regenerate this document.
+Catalog guidance lives in [src/data/steering-data.js](https://github.com/LVTD-LLC/ai-steering/blob/main/src/data/steering-data.js). Edit that file, run `npm run sync:readme`, then run `npm run build` before opening a PR.
