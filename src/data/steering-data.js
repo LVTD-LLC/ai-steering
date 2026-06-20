@@ -2,8 +2,6 @@ export const siteLinks = {
   repo: 'https://github.com/LVTD-LLC/ai-steering',
   awesomeRepoSearch: 'https://awesome.lvtd.dev',
   readme: 'https://github.com/LVTD-LLC/ai-steering/blob/main/README.md',
-  contributing: 'https://github.com/LVTD-LLC/ai-steering/blob/main/CONTRIBUTING.md',
-  suggestSite: 'https://github.com/LVTD-LLC/ai-steering/issues/new?title=Suggest%20resource%3A%20&body=URL%3A%0A%0ASteering%20file%3A%0A%0AUseful%20resources%20or%20Great%20examples%3A%0A%0AWhat%20it%20teaches%20or%20shows%3A',
   site: 'https://ai-steering.lvtd.dev',
   source: 'https://github.com/LVTD-LLC/ai-steering/blob/main/src/data/steering-data.js',
   skill: 'https://github.com/LVTD-LLC/ai-steering/blob/main/skills/ai-steering-files/SKILL.md',
@@ -179,7 +177,6 @@ export const resourceSections = [
           { label: 'OpenClaw VISION.md', href: 'https://github.com/openclaw/openclaw/blob/main/VISION.md' },
           { label: 'lazygit VISION.md', href: 'https://github.com/jesseduffield/lazygit/blob/master/VISION.md' },
           { label: 'OpenClaw ClawHub VISION.md', href: 'https://github.com/openclaw/clawhub/blob/main/VISION.md' },
-          { label: 'agentkitten VISION.md', href: 'https://github.com/fbeeper/agentkitten/blob/main/VISION.md' },
           { label: 'sprout VISION.md', href: 'https://github.com/block/sprout/blob/main/VISION.md' },
           { label: 'gsd-2 VISION.md', href: 'https://github.com/gsd-build/gsd-2/blob/main/VISION.md' }
         ]

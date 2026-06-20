@@ -205,7 +205,6 @@ Great examples:
 - [OpenClaw VISION.md](https://github.com/openclaw/openclaw/blob/main/VISION.md)
 - [lazygit VISION.md](https://github.com/jesseduffield/lazygit/blob/master/VISION.md)
 - [OpenClaw ClawHub VISION.md](https://github.com/openclaw/clawhub/blob/main/VISION.md)
-- [agentkitten VISION.md](https://github.com/fbeeper/agentkitten/blob/main/VISION.md)
 - [sprout VISION.md](https://github.com/block/sprout/blob/main/VISION.md)
 - [gsd-2 VISION.md](https://github.com/gsd-build/gsd-2/blob/main/VISION.md)
 - [see more](https://awesome.lvtd.dev/?has_file=VISION.md)
