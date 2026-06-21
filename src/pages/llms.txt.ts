@@ -22,8 +22,6 @@ function buildLlmsText() {
     `Website: ${siteLinks.site}`,
     `GitHub repo: ${siteLinks.repo}`,
     `README: ${siteLinks.readme}`,
-    `Contributing guide: ${siteLinks.contributing}`,
-    `Suggest a resource: ${siteLinks.suggestSite}`,
     `Source data: ${siteLinks.source}`,
     '',
     '## Reusable Skill',
