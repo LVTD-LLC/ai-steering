@@ -270,7 +270,7 @@ const catalogSchema = {
         return;
       }
 
-      const originalLabel = button.dataset.label || button.textContent || 'Copy';
+      const originalLabel = button.dataset.label || button.textContent?.trim() || 'Copy';
       button.dataset.label = originalLabel;
       button.disabled = true;
       button.textContent = 'Copying';
@@ -490,10 +490,7 @@ const catalogSchema = {
     color: var(--muted);
     font-size: 0.88rem;
     line-height: 1.45;
-  }
-
-  .copy-status:empty {
-    display: none;
+    min-height: 1.45em;
   }
 
   .install-panel a {
@@ -683,15 +680,9 @@ const catalogSchema = {
       margin-top: 0.7rem;
     }
 
-    .link-list a {
-      display: inline-flex;
-      align-items: center;
-      min-width: 44px;
-      min-height: 44px;
-    }
   }
 
-  @media (pointer: coarse) {
+  @media (max-width: 760px), (pointer: coarse) {
     .link-list a {
       display: inline-flex;
       align-items: center;
