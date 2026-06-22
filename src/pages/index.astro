@@ -236,15 +236,20 @@ const catalogSchema = {
 
   const selectCommandText = (target) => {
     const selection = window.getSelection();
+    if (!selection) {
+      return false;
+    }
+
     const range = document.createRange();
     range.selectNodeContents(target);
-    selection?.removeAllRanges();
-    selection?.addRange(range);
+    selection.removeAllRanges();
+    selection.addRange(range);
     try {
       target.focus({ preventScroll: true });
     } catch {
       target.focus();
     }
+    return true;
   };
 
   const copyText = async (text) => {
@@ -289,11 +294,13 @@ const catalogSchema = {
           status.textContent = 'Command copied.';
         }
       } catch {
-        selectCommandText(target);
-        button.textContent = 'Selected';
+        const selected = selectCommandText(target);
+        button.textContent = selected ? 'Selected' : 'Failed';
         button.dataset.state = 'fallback';
         if (status) {
-          status.textContent = 'Copy failed. Command text selected for manual copy.';
+          status.textContent = selected
+            ? 'Copy failed. Command text selected for manual copy.'
+            : 'Copy failed. Select the command text manually.';
         }
       } finally {
         window.setTimeout(() => {
