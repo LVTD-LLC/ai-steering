@@ -66,15 +66,41 @@ const catalogSchema = {
         </div>
 
         <div class="install-panel" aria-label="Skill installation commands">
-          <div>
-            <h3>Skills CLI</h3>
-            <pre><code>{installableSkill.skillsCliCommand}</code></pre>
+          <div class="install-command">
+            <div class="install-command-header">
+              <h3>Skills CLI</h3>
+              <button
+                class="copy-command"
+                type="button"
+                data-copy-target="skills-cli-command"
+                aria-label="Copy Skills CLI install command"
+                aria-describedby="skills-cli-copy-status"
+                hidden
+              >
+                Copy
+              </button>
+            </div>
+            <pre id="skills-cli-command" tabindex="0" aria-label="Skills CLI install command"><code>{installableSkill.skillsCliCommand}</code></pre>
+            <p class="copy-status" id="skills-cli-copy-status" aria-live="polite"></p>
             <a href={siteLinks.skillsCli}>Skills CLI docs</a>
           </div>
 
-          <div>
-            <h3>GitHub CLI</h3>
-            <pre><code>{installableSkill.githubCliCommand}</code></pre>
+          <div class="install-command">
+            <div class="install-command-header">
+              <h3>GitHub CLI</h3>
+              <button
+                class="copy-command"
+                type="button"
+                data-copy-target="github-cli-command"
+                aria-label="Copy GitHub CLI install command"
+                aria-describedby="github-cli-copy-status"
+                hidden
+              >
+                Copy
+              </button>
+            </div>
+            <pre id="github-cli-command" tabindex="0" aria-label="GitHub CLI install command"><code>{installableSkill.githubCliCommand}</code></pre>
+            <p class="copy-status" id="github-cli-copy-status" aria-live="polite"></p>
             <a href={siteLinks.ghSkill}>gh skill install docs</a>
           </div>
         </div>
@@ -205,6 +231,84 @@ const catalogSchema = {
   </main>
 </BaseLayout>
 
+<script is:inline>
+  const copyButtons = document.querySelectorAll('[data-copy-target]');
+
+  const selectCommandText = (target) => {
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    try {
+      target.focus({ preventScroll: true });
+    } catch {
+      target.focus();
+    }
+  };
+
+  const copyText = async (text) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+
+    return false;
+  };
+
+  copyButtons.forEach((button) => {
+    button.hidden = false;
+
+    button.addEventListener('click', async () => {
+      const targetId = button.getAttribute('data-copy-target');
+      const target = targetId ? document.getElementById(targetId) : null;
+      const status = button.getAttribute('aria-describedby')
+        ? document.getElementById(button.getAttribute('aria-describedby'))
+        : null;
+
+      if (!target) {
+        return;
+      }
+
+      const originalLabel = button.dataset.label || button.textContent || 'Copy';
+      button.dataset.label = originalLabel;
+      button.disabled = true;
+      button.textContent = 'Copying';
+      button.dataset.state = 'pending';
+
+      try {
+        const copied = await copyText(target.textContent.trim());
+
+        if (!copied) {
+          throw new Error('Clipboard command unavailable.');
+        }
+
+        button.textContent = 'Copied';
+        button.dataset.state = 'success';
+        if (status) {
+          status.textContent = 'Command copied.';
+        }
+      } catch {
+        selectCommandText(target);
+        button.textContent = 'Selected';
+        button.dataset.state = 'fallback';
+        if (status) {
+          status.textContent = 'Copy failed. Command text selected for manual copy.';
+        }
+      } finally {
+        window.setTimeout(() => {
+          button.disabled = false;
+          button.textContent = originalLabel;
+          button.dataset.state = 'idle';
+          if (status) {
+            status.textContent = '';
+          }
+        }, 2200);
+      }
+    });
+  });
+</script>
+
 <style>
   .catalog-layout {
     display: grid;
@@ -243,6 +347,7 @@ const catalogSchema = {
     align-items: center;
     justify-content: space-between;
     gap: 0.85rem;
+    min-height: 44px;
     border-radius: var(--radius-sm);
     color: var(--muted);
     font-size: 0.92rem;
@@ -293,13 +398,25 @@ const catalogSchema = {
     background: var(--surface);
   }
 
+  .install-command {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .install-command-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+  }
+
   .install-panel h3 {
-    margin: 0 0 0.55rem;
+    margin: 0;
     font-size: 1rem;
   }
 
   .install-panel pre {
-    overflow-x: auto;
+    overflow-x: hidden;
     margin: 0;
     max-width: 100%;
     padding: 0.95rem;
@@ -309,6 +426,8 @@ const catalogSchema = {
     color: var(--accent-ink);
     font-size: 0.88rem;
     line-height: 1.55;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
   }
 
   .install-panel pre code {
@@ -317,11 +436,71 @@ const catalogSchema = {
     font-size: inherit;
     font-weight: 600;
     padding: 0;
+    white-space: inherit;
+  }
+
+  .install-panel pre:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  .copy-command {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 4.9rem;
+    min-height: 44px;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--ink);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition:
+      background-color 180ms ease-out,
+      border-color 180ms ease-out,
+      color 180ms ease-out;
+  }
+
+  .copy-command:hover {
+    border-color: var(--line-strong);
+    background: var(--surface-muted);
+  }
+
+  .copy-command:disabled {
+    cursor: default;
+  }
+
+  .copy-command[data-state="success"] {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    color: var(--accent-hover);
+  }
+
+  .copy-command[data-state="fallback"] {
+    border-color: var(--line-strong);
+    background: var(--surface-muted);
+  }
+
+  .copy-status {
+    margin: -0.25rem 0 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  .copy-status:empty {
+    display: none;
   }
 
   .install-panel a {
-    display: inline-block;
-    margin-top: 0.65rem;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 0;
     color: var(--ink);
     font-weight: 700;
     text-decoration: none;
@@ -337,6 +516,10 @@ const catalogSchema = {
 
   .catalog-heading {
     margin-bottom: 2rem;
+  }
+
+  .catalog-heading .section-lede {
+    max-width: var(--measure);
   }
 
   .resource-group + .resource-group {
@@ -364,7 +547,7 @@ const catalogSchema = {
   }
 
   .resource-group-header p {
-    max-width: 760px;
+    max-width: var(--measure);
     margin: 0.45rem 0 0;
     color: var(--muted);
     line-height: 1.6;
@@ -460,6 +643,7 @@ const catalogSchema = {
 
   .checklist {
     margin: 0;
+    max-width: var(--measure);
     padding-left: 1.2rem;
     color: var(--muted);
     line-height: 1.75;
@@ -497,6 +681,22 @@ const catalogSchema = {
     .resource-group-header span {
       display: inline-block;
       margin-top: 0.7rem;
+    }
+
+    .link-list a {
+      display: inline-flex;
+      align-items: center;
+      min-width: 44px;
+      min-height: 44px;
+    }
+  }
+
+  @media (pointer: coarse) {
+    .link-list a {
+      display: inline-flex;
+      align-items: center;
+      min-width: 44px;
+      min-height: 44px;
     }
   }
 </style>
