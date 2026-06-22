@@ -11,10 +11,14 @@
     "sync:readme": "node scripts/generate-readme.mjs"
   },
   "dependencies": {
-    "astro": "^6.4.5"
+    "astro": "^6.4.8"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
     "typescript": "^6.0.3"
+  },
+  "overrides": {
+    "esbuild": "0.28.1",
+    "volar-service-yaml": "0.0.71"
   }
 }
