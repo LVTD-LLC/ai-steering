@@ -9,7 +9,8 @@ const {
   ogImageAlt = 'AI Steering Files catalog preview',
   robots,
   structuredData = [],
-  ogType = 'website'
+  ogType = 'website',
+  hideFooter = false
 } = Astro.props;
 
 const siteUrl = Astro.site ?? new URL(siteLinks.site);
@@ -420,38 +421,42 @@ const schemaJson = schema
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <slot />
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
-          <a class="site-mark" href="/" aria-label="AI Steering Files home">
-            <img src="/logo.svg" alt="" width="40" height="40" />
-            <span>AI Steering Files</span>
-          </a>
-          <p class="footer-summary">
-            A practical index for repo context files that keep coding agents aligned with your project.
-          </p>
-          <p class="copyright">Copyright 2026 LVTD LLC.</p>
-        </div>
+    {
+      !hideFooter && (
+        <footer class="site-footer">
+          <div class="container footer-grid">
+            <div>
+              <a class="site-mark" href="/" aria-label="AI Steering Files home">
+                <img src="/logo.svg" alt="" width="40" height="40" />
+                <span>AI Steering Files</span>
+              </a>
+              <p class="footer-summary">
+                A practical index for repo context files that keep coding agents aligned with your project.
+              </p>
+              <p class="copyright">Copyright 2026 LVTD LLC.</p>
+            </div>
 
-        <div class="footer-links">
-          <h2>Project</h2>
-          <ul>
-            <li><a href={siteLinks.repo}>GitHub repo</a></li>
-            <li><a href={siteLinks.readme}>README</a></li>
-          </ul>
-        </div>
+            <div class="footer-links">
+              <h2>Project</h2>
+              <ul>
+                <li><a href={siteLinks.repo}>GitHub repo</a></li>
+                <li><a href={siteLinks.readme}>README</a></li>
+              </ul>
+            </div>
 
-        <div class="footer-links">
-          <h2>Catalog</h2>
-          <ul>
-            <li><a href="/#catalog">Steering file catalog</a></li>
-            <li><a href="/#install-skill">Reusable skill</a></li>
-            <li><a href="/#checklist">Writing checklist</a></li>
-            <li><a href="/llms.txt">llms.txt</a></li>
-            <li><a href={siteLinks.source}>Source data</a></li>
-          </ul>
-        </div>
-      </div>
-    </footer>
+            <div class="footer-links">
+              <h2>Catalog</h2>
+              <ul>
+                <li><a href="/#catalog">Steering file catalog</a></li>
+                <li><a href="/#install-skill">Reusable skill</a></li>
+                <li><a href="/#checklist">Writing checklist</a></li>
+                <li><a href="/llms.txt">llms.txt</a></li>
+                <li><a href={siteLinks.source}>Source data</a></li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      )
+    }
   </body>
 </html>
