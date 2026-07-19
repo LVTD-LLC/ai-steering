@@ -110,7 +110,7 @@ const schemaJson = schema
         --surface-muted: oklch(93.6% 0.006 260);
         --ink: oklch(17.5% 0.02 250);
         --muted: oklch(42% 0.035 246);
-        --subtle: oklch(55% 0.025 246);
+        --subtle: oklch(52% 0.026 246);
         --line: oklch(84.5% 0.012 252);
         --line-strong: oklch(72% 0.018 252);
         --accent: oklch(45% 0.13 24);
@@ -120,6 +120,7 @@ const schemaJson = schema
         --focus: oklch(55% 0.16 250);
         --radius-sm: 6px;
         --radius-md: 10px;
+        --measure: 60ch;
         font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
@@ -178,7 +179,7 @@ const schemaJson = schema
         transform: translateY(-150%);
         border-radius: var(--radius-sm);
         background: var(--ink);
-        color: #fff;
+        color: var(--accent-ink);
         font-weight: 700;
         padding: 0.65rem 0.8rem;
         text-decoration: none;
@@ -193,6 +194,7 @@ const schemaJson = schema
         display: inline-flex;
         align-items: center;
         gap: 0.7rem;
+        min-height: 44px;
         color: var(--ink);
         font-weight: 700;
         text-decoration: none;
@@ -209,7 +211,7 @@ const schemaJson = schema
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-height: 40px;
+        min-height: 44px;
         padding: 0.62rem 0.82rem;
         border: 1px solid transparent;
         border-radius: var(--radius-sm);
@@ -260,7 +262,7 @@ const schemaJson = schema
       }
 
       .section-lede {
-        max-width: 760px;
+        max-width: var(--measure);
         color: var(--muted);
         font-size: 1rem;
         line-height: 1.65;
@@ -288,7 +290,7 @@ const schemaJson = schema
       }
 
       .lede {
-        max-width: 720px;
+        max-width: var(--measure);
         margin: 1rem 0 0;
         color: var(--muted);
         font-size: 1.05rem;

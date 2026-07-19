@@ -8,7 +8,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   canonicalPath={false}
   robots="noindex, follow"
 >
-  <main>
+  <main id="main-content">
     <section class="not-found">
       <div class="container">
         <p class="eyebrow">404</p>
@@ -31,8 +31,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   h1 {
     margin: 0;
     max-width: 780px;
-    font-size: clamp(3rem, 7vw, 6rem);
+    font-size: 4.75rem;
     line-height: 0.94;
+    text-wrap: balance;
   }
 
   .lede {
@@ -41,5 +42,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--muted);
     font-size: 1.12rem;
     line-height: 1.65;
+  }
+
+  @media (max-width: 760px) {
+    h1 {
+      font-size: 3rem;
+    }
   }
 </style>
