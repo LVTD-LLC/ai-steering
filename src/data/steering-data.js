@@ -94,6 +94,35 @@ export const resourceSections = [
         ]
       },
       {
+        name: 'ANALYTICS.md',
+        path: 'ANALYTICS.md',
+        summary: 'A checked-in measurement contract for product events, metrics, attribution, and privacy boundaries.',
+        useItFor: [
+          'canonical product and marketing metrics',
+          'event names, properties, identity, and versioning rules',
+          'funnel stages, attribution, and source-of-truth decisions',
+          'consent, privacy, retention, and excluded data',
+          'analytics validation and governance'
+        ],
+        shouldContain: [
+          'the outcomes and funnels the product measures',
+          'canonical event and property contracts',
+          'identity, attribution, and metric-source rules',
+          'data that must never be collected',
+          'consent and privacy requirements',
+          'how to validate changes and evolve the schema safely'
+        ],
+        usefulResources: [
+          { label: 'PostHog product analytics docs', href: 'https://posthog.com/docs/product-analytics' },
+          { label: 'Matomo analytics measurement plan', href: 'https://matomo.org/faq/getting-started/download-the-matomo-measurement-plan/' },
+          { label: 'Matomo event tracking guide', href: 'https://matomo.org/faq/reports/implement-event-tracking-with-matomo/' }
+        ],
+        greatExamples: [
+          { label: 'Rowset ANALYTICS.md', href: 'https://github.com/LVTD-LLC/rowset/blob/main/ANALYTICS.md' },
+          { label: 'Hook0 ANALYTICS.md', href: 'https://github.com/hook0/hook0/blob/main/ANALYTICS.md' }
+        ]
+      },
+      {
         name: 'TECH.md',
         path: 'TECH.md',
         summary: 'The technical source of truth for stack, commands, and implementation constraints.',

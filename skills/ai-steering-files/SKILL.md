@@ -1,6 +1,6 @@
 ---
 name: ai-steering-files
-description: Use when creating, auditing, or updating AI steering files such as AGENTS.md, CLAUDE.md, GEMINI.md, .github/copilot-instructions.md, .cursor/rules/*.mdc, PRODUCT.md, TECH.md, STRUCTURE.md, VISION.md, or DESIGN.md in a software repository.
+description: Use when creating, auditing, or updating AI steering files such as AGENTS.md, CLAUDE.md, GEMINI.md, .github/copilot-instructions.md, .cursor/rules/*.mdc, PRODUCT.md, ANALYTICS.md, TECH.md, STRUCTURE.md, VISION.md, or DESIGN.md in a software repository.
 ---
 
 # AI Steering Files
@@ -22,7 +22,7 @@ Do not use it for one-off chat instructions, temporary implementation notes, or 
 
 ## Workflow
 
-1. Inventory existing steering files before creating a new one. Read any `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`, `.cursor/rules/*.mdc`, `PRODUCT.md`, `TECH.md`, `STRUCTURE.md`, `VISION.md`, and `DESIGN.md` already present.
+1. Inventory existing steering files before creating a new one. Read any `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`, `.cursor/rules/*.mdc`, `PRODUCT.md`, `ANALYTICS.md`, `TECH.md`, `STRUCTURE.md`, `VISION.md`, and `DESIGN.md` already present.
 2. Pick the narrowest durable home for the instruction. Repo-wide, vendor-neutral rules belong in `AGENTS.md`; tool-specific rules belong in that tool's file; path-scoped rules belong in a path-scoped rule file.
 3. Write concrete repo facts: exact commands, exact paths, reliable examples, known constraints, and review expectations.
 4. Prefer links and short summaries over duplicating long third-party documentation.
@@ -35,6 +35,7 @@ Do not use it for one-off chat instructions, temporary implementation notes, or 
 | --- | --- | --- |
 | `AGENTS.md` | Rules should apply to any coding agent in the repo. | Project summary, workflow, exact install/test/build commands, branch policy, review expectations, risky actions requiring approval. |
 | `PRODUCT.md` | Implementation choices need product context. | Users, problem, core workflows, business goals, success criteria, in-scope and out-of-scope boundaries. |
+| `ANALYTICS.md` | Agents need a durable contract for how product behavior is measured. | Canonical metrics and funnels, event and property schemas, identity and attribution rules, privacy boundaries, validation, and schema evolution. |
 | `TECH.md` | Agents need stack and integration constraints. | Frameworks, runtimes, preferred libraries, external services, deployment targets, supported commands. |
 | `STRUCTURE.md` | Agents keep putting files in the wrong place. | Directory map, ownership boundaries, import rules, naming conventions, placement rules. |
 | `VISION.md` | Long-term direction should outlive individual specs. | Durable product vision, non-goals, taste direction, what should not drift, outcome-level success criteria. |
