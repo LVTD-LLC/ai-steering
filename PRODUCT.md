@@ -30,7 +30,7 @@ The product should help people and agents know which steering files to use, what
 
 ## In Scope
 
-- Agent-agnostic steering files such as `AGENTS.md`, `PRODUCT.md`, `TECH.md`, `STRUCTURE.md`, `VISION.md`, and `DESIGN.md`.
+- Agent-agnostic steering files such as `AGENTS.md`, `PRODUCT.md`, `ANALYTICS.md`, `TECH.md`, `STRUCTURE.md`, `VISION.md`, and `DESIGN.md`.
 - Agent-specific files such as `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`, and `.cursor/rules/*.mdc`.
 - Primary documentation links, high-quality examples, and concise guidance.
 - Static site presentation and README generation.

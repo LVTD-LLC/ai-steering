@@ -106,6 +106,40 @@ Great examples:
 - [AI-Shipping-Labs website](https://github.com/AI-Shipping-Labs/website/blob/main/_docs/product.md)
 - [see more](https://awesome.lvtd.dev/?has_file=PRODUCT.md)
 
+<a id="analytics-md"></a>
+### ANALYTICS.md
+
+A checked-in measurement contract for product events, metrics, attribution, and privacy boundaries.
+
+Use it for:
+
+- canonical product and marketing metrics
+- event names, properties, identity, and versioning rules
+- funnel stages, attribution, and source-of-truth decisions
+- consent, privacy, retention, and excluded data
+- analytics validation and governance
+
+What it should contain:
+
+- the outcomes and funnels the product measures
+- canonical event and property contracts
+- identity, attribution, and metric-source rules
+- data that must never be collected
+- consent and privacy requirements
+- how to validate changes and evolve the schema safely
+
+Useful resources:
+
+- [PostHog product analytics docs](https://posthog.com/docs/product-analytics)
+- [Matomo analytics measurement plan](https://matomo.org/faq/getting-started/download-the-matomo-measurement-plan/)
+- [Matomo event tracking guide](https://matomo.org/faq/reports/implement-event-tracking-with-matomo/)
+
+Great examples:
+
+- [Rowset ANALYTICS.md](https://github.com/LVTD-LLC/rowset/blob/main/ANALYTICS.md)
+- [Hook0 ANALYTICS.md](https://github.com/hook0/hook0/blob/main/ANALYTICS.md)
+- [see more](https://awesome.lvtd.dev/?has_file=ANALYTICS.md)
+
 <a id="tech-md"></a>
 ### TECH.md
 

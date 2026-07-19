@@ -67,7 +67,7 @@
 
 ## Naming Rules
 
-- Preserve exact steering file names and capitalization: `AGENTS.md`, `PRODUCT.md`, `TECH.md`, `STRUCTURE.md`, `VISION.md`, `DESIGN.md`, `CLAUDE.md`, and `GEMINI.md`.
+- Preserve exact steering file names and capitalization: `AGENTS.md`, `PRODUCT.md`, `ANALYTICS.md`, `TECH.md`, `STRUCTURE.md`, `VISION.md`, `DESIGN.md`, `CLAUDE.md`, and `GEMINI.md`.
 - Use descriptive kebab-case names for Cursor rule files, such as `catalog-data.mdc`.
 - Keep generated anchor behavior aligned with `src/lib/slugify.js`.
 
