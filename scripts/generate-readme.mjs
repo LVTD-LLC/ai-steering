@@ -75,6 +75,7 @@ lines.push(
   '## Keeping It In Sync',
   '',
   `Catalog guidance lives in [src/data/steering-data.js](${siteLinks.source}). Edit that file, run \`npm run sync:readme\`, then run \`npm run build\` before opening a PR.`,
+  'The web page is maintained in LVTD-LLC/lvtd-site. This repository has no frontend or deployment workflow. To refresh its catalog snapshot, run `npm run --silent export:catalog > ../lvtd-site/website/data/ai_steering.json` and open a matching change in lvtd-site.',
   ''
 );
 

@@ -2,7 +2,7 @@
 
 A practical catalog of repository steering files for AI coding agents. Use it to decide which context files your repo needs, what each one should contain, and which examples are worth studying.
 
-Browse the web version: [https://ai-steering.lvtd.dev](https://ai-steering.lvtd.dev).
+Browse the web version: [https://lvtd.dev/ai-steering](https://lvtd.dev/ai-steering).
 
 Use this repo when:
 
@@ -423,3 +423,4 @@ Great examples:
 ## Keeping It In Sync
 
 Catalog guidance lives in [src/data/steering-data.js](https://github.com/LVTD-LLC/ai-steering/blob/main/src/data/steering-data.js). Edit that file, run `npm run sync:readme`, then run `npm run build` before opening a PR.
+The web page is maintained in LVTD-LLC/lvtd-site. This repository has no frontend or deployment workflow. To refresh its catalog snapshot, run `npm run --silent export:catalog > ../lvtd-site/website/data/ai_steering.json` and open a matching change in lvtd-site.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-24
+
+- Moved the web catalog to https://lvtd.dev/ai-steering.
+- Removed the Astro frontend, static assets, dependencies, and CapRover deployment workflow.
+- Preserved the reusable skill and generated README; added dependency-free validation and a JSON export for lvtd-site.
+
 ## 0.1.4 - 2026-06-09
 
 - Reworked the README into agent-agnostic and agent-specific sections with clickable anchors.

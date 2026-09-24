@@ -2,7 +2,7 @@ export const siteLinks = {
   repo: 'https://github.com/LVTD-LLC/ai-steering',
   awesomeRepoSearch: 'https://awesome.lvtd.dev',
   readme: 'https://github.com/LVTD-LLC/ai-steering/blob/main/README.md',
-  site: 'https://ai-steering.lvtd.dev',
+  site: 'https://lvtd.dev/ai-steering',
   source: 'https://github.com/LVTD-LLC/ai-steering/blob/main/src/data/steering-data.js',
   skill: 'https://github.com/LVTD-LLC/ai-steering/blob/main/skills/ai-steering-files/SKILL.md',
   skillsCli: 'https://www.skills.sh/docs/cli',

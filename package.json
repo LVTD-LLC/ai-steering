@@ -4,21 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro check && node scripts/verify-og-image.mjs && astro build",
-    "preview": "astro preview",
-    "check": "astro check",
-    "sync:readme": "node scripts/generate-readme.mjs"
-  },
-  "dependencies": {
-    "astro": "^6.4.8"
-  },
-  "devDependencies": {
-    "@astrojs/check": "^0.9.9",
-    "typescript": "^6.0.3"
-  },
-  "overrides": {
-    "esbuild": "0.28.1",
-    "volar-service-yaml": "0.0.71"
+    "build": "npm run check",
+    "check": "node scripts/check-catalog.mjs",
+    "sync:readme": "node scripts/generate-readme.mjs",
+    "export:catalog": "node scripts/export-catalog.mjs"
   }
 }
