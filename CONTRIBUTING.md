@@ -21,8 +21,9 @@ Good suggestions are concrete and reachable. Avoid broken links, speculative pro
 1. Edit `src/data/steering-data.js`.
 2. Add the link to the right resource's `usefulResources` or `greatExamples` list.
 3. Run `npm run sync:readme` to regenerate `README.md`.
-4. Run `npm run build` to verify the site and docs still compile.
-5. Fix broken links, copy issues, or layout problems before opening a PR.
+4. Export the catalog with `npm run --silent export:catalog > ../lvtd-site/website/data/ai_steering.json` and submit a matching lvtd-site change.
+5. Run `npm run build` to validate the catalog, skill, README, and JSON export.
+6. Fix broken links, copy issues, or layout problems before opening a PR.
 
 ## What else to change
 
@@ -34,5 +35,5 @@ Good suggestions are concrete and reachable. Avoid broken links, speculative pro
 ## Review expectations
 
 - If a change affects behavior, add or update tests.
-- If a change affects docs only, still run the build so the site stays valid.
+- If a change affects docs only, still run the build so the catalog stays valid.
 - Keep commits focused so reviewers can see what changed quickly.

@@ -1,78 +1,11 @@
 # STRUCTURE.md
 
-## Directory Map
+- `src/data/steering-data.js`: canonical catalog and public links.
+- `src/lib/slugify.js`: stable anchors shared by README and export.
+- `skills/ai-steering-files/SKILL.md`: installable agent skill.
+- `scripts/generate-readme.mjs`: README generator.
+- `scripts/export-catalog.mjs`: JSON export for lvtd-site.
+- `scripts/check-catalog.mjs`: catalog and generated-output validation.
+- `.github/workflows/ci.yml`: validation on pull requests and main updates.
 
-```text
-.
-|-- AGENTS.md
-|-- PRODUCT.md
-|-- TECH.md
-|-- STRUCTURE.md
-|-- VISION.md
-|-- DESIGN.md
-|-- CLAUDE.md
-|-- GEMINI.md
-|-- README.md
-|-- CONTRIBUTING.md
-|-- CHANGELOG.md
-|-- package.json
-|-- Dockerfile
-|-- nginx.conf
-|-- captain-definition
-|-- scripts/
-|   `-- generate-readme.mjs
-|-- src/
-|   |-- data/
-|   |   |-- steering-data.js
-|   |   `-- resources.ts
-|   |-- layouts/
-|   |   `-- BaseLayout.astro
-|   |-- lib/
-|   |   `-- slugify.js
-|   `-- pages/
-|       |-- index.astro
-|       |-- 404.astro
-|       |-- llms.txt.ts
-|       `-- sitemap.xml.ts
-|-- public/
-|   `-- favicon.svg
-|-- .github/
-|   |-- copilot-instructions.md
-|   `-- workflows/
-|       |-- ci.yml
-|       `-- deploy.yml
-`-- .cursor/
-    `-- rules/
-```
-
-## Placement Rules
-
-- Put catalog content in `src/data/steering-data.js`.
-- Put data typing and shape validation in `src/data/resources.ts`.
-- Put reusable utilities in `src/lib/`.
-- Put page-level Astro markup in `src/pages/`.
-- Put shared layout shell and global CSS in `src/layouts/BaseLayout.astro`.
-- Put static assets in `public/`.
-- Put scripts that operate on repository files in `scripts/`.
-- Put repo-wide steering guidance at the repository root unless a tool requires another path.
-- Put Cursor rules in `.cursor/rules/` and scope them with `globs`.
-- Put GitHub-specific instructions in `.github/`.
-
-## Source Boundaries
-
-- `README.md` is generated output from `scripts/generate-readme.mjs`.
-- `dist/`, `.astro/`, and `node_modules/` are build or install artifacts and should not be committed.
-- Deployment config should stay isolated in `Dockerfile`, `nginx.conf`, `captain-definition`, `.github/workflows/ci.yml`, and `.github/workflows/deploy.yml`.
-- Do not duplicate catalog entries in multiple manually maintained files.
-
-## Naming Rules
-
-- Preserve exact steering file names and capitalization: `AGENTS.md`, `PRODUCT.md`, `ANALYTICS.md`, `TECH.md`, `STRUCTURE.md`, `VISION.md`, `DESIGN.md`, `CLAUDE.md`, and `GEMINI.md`.
-- Use descriptive kebab-case names for Cursor rule files, such as `catalog-data.mdc`.
-- Keep generated anchor behavior aligned with `src/lib/slugify.js`.
-
-## Import Rules
-
-- Import catalog resources through `src/data/resources.ts` from Astro components.
-- Keep `src/data/steering-data.js` plain enough for Node scripts to import directly.
-- Prefer relative imports inside `src/`.
+Keep catalog content structured and README generated. No page components, static assets, Docker, nginx, or CapRover configuration belong here. Website templates and styling live in LVTD-LLC/lvtd-site.
